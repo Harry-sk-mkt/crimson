@@ -1,3 +1,4 @@
-# blog/ and lead-tracker/ are separate git repositories (crimson-naver-blog, crimson-lead-tracker)
+# blog/, lead-tracker/, leaves/ are separate git repositories (crimson-naver-blog, crimson-lead-tracker, mkt-leaves)
 /blog/
 /lead-tracker/
+/leaves/

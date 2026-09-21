@@ -9,6 +9,7 @@
 | 블로그 (기획/작성/검수) | `blog/` | `blog/CLAUDE.md` |
 | 코딩 (마케팅 리드 ETL, Apps Script) | `lead-tracker/` | `lead-tracker/CLAUDE.md` |
 | 회의 기록 (Fireflies transcript 포함) | `meetings/` | `meetings/CLAUDE.md`, `meetings/_index.md` |
+| 연차/캘린더 (Apps Script) | `leaves/` | `leaves/CLAUDE.md` |
 | 이메일 | `email/` | 아직 구조 없음 |
 | 주요 결정 기록 | `decisions/` | 아직 구조 없음 |
 
@@ -18,11 +19,12 @@
 
 ## 저장소 구조
 
-- `crimson/` 루트는 git 저장소다 (remote: `github.com/Harry-sk-mkt/crimson`). `blog/`와 `lead-tracker/`는 `.gitignore`로 제외돼 있어 루트 커밋에 포함되지 않는다.
+- `crimson/` 루트는 git 저장소다 (remote: `github.com/Harry-sk-mkt/crimson`). `blog/`, `lead-tracker/`, `leaves/`는 `.gitignore`로 제외돼 있어 루트 커밋에 포함되지 않는다.
 - `blog/`: 별도 git 저장소 (`crimson-naver-blog`)
 - `lead-tracker/`: 별도 git 저장소 (`crimson-lead-tracker`). 세션 시작/종료 절차(`scripts/start-session.sh`, Changelog 기록 등)는 그 폴더의 `CLAUDE.md`를 따른다.
+- `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `meetings/`, `email/`, `decisions/`, `.gemini/`, `mcp_config.json`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
-- 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/` 변경은 잡히지 않는다.
+- 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙
 
