@@ -1,3 +1,9 @@
 # blog/ and lead-tracker/ are separate git repositories (crimson-naver-blog, crimson-lead-tracker)
 /blog/
 /lead-tracker/
+
+# analytics/: 코드와 문서만 추적. 리드 데이터(이메일 등 개인정보)와 가상환경은 제외
+/analytics/data/
+/analytics/.venv/
+/analytics/**/__pycache__/
+/analytics/**/.ipynb_checkpoints/

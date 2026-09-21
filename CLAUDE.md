@@ -8,6 +8,7 @@
 |---|---|---|
 | 블로그 (기획/작성/검수) | `blog/` | `blog/CLAUDE.md` |
 | 코딩 (마케팅 리드 ETL, Apps Script) | `lead-tracker/` | `lead-tracker/CLAUDE.md` |
+| 데이터 분석 (퍼널/코호트, 광고 성과/ROI, 어트리뷰션, MMM) | `analytics/` | `analytics/CLAUDE.md` |
 | 회의 기록 (Fireflies transcript 포함) | `meetings/` | `meetings/CLAUDE.md`, `meetings/_index.md` |
 | 이메일 | `email/` | 아직 구조 없음 |
 | 주요 결정 기록 | `decisions/` | 아직 구조 없음 |
@@ -21,6 +22,7 @@
 - `crimson/` 루트는 git 저장소다 (remote: `github.com/Harry-sk-mkt/crimson`). `blog/`와 `lead-tracker/`는 `.gitignore`로 제외돼 있어 루트 커밋에 포함되지 않는다.
 - `blog/`: 별도 git 저장소 (`crimson-naver-blog`)
 - `lead-tracker/`: 별도 git 저장소 (`crimson-lead-tracker`). 세션 시작/종료 절차(`scripts/start-session.sh`, Changelog 기록 등)는 그 폴더의 `CLAUDE.md`를 따른다.
+- `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `meetings/`, `email/`, `decisions/`, `.gemini/`, `mcp_config.json`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/` 변경은 잡히지 않는다.
 
