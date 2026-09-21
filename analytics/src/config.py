@@ -54,3 +54,11 @@ MERGED_INTO = {
 # Contact 멤버가 이 수보다 적은 이벤트는 연속성 분석에서 뺀다 (2025-08-02 이벤트는 4행뿐). 내 판단이며 사용자 확인 전.
 MIN_EVENT_MEMBERS = 10
 WEEKLY_MAX_GAP_DAYS = 7                   # 이 일수 이하로 붙어 있는 이벤트 쌍을 '주간 연속'으로 본다
+
+# ---- 학년/졸업 분석 ----
+GRADE_COLUMN = "School Year/Grade Level"
+GRADE_MIN, GRADE_MAX = 2, 13              # 이 범위의 정수 학년만 인정 (그 밖은 졸업연도 등 다른 형식이라 제외)
+# 그 사람이 이 데이터에 처음 나온 해의 학년으로 보고 해마다 +1 한 추정 학년이 이 값 이상이면,
+# 다음 여름 전에 졸업한 것으로 본다 (학년 필드가 해마다 갱신되지 않아서 필요한 가정, docs/2026-09-22-graduation-check.md)
+GRADUATION_EST_GRADE = 12
+GRADE_GROUPS = ("<=8", "9", "10-11", "12+", "missing")

@@ -29,6 +29,8 @@
 | `src/school_table.py` | 연도별 6~8월 국내 국제학교별 고유 Contact 표와 테스트 | 추적 |
 | `src/concentration_test.py` | 학교별 감소가 우연 이상으로 몰렸는지 몬테카를로 검정과 테스트 | 추적 |
 | `src/regular_retention.py` | 단골(regular) Contact 유지율, 참석자 감소의 신규/기존 분해와 테스트 | 추적 |
+| `src/webinar_volume.py` | 연도별 웨비나 수와 웨비나당 Contact 등록/참석 볼륨, 테스트 포함 | 추적 |
+| `src/graduation_check.py` | 학년 필드로 추정한 졸업 예상자 vs 재학생의 재참석률, 졸업 구성 효과, 학년별 분포와 테스트 | 추적 |
 | `src/event_continuity.py` | 이벤트 간 연속 참석(연속성) 분석. 이벤트 일정표(`data/event_attendance_last4weeks.xlsx`)와 매칭, 테스트 포함 | 추적 |
 
 ## 데이터 출처
