@@ -13,6 +13,7 @@
 |---|---|---|
 | 블로그 (기획/작성/검수) | `blog/` | `blog/CLAUDE.md` |
 | 코딩 (마케팅 리드 ETL, Apps Script) | `lead-tracker/` | `lead-tracker/CLAUDE.md` |
+| 데이터 분석 (퍼널/코호트, 광고 성과/ROI, 어트리뷰션, MMM) | `analytics/` | `analytics/CLAUDE.md` |
 | 회의 기록 (Vibe transcript 포함) | `meetings/` | `meetings/CLAUDE.md`, `meetings/_index.md` |
 | 연차/캘린더 (Apps Script) | `leaves/` | `leaves/CLAUDE.md` |
 | 온보딩 (Notion 온보딩 페이지 구축) | `onboarding/` | `onboarding/CLAUDE.md`, `onboarding/TODO.md` |
@@ -29,12 +30,14 @@
 - `blog/`: 별도 git 저장소 (`crimson-naver-blog`)
 - `lead-tracker/`: 별도 git 저장소 (`crimson-lead-tracker`). 세션 시작/종료 절차(`scripts/start-session.sh`, Changelog 기록 등)는 그 폴더의 `CLAUDE.md`를 따른다.
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
+- `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
 - `meetings/`, `email/`, `decisions/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙
 
+- **Session-End Auto Push (Pre-Authorized)**: `lead-tracker/CLAUDE.md`의 "세션 종료 시 커밋 후 `git push`까지 자동 진행" 승인을 `crimson` 루트 저장소에도 동일하게 적용한다 (2026-09-22 사용자 확정 — 세션마다 루트 push 여부를 따로 묻는 번거로움 방지). 세션 종료 시 실제 파일 변경이 있었고 이미 커밋된 상태라면, 별도 확인 없이 `git push`까지 진행한다. `blog/`, `lead-tracker/`는 각자 별도 저장소라 이 승인이 적용되지 않고, 그 저장소들의 세션 종료 절차는 각자의 `CLAUDE.md`를 따른다.
 - **No Assumptions**: 파일/시트 이름, 스키마, 기존 구조를 추측하지 않는다. 모르면 질문한다.
 - **Configuration Centralized**: 설정값은 도메인별 단일 설정 지점에만 둔다. 하드코딩 금지.
 - **TDD**: 함수를 만들거나 고칠 때 WHY 주석과 기대값 비교 테스트를 함께 작성하고, 테스트 통과 전에는 완료로 보지 않는다.

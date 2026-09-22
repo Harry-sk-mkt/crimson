@@ -17,6 +17,13 @@
 - 라우팅 신호: "리드", "Master", "Leads_OPS", "리포트(ACQ/NewP1/Target/S&M/FY REP)", "MTA", "IC Funnel", "Salesforce export" 등
 - 세부 규칙: `lead-tracker/CLAUDE.md` 및 `lead-tracker/docs/` 전체 (Staged ETL, Config 중앙화, 세션 시작/종료 절차 등 이 도메인 고유 규칙 다수 포함)
 
+## analytics/
+
+- 실체: Python 분석 도메인. `lead-tracker/`의 Master/OPS 시트를 읽기만 하고, 결과만 돌려준다 (2026-09-22 생성)
+- 성격: 마케팅 퍼널/코호트, 광고 성과/ROI, 어트리뷰션, MMM
+- 라우팅 신호: "분석", "어트리뷰션", "MMM", "기여도", "ROI 추정", "코호트 분석", "CLV" 등. 데이터 수집/Master 빌드/리포트 시트 생성은 `lead-tracker/`
+- 세부 규칙: `analytics/CLAUDE.md` 참고. 후보 레포는 `analytics/docs/candidate-repos.md`
+
 ## meetings/
 
 - 실체: TBD — 아직 콘텐츠/구조 미정
