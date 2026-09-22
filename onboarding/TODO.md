@@ -36,3 +36,10 @@ Customer, Marketing Strategy, Marketing Funnel, Data & KPI, and Team/Quality Bar
 ## Full review
 
 See conversation from 2026-09-21 for the complete category-by-category writeup (Overview & First Impressions / Critical Gaps / Actionable Recommendations) if more context is needed on any item above.
+
+## Added 2026-09-23 (from `2026-09-23-analysis.md`)
+
+- [ ] Rename or relink the "🛫 마케팅 퍼널" card — it points to role/Segment Ownership content, while the funnel stages live on Marketing Strategy.
+- [ ] Unify `db_onboarding` `Week` options (D1–D4) with the Weekly database (W1–W4) — confirm first that D meant "week".
+- [ ] Fill empty `Field` on 4 rows (Growth and Ideation, 좋은 팀원 이해, Growth Meeting, Ideation Meeting); reconsider Tech SETUP = Business; merge the overlapping Growth/Ideation rows.
+- [ ] Check the 3 API-unreadable embeds (root alias, Korea Market, School & App Timeline) in the Notion UI with new-hire permissions.
