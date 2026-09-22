@@ -15,7 +15,7 @@ Source: full review of the Notion "⛴️ Onboarding" page tree, 2026-09-21. Pag
 - [ ] **Korea Market** — currently one unrecognized embed block, no real text.
 - [ ] **Channel Playbook** — currently fully blank.
 - [ ] Every row's detail page in `db_onboarding` (17 items, all blank) — at minimum add: one-line description of the task, a link to the relevant resource page, and fill the `Person` property (schema supports it, unused so far).
-- [ ] **W2_Kick Off, W3_Own, W4_Boss it** — still literal placeholder templates (`[주제]`, `[자료 1]`, blank underscores). W1_Understand has its goal filled in but everything else in it is still placeholder too.
+- [ ] **W2_Kick Off, W3_Own, W4_Boss it** — _(2026-09-23: the program is now 2 weeks, so W3/W4 go away — see "2-week program" below)_ still literal placeholder templates (`[주제]`, `[자료 1]`, blank underscores). W1_Understand has its goal filled in but everything else in it is still placeholder too.
 - [ ] **D30 / D60 / D90 Review pages** — completely blank, not even the template applied.
 
 ## Structural gaps (not just missing content — missing sections)
@@ -40,6 +40,22 @@ See conversation from 2026-09-21 for the complete category-by-category writeup (
 ## Added 2026-09-23 (from `2026-09-23-analysis.md`)
 
 - [ ] Rename or relink the "🛫 마케팅 퍼널" card — it points to role/Segment Ownership content, while the funnel stages live on Marketing Strategy.
-- [ ] Unify `db_onboarding` `Week` options (D1–D4) with the Weekly database (W1–W4) — confirm first that D meant "week".
-- [ ] Fill empty `Field` on 4 rows (Growth and Ideation, 좋은 팀원 이해, Growth Meeting, Ideation Meeting); reconsider Tech SETUP = Business; merge the overlapping Growth/Ideation rows.
+- ~~Unify `db_onboarding` `Week` options (D1–D4) with the Weekly database (W1–W4)~~ — dropped 2026-09-23: D1–D4 really do mean day 1–4 (user confirmed).
+- [ ] Decide whether to keep the `Field` property. It's a topic tag (Business/Market/Customer/Team/Strategy/Marketing/Practice/Review), but the only board view doesn't show it, and nobody on the team knows what it's for. Delete it, or fill the 4 empty rows and show it in the view.
+- [ ] Merge the overlapping Growth/Ideation rows ("Growth and Ideation" D1 vs "Growth Meeting" D2 / "Ideation Meeting" D3).
+- [ ] Rebalance D1: 7 items on day 1 (company, market, customer, team, Tech setup, …) is too much for one day. D3 has 2 items and D4 has 1.
+
+### 2-week program (decided 2026-09-23 — Notion not changed yet)
+
+- [ ] Restructure the Weekly database from W1–W4 to W1–W2. Decide what happens to W3_Own / W4_Boss it (delete them, or fold their "own a project" goal into W2).
+- [ ] Decide how D1–D4 (the first 4 days) and the rest of the 2 weeks (days 5–10) relate. Right now the checklist only covers day 1–4 plus 30D.
+- [ ] Decide whether the D30/D60/D90 reviews stay after a 2-week program, and update the root "💫 Pit-stop" text to match.
+- [ ] Update `onboarding/CLAUDE.md` "Key Notion pages" descriptions (they still say W1–W4) after the Notion restructure.
+
+### Missing content to write (from the 9 completion goals)
+
+Goals with no supporting content yet. Company and Business, Korea Market, and Channel Playbook are already listed above.
+- [ ] **Existing-campaign analysis practice**: a real past campaign + its data + questions to answer. Supports "기존 캠페인의 성과를 분석할 수 있다". The `기존 캠페인 분석` row is blank.
+- [ ] **Mini campaign brief assignment**: template + evaluation criteria for `미니 캠페인 기획`. Could build on Customer page §07 (Customer Message practice).
+- [ ] **Independent project definition**: what "프로젝트 독립 운영" (D4) means concretely: scope, owner, what "done" looks like.
 - [ ] Check the 3 API-unreadable embeds (root alias, Korea Market, School & App Timeline) in the Notion UI with new-hire permissions.
