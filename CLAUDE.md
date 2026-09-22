@@ -2,21 +2,26 @@
 
 여러 도메인을 묶는 마더 프로젝트 루트입니다. 이 문서는 요청을 어느 도메인으로 보낼지와 공통 원칙을 정의합니다. 도메인별 세부 규칙은 각 폴더의 `CLAUDE.md`가 우선합니다.
 
+## 세션 시작
+
+- 세션 시작 시 OS(맥/윈도우)를 확인한다. 사용자가 여러 환경을 오가며 작업하므로, 환경이 바뀌었으면 경로 표기·설치된 도구·아직 못 끝낸 환경별 작업(dmg 삭제, Dock 설정 등)이 이전 환경 기준일 수 있다는 점을 감안한다.
+- 최근 `decisions/*.md`를 확인해 직전 세션에서 넘어온 미결 사항(특히 환경 전환과 관련된 것)이 있는지 살핀다.
+
 ## 도메인 라우팅
 
 | 요청 | 폴더 | 먼저 읽을 문서 |
 |---|---|---|
 | 블로그 (기획/작성/검수) | `blog/` | `blog/CLAUDE.md` |
 | 코딩 (마케팅 리드 ETL, Apps Script) | `lead-tracker/` | `lead-tracker/CLAUDE.md` |
-| 회의 기록 (Fireflies transcript 포함) | `meetings/` | `meetings/CLAUDE.md`, `meetings/_index.md` |
+| 회의 기록 (Vibe transcript 포함) | `meetings/` | `meetings/CLAUDE.md`, `meetings/_index.md` |
 | 연차/캘린더 (Apps Script) | `leaves/` | `leaves/CLAUDE.md` |
 | 온보딩 (Notion 온보딩 페이지 구축) | `onboarding/` | `onboarding/CLAUDE.md`, `onboarding/TODO.md` |
 | 이메일 | `email/` | 아직 구조 없음 |
-| 주요 결정 기록 | `decisions/` | 아직 구조 없음 |
+| 주요 결정 기록 (세션 종료 메모) | `decisions/` | `decisions/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
 - 도메인이 모호하거나 여러 도메인에 걸치면 추측하지 말고 사용자에게 확인한다.
-- `email/`, `decisions/`처럼 구조가 없는 도메인은 첫 실질 작업 시점에 구조를 먼저 확인하고 이 문서를 갱신한다.
+- `email/`처럼 구조가 없는 도메인은 첫 실질 작업 시점에 구조를 먼저 확인하고 이 문서를 갱신한다.
 
 ## 저장소 구조
 
@@ -25,7 +30,7 @@
 - `lead-tracker/`: 별도 git 저장소 (`crimson-lead-tracker`). 세션 시작/종료 절차(`scripts/start-session.sh`, Changelog 기록 등)는 그 폴더의 `CLAUDE.md`를 따른다.
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
-- `meetings/`, `email/`, `decisions/`, `onboarding/`, `.gemini/`, `mcp_config.json`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
+- `meetings/`, `email/`, `decisions/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙
@@ -39,4 +44,4 @@
 
 ## 외부 연동
 
-- `mcp_config.json`: Fireflies MCP 서버 설정. 회의 transcript pull은 `meetings/CLAUDE.md`의 매칭 규칙을 따른다.
+- 회의 녹음/전사는 로컬 앱 Vibe를 사용한다 (Fireflies 대체, 2026-09-21부터). MCP 자동 연동은 없고, 사용자가 Vibe에서 만든 transcript 파일/텍스트를 직접 전달한다. 처리 규칙은 `meetings/CLAUDE.md`를 따른다.

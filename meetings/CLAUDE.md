@@ -13,9 +13,9 @@
 - 원온원: `1on1/<이름>/YYYY-MM-DD.md`
 - 같은 날짜에 같은 폴더에서 회의가 2번 이상이면 파일명 규칙에 맞는 값이 없다. 접미사를 추측해서 붙이지 말고 사용자에게 규칙을 확인한 뒤 이 문서를 갱신한다.
 
-## Fireflies transcript 매칭 규칙
+## Vibe transcript 매칭 규칙
 
-Fireflies MCP(`crimson/mcp_config.json`의 `fireflies`)로 transcript를 pull할 때, **회의 제목**의 키워드로 저장 위치를 결정한다. 위에서부터 순서대로 검사하고 처음 맞는 규칙을 적용한다.
+회의 녹음은 로컬 앱 Vibe로 진행한다 (Fireflies 대체, 2026-09-21부터). Vibe는 로컬 앱이라 자동 pull이 안 되므로, 사용자가 Vibe에서 만든 transcript 파일/텍스트를 직접 전달하면 **회의 제목**의 키워드로 저장 위치를 결정한다. 위에서부터 순서대로 검사하고 처음 맞는 규칙을 적용한다.
 
 | 순서 | 제목 키워드 | 저장 위치 | 추가 규칙 |
 |---|---|---|---|
@@ -27,9 +27,9 @@ Fireflies MCP(`crimson/mcp_config.json`의 `fireflies`)로 transcript를 pull할
 - 파일명은 회의 날짜 기준 `YYYY-MM-DD.md`.
 - 영문 표기(`1:1`, `1on1`)는 대소문자를 구분하지 않고 매칭한다. 그 외 한국어 키워드는 부분 문자열 일치 기준이다.
 
-## Notion 페이지 생성 (Fireflies → Notion)
+## Notion 페이지 생성 (Vibe → Notion)
 
-사용자가 "정리해줘"라고 요청하면 transcript를 pull해 위 매칭 규칙으로 분류하고, **로컬 md와 Notion 페이지를 둘 다** 만든다. 자동 실행은 하지 않는다. 매칭 순서는 위 표와 같다.
+사용자가 Vibe transcript(파일/텍스트)를 전달하며 "정리해줘"라고 요청하면 위 매칭 규칙으로 분류하고, **로컬 md와 Notion 페이지를 둘 다** 만든다. 자동 실행은 하지 않는다. 매칭 순서는 위 표와 같다.
 
 | 매칭 | Notion DB (data source) | 속성 | 템플릿 |
 |---|---|---|---|
@@ -41,7 +41,7 @@ Fireflies MCP(`crimson/mcp_config.json`의 `fireflies`)로 transcript를 pull할
 
 - 본문은 해당 DB 템플릿의 구조(제목/항목)에 transcript 내용을 채워 넣는다. `create-pages`는 `template_id`와 `content`를 같이 못 쓰므로, 템플릿 페이지를 fetch해 구조를 복제한 content로 만든다. 템플릿이 없는 노트는 요약 / 주요 논의 / 결정 / 액션 아이템 구조로 쓴다.
 - `dbTodos`의 Status, Due, Priority 등 위에 적지 않은 속성은 사용자가 정하기 전까지 비워둔다.
-- 1on1 상대방 이름이 Fireflies 화자 라벨(Speaker 1/2)로만 나오면 임의로 붙이지 않고 사용자에게 확인한다. 봇 없는 데스크탑 녹음은 화자 이름이 없다.
+- Vibe는 봇 없는 로컬 녹음이라 화자 이름이 자동으로 붙지 않는다. 1on1 상대방 이름이 화자 라벨(Speaker 1/2)로만 나오면 임의로 붙이지 않고 사용자에게 확인한다.
 - Notion 페이지를 만들기 전에 같은 날짜·같은 Name의 페이지가 이미 있는지 검색하고, 있으면 새로 만들지 않고 사용자에게 확인한다.
 
 ## 미매칭 처리 (No Assumptions)

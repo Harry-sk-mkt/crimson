@@ -1,6 +1,6 @@
 # Meetings Index
 
-`crimson/meetings/`의 카테고리별 주당 빈도와 원온원 상대방 명단입니다. 파일명 규칙, Fireflies 매칭 규칙, 미매칭 처리 등 작업 지침은 같은 폴더의 `CLAUDE.md`를 참고하세요.
+`crimson/meetings/`의 카테고리별 주당 빈도와 원온원 상대방 명단입니다. 파일명 규칙, Vibe transcript 매칭 규칙, 미매칭 처리 등 작업 지침은 같은 폴더의 `CLAUDE.md`를 참고하세요.
 
 ## 카테고리별 주당 빈도
 
