@@ -4,7 +4,7 @@
 
 ## 폴더 구조
 
-- `event-review/`, `ideation/`, `growth-meeting/`: 카테고리별 회의 폴더
+- `event-review/`, `ideation/`, `growth-meeting/`, `sales-marketing/`: 카테고리별 회의 폴더
 - `1on1/<이름>/`: 원온원은 상대방별 폴더 (소문자 영문 이름, 등록된 상대방은 `_index.md` 참고)
 
 ## 파일 규칙
@@ -15,7 +15,22 @@
 
 ## Vibe transcript 매칭 규칙
 
-회의 녹음은 로컬 앱 Vibe로 진행한다 (Fireflies 대체, 2026-09-21부터). Vibe는 로컬 앱이라 자동 pull이 안 되므로, 사용자가 Vibe에서 만든 transcript 파일/텍스트를 직접 전달하면 **회의 제목**의 키워드로 저장 위치를 결정한다. 위에서부터 순서대로 검사하고 처음 맞는 규칙을 적용한다.
+회의 녹음은 로컬 앱 Vibe로 진행한다 (Fireflies 대체, 2026-09-21부터). Vibe는 로컬 앱이라 자동 pull이 안 되므로, 사용자가 "방금 녹음했어" 등으로 전사를 요청하면 사용자에게 파일을 요청하기 전에 먼저 로컬에서 직접 찾는다 (2026-09-22 확정).
+
+### 로컬 Vibe 녹음 찾는 법
+
+- 녹음은 `~/Documents/Vibe/Record-<날짜>-<시각>-.../` 폴더에 저장되고, 그 안의 `transcript.vibe.json`에 `segments` 배열로 전사 내용이 들어있다.
+- "방금" 녹음은 `createdAt`/폴더 타임스탬프가 가장 최근인 것을 고른다. 여러 개가 비슷한 시각이면 사용자에게 확인한다.
+- `segments`가 빈 배열이면 아직 전사가 실행되지 않은 것이다 (녹음 종료와 전사 실행은 별개 단계). 이 경우 사용자에게 앱에서 눌러달라고 요청하지 말고, 아래 옵션으로 `vibe-server`를 직접 돌린다 (2026-09-22 확정):
+  ```
+  /Applications/vibe.app/Contents/MacOS/vibe-server transcribe <model> <audio.wav> --language ko --beam-size 5 --best-of 5 --temperature 0.4 --threads 4
+  ```
+  `<model>`은 `transcript.vibe.json`의 `modelPath` 값을 그대로 쓴다. `beam-size`/`best-of`/`temperature`/`threads` 값은 `~/Library/Application Support/github.com.thewh1teagle.vibe/app_config.json`의 `transcription.modelOptions`를 그대로 따온 것 — Vibe 앱이 실제로 검증해서 쓰는 값이다. 녹음이 길면(수십 분 이상) 시간이 걸리므로 백그라운드로 실행하고 완료를 기다린다.
+- `--word-timestamps` 옵션은 쓰지 않는다. 단어 단위로 쪼개면서 한글 멀티바이트 문자가 깨진다 (예: "제주도" → "제주■", 2026-09-22 확인). 세그먼트 단위 타임스탬프만으로 충분하다.
+- 옵션 없이(기본값 temperature=0 그리디) 돌리면 긴 녹음(70분+)에서 같은 문구를 수백 번 반복하는 hallucination loop가 발생할 수 있다 (2026-09-22 확인, "스탠포드에 합격시킨" 반복). 위 앱 기본값 옵션을 반드시 쓴다. 그래도 반복 루프가 보이면 결과를 그대로 쓰지 말고 사용자에게 알린다.
+- 전사 결과는 문장 부호(`.`, `?`, `!`) 기준으로 한 문장씩 줄바꿈해서 저장한다 (로컬 md, Notion 둘 다). whisper 출력은 문장 사이 마침표는 있지만 줄바꿈이 없어 벽처럼 읽혀 가독성이 떨어진다 (2026-09-22 사용자 피드백). 이 포맷팅은 2026-09-22 이후 새로 만드는 회의록부터 적용 — 그 이전 파일은 소급 수정하지 않는다.
+- Vibe/whisper.cpp는 화자 분리(diarization) 기능이 없다. 봇 없는 로컬 마이크 녹음이라 "누가 말했는지"를 아예 구분하지 못하므로, 화자 라벨을 임의로 추정해 붙이지 않는다. 화자 구분이 필요하면 별도 diarization 도구(예: pyannote) 도입이 필요하다는 걸 사용자에게 알리고, 요청 없이 먼저 진행하지 않는다.
+- 회의 제목은 Vibe가 자동으로 저장하지 않는다 (폴더명은 `Record-<타임스탬프>`일 뿐). 제목은 사용자가 말해준 것을 사용하고, 그 **제목**의 키워드로 저장 위치를 결정한다. 위에서부터 순서대로 검사하고 처음 맞는 규칙을 적용한다.
 
 | 순서 | 제목 키워드 | 저장 위치 | 추가 규칙 |
 |---|---|---|---|
@@ -23,6 +38,7 @@
 | 2 | `이벤트 리뷰` 포함 | `event-review/` | - |
 | 3 | `아이디에이션` 포함 | `ideation/` | - |
 | 4 | `그로스` 포함 | `growth-meeting/` | - |
+| 5 | `세일즈` 또는 `마케팅` 포함 | `sales-marketing/` | - |
 
 - 파일명은 회의 날짜 기준 `YYYY-MM-DD.md`.
 - 영문 표기(`1:1`, `1on1`)는 대소문자를 구분하지 않고 매칭한다. 그 외 한국어 키워드는 부분 문자열 일치 기준이다.
@@ -37,6 +53,7 @@
 | 이벤트 리뷰 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 | 아이디에이션 | `dbTodos` (`collection://2907cc28-daa4-4494-9ab6-ad4a6dd0a3dd`) | Tasks(제목)=회의 제목, Type=`Ideation` | `Ideation_2.3.2` (`bc1b4f40-f720-4891-8318-1ae1ce11c254`) |
 | 그로스 | `dbGm` (`collection://9658cdef-98f7-40fb-8ee6-645e816b6176`) | Name=회의 제목, Tags=`Meeting`, Date | `GM_temp.2.0.0.` (`39564dfd-498f-80ad-a45e-fbf1dc76436e`) |
+| 세일즈/마케팅 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 | 그 외 미매칭 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 
 - 본문은 해당 DB 템플릿의 구조(제목/항목)에 transcript 내용을 채워 넣는다. `create-pages`는 `template_id`와 `content`를 같이 못 쓰므로, 템플릿 페이지를 fetch해 구조를 복제한 content로 만든다. 템플릿이 없는 노트는 요약 / 주요 논의 / 결정 / 액션 아이템 구조로 쓴다.
