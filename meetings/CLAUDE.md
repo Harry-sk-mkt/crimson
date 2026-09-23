@@ -56,7 +56,7 @@
 | 아이디에이션 | 새 페이지 만들지 않음 — 아래 "아이디에이션 원문 보강" 참고 | - | - |
 | 그로스 | `dbGm` (`collection://9658cdef-98f7-40fb-8ee6-645e816b6176`) | Name=회의 제목, Tags=`Meeting`, Date | `GM_temp.2.0.0.` (`39564dfd-498f-80ad-a45e-fbf1dc76436e`) |
 | 세일즈/마케팅 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
-| 케이스 스터디 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
+| 케이스 스터디 | `db_CaseStudies` (`collection://3e464dfd-498f-80b7-a419-000bd09f5f59`) — 새 페이지 만들지 않음. 사용자가 미팅 중 직접 쓴 메모 페이지가 이 DB에 있으므로 그 페이지를 찾아 보강한다 (2026-09-23 사용자 확정). 요약은 회의록(요약/논의/결정/액션)이 아니라 **세미나 슬라이드에 바로 쓸 수 있는 학생 케이스 정리**로 쓴다: 한 줄 요약 → 세미나 메시지 → 학업 지표 → 합류 전후 → 활동별(시작·동기→성장→임팩트→Crimson 역할) → 에세이 → 공개 시 가릴 것 → 확인 필요. 출처 태그(`[담당 선생님 이름]`, `[메모]`) 표기. 기준 예시: "Brice NYU", "Scarlette" 페이지 | Name, Tags(US 대학 multi-select, US News 2027 Top 20 + NYU 랭킹순), Date, Person | 없음 |
 | 그 외 미매칭 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 
 - 본문은 해당 DB 템플릿의 구조(제목/항목)에 transcript 내용을 채워 넣는다. `create-pages`는 `template_id`와 `content`를 같이 못 쓰므로, 템플릿 페이지를 fetch해 구조를 복제한 content로 만든다. 템플릿이 없는 노트는 요약 / 주요 논의 / 결정 / 액션 아이템 구조로 쓴다.
