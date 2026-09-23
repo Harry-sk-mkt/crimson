@@ -4,7 +4,7 @@
 
 ## 폴더 구조
 
-- `event-review/`, `ideation/`, `growth-meeting/`, `sales-marketing/`: 카테고리별 회의 폴더
+- `event-review/`, `ideation/`, `growth-meeting/`, `sales-marketing/`, `case-study/`: 카테고리별 회의 폴더
 - `1on1/<이름>/`: 원온원은 상대방별 폴더 (소문자 영문 이름, 등록된 상대방은 `_index.md` 참고)
 
 ## 파일 규칙
@@ -28,6 +28,7 @@
   `<model>`은 `transcript.vibe.json`의 `modelPath` 값을 그대로 쓴다. `beam-size`/`best-of`/`temperature`/`threads` 값은 `~/Library/Application Support/github.com.thewh1teagle.vibe/app_config.json`의 `transcription.modelOptions`를 그대로 따온 것 — Vibe 앱이 실제로 검증해서 쓰는 값이다. 녹음이 길면(수십 분 이상) 시간이 걸리므로 백그라운드로 실행하고 완료를 기다린다.
 - `--word-timestamps` 옵션은 쓰지 않는다. 단어 단위로 쪼개면서 한글 멀티바이트 문자가 깨진다 (예: "제주도" → "제주■", 2026-09-22 확인). 세그먼트 단위 타임스탬프만으로 충분하다.
 - 옵션 없이(기본값 temperature=0 그리디) 돌리면 긴 녹음(70분+)에서 같은 문구를 수백 번 반복하는 hallucination loop가 발생할 수 있다 (2026-09-22 확인, "스탠포드에 합격시킨" 반복). 위 앱 기본값 옵션을 반드시 쓴다. 그래도 반복 루프가 보이면 결과를 그대로 쓰지 말고 사용자에게 알린다.
+- **hallucination loop 발생 시 분할 재전사로 해결한다** (2026-09-22 72분 파일, 2026-09-23 15분 파일에서 두 번 확인 — 앱 권장 옵션을 써도 발생 가능): `audio.wav`를 Python `wave` 모듈로 10분 단위 청크로 나눠(이 환경엔 ffmpeg 없음) 각각 따로 전사한다. 특정 청크에서도 반복이 나오면 그 청크만 2분 단위로 더 쪼개 재시도한다. 결과를 합쳐서 문장 단위 줄바꿈으로 정리한다.
 - 전사 결과는 문장 부호(`.`, `?`, `!`) 기준으로 한 문장씩 줄바꿈해서 저장한다 (로컬 md, Notion 둘 다). whisper 출력은 문장 사이 마침표는 있지만 줄바꿈이 없어 벽처럼 읽혀 가독성이 떨어진다 (2026-09-22 사용자 피드백). 이 포맷팅은 2026-09-22 이후 새로 만드는 회의록부터 적용 — 그 이전 파일은 소급 수정하지 않는다.
 - Vibe/whisper.cpp는 화자 분리(diarization) 기능이 없다. 봇 없는 로컬 마이크 녹음이라 "누가 말했는지"를 아예 구분하지 못하므로, 화자 라벨을 임의로 추정해 붙이지 않는다. 화자 구분이 필요하면 별도 diarization 도구(예: pyannote) 도입이 필요하다는 걸 사용자에게 알리고, 요청 없이 먼저 진행하지 않는다.
 - 회의 제목은 Vibe가 자동으로 저장하지 않는다 (폴더명은 `Record-<타임스탬프>`일 뿐). 제목은 사용자가 말해준 것을 사용하고, 그 **제목**의 키워드로 저장 위치를 결정한다. 위에서부터 순서대로 검사하고 처음 맞는 규칙을 적용한다.
@@ -39,6 +40,7 @@
 | 3 | `아이디에이션` 포함 | `ideation/` | - |
 | 4 | `그로스` 포함 | `growth-meeting/` | - |
 | 5 | `세일즈` 또는 `마케팅` 포함 | `sales-marketing/` | - |
+| 6 | `케이스 스터디` 포함 | `case-study/` | 일회성/부정기 회의 — `_index.md` 빈도표에는 넣지 않는다 (2026-09-23 확정) |
 
 - 파일명은 회의 날짜 기준 `YYYY-MM-DD.md`.
 - 영문 표기(`1:1`, `1on1`)는 대소문자를 구분하지 않고 매칭한다. 그 외 한국어 키워드는 부분 문자열 일치 기준이다.
@@ -54,6 +56,7 @@
 | 아이디에이션 | 새 페이지 만들지 않음 — 아래 "아이디에이션 원문 보강" 참고 | - | - |
 | 그로스 | `dbGm` (`collection://9658cdef-98f7-40fb-8ee6-645e816b6176`) | Name=회의 제목, Tags=`Meeting`, Date | `GM_temp.2.0.0.` (`39564dfd-498f-80ad-a45e-fbf1dc76436e`) |
 | 세일즈/마케팅 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
+| 케이스 스터디 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 | 그 외 미매칭 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 
 - 본문은 해당 DB 템플릿의 구조(제목/항목)에 transcript 내용을 채워 넣는다. `create-pages`는 `template_id`와 `content`를 같이 못 쓰므로, 템플릿 페이지를 fetch해 구조를 복제한 content로 만든다. 템플릿이 없는 노트는 요약 / 주요 논의 / 결정 / 액션 아이템 구조로 쓴다.
