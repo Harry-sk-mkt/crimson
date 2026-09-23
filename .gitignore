@@ -8,3 +8,6 @@
 /analytics/.venv/
 /analytics/**/__pycache__/
 /analytics/**/.ipynb_checkpoints/
+
+# 케이스 스터디 요약 스냅샷 (학생 정보 포함, 로컬 전용)
+meetings/case-study/snapshots/
