@@ -14,4 +14,6 @@ Tracks work on the Crimson Marketing team's Notion "⛴️ Onboarding" page (`Cr
 ## How to work on this
 
 - Draft new/missing page content as markdown files in this folder first, then push into Notion via the Notion MCP tools (`notion-update-page` / `notion-create-pages`) once reviewed.
+- `db_onboarding` row pages follow one frame: `## 섹션 (약 N분)` + `- [ ]` checklist, then `---` and `# 모든 태스크 완료했다면 맨 위 Completed? 체크`. Set `순서` and `예상 시간(분)` on each row. Material is taught as a lecture by Harry Yun ("Harry Yun의 [자료] 강의 듣기"), not self-reading. D1 courses end with a 1:1 with that course's owner for feedback; D2 has no 1:1s. The user sets tight task times on purpose. (2026-09-23)
+- Copy-paste lists (Slack channels, tool names, etc.) follow root `crimson/CLAUDE.md` "Copy-Paste Lines": one value per block, nothing else on that line.
 - When a TODO item is finished in Notion, check it off in `TODO.md` and note the date — don't delete the line, so there's a record of what's been done.

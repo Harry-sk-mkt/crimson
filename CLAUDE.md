@@ -18,6 +18,7 @@
 | 연차/캘린더 (Apps Script) | `leaves/` | `leaves/CLAUDE.md` |
 | 온보딩 (Notion 온보딩 페이지 구축) | `onboarding/` | `onboarding/CLAUDE.md`, `onboarding/TODO.md` |
 | 이메일 | `email/` | 아직 구조 없음 |
+| 글 작성 (Copy/Kakao Library 소재 검수·보완, Ideation 작성) | `writing/` | `writing/CLAUDE.md` |
 | 주요 결정 기록 (세션 종료 메모) | `decisions/` | `decisions/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
@@ -32,17 +33,26 @@
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
-- `meetings/`, `email/`, `decisions/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
+- `meetings/`, `email/`, `writing/`, `decisions/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙
 
-- **Session-End Auto Push (Pre-Authorized)**: `lead-tracker/CLAUDE.md`의 "세션 종료 시 커밋 후 `git push`까지 자동 진행" 승인을 `crimson` 루트 저장소에도 동일하게 적용한다 (2026-09-22 사용자 확정 — 세션마다 루트 push 여부를 따로 묻는 번거로움 방지). 세션 종료 시 실제 파일 변경이 있었고 이미 커밋된 상태라면, 별도 확인 없이 `git push`까지 진행한다. `blog/`, `lead-tracker/`는 각자 별도 저장소라 이 승인이 적용되지 않고, 그 저장소들의 세션 종료 절차는 각자의 `CLAUDE.md`를 따른다.
+- **Session-Start Git Sync Check**: 트리거는 "세션 시작" 그 자체다 — 첫 메시지가 순수 질문이라도 첫 응답 전에, 작업할 저장소의 `git fetch` 후 divergence(ahead/behind)와 `git worktree list`를 확인한다. behind만 있고 로컬 변경이 없으면 확인 없이 `git pull`(fast-forward)까지 진행하고, uncommitted 변경이 있거나 ahead/behind가 동시에 있으면 pull하지 않고 먼저 알린다. `scripts/start-session.sh`가 있는 저장소(`lead-tracker/`, `leaves/`)는 그 스크립트로 대신한다. (lead-tracker 2026-07-24 divergence·2026-09-02 오래된 정보로 답변한 사고에서 도입, 2026-09-23 전 도메인 공통으로 승격)
+- **Session-End Log, Commit & Push (Pre-Authorized)**: 사용자가 "오늘은 여기까지" 류의 종료멘트를 하면, 실제 파일 변경이 있었을 때만 그 세션 내용을 도메인별 기록 위치에 남기고(`lead-tracker/`는 `docs/Changelog.md`, 루트 저장소는 `decisions/`) 커밋한 뒤 별도 확인 없이 `git push`까지 진행한다. 순수 Q&A 세션은 skip. 각 저장소에서 따로 커밋/push한다(`blog/`는 자체 `CLAUDE.md` 절차를 따른다). (lead-tracker 2026-07-29 push 누락으로 다른 장소에서 작업을 못 받은 사고에서 도입, 2026-09-22 루트 적용, 2026-09-23 전 도메인 공통으로 승격)
 - **Session-End Summary Format**: 세션 종료 시 채팅에 보여주는 "오늘 한 일" 요약은 모든 도메인 공통으로 **개조식**으로 쓴다 — `-` 불릿, 한 줄에 한 작업, 명사형 종결(`~완료`, `~수정`, `~삽입`, `~확인`), 서술형 문장(`~했습니다`)·부연 설명·파일 경로 나열 금지. 커밋/push/Changelog 기록 같은 절차 자체는 불릿으로 넣지 않는다. 예: `- 온보딩 Notion 페이지 보완 분석 완료`, `- 주별 캐시 단계에 구간별 시간 로그 삽입` (2026-09-23 사용자 확정)
+- **Copy-Paste Lines**: 복사해서 쓰는 값(채널명, 명령어, 경로, ID, 검색어 등)은 한 줄(Notion은 한 블록)에 값 하나만 둔다 — 한 번에 딱 그 값만 복사할 수 있어야 효율적이기 때문. 여러 값을 쉼표·공백으로 한 줄에 몰지 않는다. 이모지·라벨·설명(🔒, "(담당자)" 등)은 같은 줄에 있어도 된다. Notion·문서·채팅 모든 출력에 적용 (2026-09-23 사용자 확정).
 - **No Assumptions**: 파일/시트 이름, 스키마, 기존 구조를 추측하지 않는다. 모르면 질문한다.
 - **Configuration Centralized**: 설정값은 도메인별 단일 설정 지점에만 둔다. 하드코딩 금지.
 - **TDD**: 함수를 만들거나 고칠 때 WHY 주석과 기대값 비교 테스트를 함께 작성하고, 테스트 통과 전에는 완료로 보지 않는다.
 - **Backward Compatibility**: 파일명, 함수명, 시그니처, 기존 산출물은 승인 없이 바꾸지 않는다.
+
+### Apps Script(clasp) 도메인 공통 (`lead-tracker/`, `leaves/`)
+
+- **함수 실행 요청 시 파일명 + 함수명 명시**: `clasp run-function` 미도입이라 사용자가 편집기에서 직접 Run 한다. 예: "`MASTER_003_MTAFunnelSync.js`의 `runSyncMTAFunnelToOPS()` 실행해주세요".
+- **Test/Run 함수명은 `_`로 끝내지 않는다**: `_` 접미사 함수는 편집기 Run 드롭다운에서 숨겨진다. `testXXXX()`, `runXXXX()`를 쓸 때마다 이름 끝을 확인한다.
+- **`clasp push`는 묻지 않고 실행하되 반드시 `scripts/safe-clasp-push.sh`로**: worktree가 2개 이상이면 확인을 받는다(2026-07-29 worktree 덮어쓰기 사고). "생략해도 됨"이 아니다 — 함수 실행을 요청하기 직전에 push했는지 확인한다(2026-08-06 push 누락으로 옛 코드가 실행된 사고).
+- `clasp deploy` 등 도메인별 추가 경계는 각 폴더의 `CLAUDE.md`를 따른다.
 
 각 원칙의 상세 설명은 `.gemini/antigravity/knowledge/crimson-principles.md`, 용어는 같은 폴더의 `glossary.md`, 라우팅 배경은 `domain-routing.md`를 참고한다. 도메인 규칙이 이 원칙과 충돌하면 사용자에게 먼저 확인한다.
 

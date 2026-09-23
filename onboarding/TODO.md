@@ -59,3 +59,15 @@ Goals with no supporting content yet. Company and Business, Korea Market, and Ch
 - [ ] **Mini campaign brief assignment**: template + evaluation criteria for `미니 캠페인 기획`. Could build on Customer page §07 (Customer Message practice).
 - [ ] **Independent project definition**: what "프로젝트 독립 운영" (D4) means concretely: scope, owner, what "done" looks like.
 - [ ] Check the 3 API-unreadable embeds (root alias, Korea Market, School & App Timeline) in the Notion UI with new-hire permissions.
+
+### Quest checklist (from 2026-09-23 Socratic review)
+
+The real gap is not "every blank", it's the missing execution layer: what to do today, how long it takes, and what counts as done.
+- [x] Add `순서`, `예상 시간(분)`, `완료 기준` properties to `db_onboarding`; board view sorted by `순서` and shows `예상 시간(분)` on cards (2026-09-23)
+- [x] Fill D1's 7 rows with order, time, and a done-criteria checklist inside each page (2026-09-23; D1 total 390 min). Open: Company and Business / Korea Market source pages are still bookmark/embed only, so "자료 읽기" there depends on content that may not exist yet
+- [x] D1 switched to lecture format (Harry Yun) + per-course 1:1 feedback; 1:1s moved out of Tech SETUP (2026-09-23)
+- [x] D2 6 rows filled (lecture + practice, no 1:1 — all run by Harry) and D3 order set; `SSM meet-up` row added to D3 (2026-09-23)
+- [ ] D2 Growth Meeting `예상 시간(분)` — user will fill
+- [ ] Channel lecture material not made yet (채널별 역할 이해 marked "자료 미제작")
+- [ ] Fill D3 (미니 캠페인 기획, Ideation Meeting) and D4 pages in the same format
+- [ ] Walk through D1 (buddy or self), measure real time, adjust, then extend the same format to the full 10 days
