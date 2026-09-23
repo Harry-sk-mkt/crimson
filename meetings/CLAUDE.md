@@ -51,7 +51,7 @@
 |---|---|---|---|
 | 1on1 | `dbInCorpMeeting` (`collection://cf42335d-5a19-429b-b1b6-54baa385b667`) | Name=`<이름> 1:1`, Tags=`Inter-corp Meeting`, Date, Person=사용자 본인 | `one-on-one` (`31864dfd-498f-8045-8c31-c753b06acb20`) |
 | 이벤트 리뷰 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
-| 아이디에이션 | `dbTodos` (`collection://2907cc28-daa4-4494-9ab6-ad4a6dd0a3dd`) | Tasks(제목)=회의 제목, Type=`Ideation` | `Ideation_2.3.2` (`bc1b4f40-f720-4891-8318-1ae1ce11c254`) |
+| 아이디에이션 | 새 페이지 만들지 않음 — 아래 "아이디에이션 원문 보강" 참고 | - | - |
 | 그로스 | `dbGm` (`collection://9658cdef-98f7-40fb-8ee6-645e816b6176`) | Name=회의 제목, Tags=`Meeting`, Date | `GM_temp.2.0.0.` (`39564dfd-498f-80ad-a45e-fbf1dc76436e`) |
 | 세일즈/마케팅 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 | 그 외 미매칭 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
@@ -69,6 +69,16 @@
 - **아예 적혀있지 않은 내용**: 가장 가까운 관련 섹션 아래에 같은 `> "인용문"` 형태로 추가한다. 마땅한 섹션이 없으면 2️⃣/3️⃣ 경계(예비 결과 점검 소제목 바로 아래)처럼 일반 논의 항목이 모이는 위치에 넣는다.
 - **주의**: 기존 내용을 삭제하거나 옮기지 않는다. quote 텍스트 편집(`notion-update-page`의 `update_content`)은 노션이 저장 시 일부 오탈자를 자동으로 다듬을 수 있어, 짧은 앞/뒤 조각만으로 긴 구간을 지우려 하면 중간 원문이 파편으로 남는 사고가 날 수 있다 — 삭제/치환할 때는 항상 **전체 문구를 정확히** old_str/new_str에 넣고, 편집 직후 반드시 다시 fetch해서 결과를 확인한다.
 - **완료 처리**: 노트 작성(위 보강 포함)이 다 끝나면 해당 `dbGm` 페이지의 `Tags` 속성을 `Meeting`에서 `Archive`로 바꾼다 (2026-09-22 확정).
+
+## 아이디에이션 원문 보강 (Vibe transcript → 기존 dbTodos 페이지)
+
+아이디에이션 회의는 참석자가 각자 아이디어 1개씩 발표하고, 아이디어 페이지는 발표자가 `dbTodos`(`collection://2907cc28-daa4-4494-9ab6-ad4a6dd0a3dd`, Type=`Ideation`)에 미리 만들어 둔다. 새 페이지를 만들지 않는다 (2026-09-23 확정).
+
+- **페이지 찾기**: Type=`Ideation`이면서 Status=`Brief`인 페이지를 먼저 본다. transcript의 아이디어가 Brief에 없으면 최근 생성된 Ideation 페이지에서 찾아보고, 거기에도 없으면 사용자에게 알린다 (2026-09-23 사례: 9학년 리서치 소재 페이지가 `On-track_IDEA` 상태였음).
+- **빠진 내용 판단**: 본문뿐 아니라 인라인 DB(5W1H, Metrics, ICE System)에 이미 적힌 값도 대조한다. 이미 적힌 내용은 넣지 않는다.
+- **넣는 위치**: 1️⃣ 아이디어 배경 섹션 맨 아래(2️⃣ 콜아웃 바로 위)에 모은다.
+- **형식·주의**: 그로스미팅과 같다 — 라벨 없이 `> "인용문"` blockquote만, transcript 원문 그대로 인용한다. 편집 후 다시 fetch해서 확인한다.
+- 화자 구분이 없으므로 발언자 이름은 붙이지 않는다. 인신·건강 관련 잡담은 넣지 않는다.
 
 ## 미매칭 처리 (No Assumptions)
 
