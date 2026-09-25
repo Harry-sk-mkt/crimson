@@ -1,6 +1,6 @@
 # Crimson Principles
 
-이 문서는 `crimson` 마더 프로젝트 산하 모든 도메인(`blog/`, `lead-tracker/`, `meetings/`, `email/`, `decisions/`)에 공통 적용되는 상위 엔지니어링/작업 원칙입니다.
+이 문서는 `crimson` 마더 프로젝트 산하 모든 도메인(`blog/`, `lead-tracker/`, `meetings/`, `email/`, `context/`)에 공통 적용되는 상위 엔지니어링/작업 원칙입니다.
 
 각 도메인은 자체 `CLAUDE.md`/문서에 더 구체적인 규칙(예: `lead-tracker/CLAUDE.md`의 Staged ETL 구조)을 가질 수 있지만, 이 문서의 원칙과 충돌해서는 안 됩니다. 원칙 자체는 최초 `crimson-lead-tracker` 프로젝트에서 검증된 뒤 이 마더 프로젝트로 승격되었습니다 (승격: 2026-09-21).
 
@@ -16,7 +16,7 @@
 모든 설정값(경로, ID, 임계값, 키 등)은 도메인별로 지정된 단일 설정 지점에만 존재해야 한다. 코드/문서 여러 곳에 흩어진 하드코딩을 금지한다.
 
 - 예: `lead-tracker`는 `CORE_001_Config.js`의 `CONFIG` 객체가 유일한 설정 소스.
-- 새 도메인(`meetings/`, `email/`, `decisions/` 등)에 설정이 필요해지면, 해당 도메인 안에 동일한 원칙으로 단일 설정 지점을 먼저 정의한다.
+- 새 도메인(`meetings/`, `email/`, `context/` 등)에 설정이 필요해지면, 해당 도메인 안에 동일한 원칙으로 단일 설정 지점을 먼저 정의한다.
 
 ## TDD (Test-Driven Development)
 

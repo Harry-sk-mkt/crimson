@@ -65,4 +65,4 @@
 
 ## 근거 문서 (`analytics/docs/`)
 
-`context.md`(사용자가 알려준 정의와 정정), `2026-09-22-summer-contact-decline.md`(연도별, 학교별), `2026-09-22-refund-hypothesis-check.md`(가설 검증), `2026-09-22-webinar-attendance-check.md`(참석률), `2026-09-22-regulars-retention.md`(유지율), `2026-09-22-event-continuity.md`(연속성).
+`background.md`(사용자가 알려준 정의와 정정), `2026-09-22-summer-contact-decline.md`(연도별, 학교별), `2026-09-22-refund-hypothesis-check.md`(가설 검증), `2026-09-22-webinar-attendance-check.md`(참석률), `2026-09-22-regulars-retention.md`(유지율), `2026-09-22-event-continuity.md`(연속성).

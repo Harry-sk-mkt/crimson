@@ -1,6 +1,6 @@
 # 졸업이 감소를 설명하는가 (2026-09-22, 1차)
 
-사용자 가설: 6~8월 Contact 감소가 학교 졸업으로 더 이상 정보가 필요 없어진 사람들 때문일 수 있다 (`context.md`). 코드: `src/graduation_check.py` (테스트 포함).
+사용자 가설: 6~8월 Contact 감소가 학교 졸업으로 더 이상 정보가 필요 없어진 사람들 때문일 수 있다 (`background.md`). 코드: `src/graduation_check.py` (테스트 포함).
 
 ## 결론
 

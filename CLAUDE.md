@@ -5,7 +5,7 @@
 ## 세션 시작
 
 - 세션 시작 시 OS(맥/윈도우)를 확인한다. 사용자가 여러 환경을 오가며 작업하므로, 환경이 바뀌었으면 경로 표기·설치된 도구·아직 못 끝낸 환경별 작업(dmg 삭제, Dock 설정 등)이 이전 환경 기준일 수 있다는 점을 감안한다.
-- 최근 `decisions/*.md`를 확인해 직전 세션에서 넘어온 미결 사항(특히 환경 전환과 관련된 것)이 있는지 살핀다.
+- 최근 `context/*.md`를 확인해 직전 세션에서 넘어온 미결 사항(특히 환경 전환과 관련된 것)이 있는지 살핀다.
 
 ## 도메인 라우팅
 
@@ -19,7 +19,7 @@
 | 온보딩 (Notion 온보딩 페이지 구축) | `onboarding/` | `onboarding/CLAUDE.md`, `onboarding/TODO.md` |
 | 이메일 | `email/` | 아직 구조 없음 |
 | 글 작성 (Copy/Kakao Library 소재 검수·보완, Ideation 작성) | `writing/` | `writing/CLAUDE.md` |
-| 주요 결정 기록 (세션 종료 메모) | `decisions/` | `decisions/CLAUDE.md` |
+| 주요 결정 기록 (세션 종료 메모) | `context/` | `context/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
 - 도메인이 모호하거나 여러 도메인에 걸치면 추측하지 말고 사용자에게 확인한다.
@@ -33,13 +33,13 @@
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
-- `meetings/`, `email/`, `writing/`, `decisions/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
+- `meetings/`, `email/`, `writing/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙
 
 - **Session-Start Git Sync Check**: 트리거는 "세션 시작" 그 자체다 — 첫 메시지가 순수 질문이라도 첫 응답 전에, 작업할 저장소의 `git fetch` 후 divergence(ahead/behind)와 `git worktree list`를 확인한다. behind만 있고 로컬 변경이 없으면 확인 없이 `git pull`(fast-forward)까지 진행하고, uncommitted 변경이 있거나 ahead/behind가 동시에 있으면 pull하지 않고 먼저 알린다. `scripts/start-session.sh`가 있는 저장소(`lead-tracker/`, `leaves/`)는 그 스크립트로 대신한다. (lead-tracker 2026-07-24 divergence·2026-09-02 오래된 정보로 답변한 사고에서 도입, 2026-09-23 전 도메인 공통으로 승격)
-- **Real-Time Decision/Change Log**: 세션 종료 멘트를 기다리지 않고, 의미 있는 결정이나 코드/파일 변경이 생길 때마다 그 즉시 도메인별 기록 위치(`lead-tracker/`는 `docs/Changelog.md`, 루트 저장소는 `decisions/` — 파일/헤더 형식은 `decisions/CLAUDE.md` 참고)에 남긴다. 커밋은 로그 작성과 별도로 묶어서 진행해도 되지만, 로그 자체는 절대 세션 끝까지 미루지 않는다. (배경: 기존엔 "오늘은 여기까지" 같은 종료멘트가 유일한 트리거라 종료멘트 없이 세션이 끊기면 그 세션 내용이 통째로 안 남는 gap이 있었음 — 2026-09-24 사용자 확인 후 도입)
+- **Real-Time Decision/Change Log**: 세션 종료 멘트를 기다리지 않고, 의미 있는 결정이나 코드/파일 변경이 생길 때마다 그 즉시 도메인별 기록 위치(`lead-tracker/`는 `docs/Changelog.md`, 루트 저장소는 `context/` — 파일/헤더 형식은 `context/CLAUDE.md` 참고)에 남긴다. 커밋은 로그 작성과 별도로 묶어서 진행해도 되지만, 로그 자체는 절대 세션 끝까지 미루지 않는다. (배경: 기존엔 "오늘은 여기까지" 같은 종료멘트가 유일한 트리거라 종료멘트 없이 세션이 끊기면 그 세션 내용이 통째로 안 남는 gap이 있었음 — 2026-09-24 사용자 확인 후 도입)
 - **Session-End Commit & Push (Pre-Authorized)**: 사용자가 "오늘은 여기까지" 류의 종료멘트를 하면, 실제 파일 변경이 있었을 때만(Real-Time Decision/Change Log로 이미 기록된 내용 포함) 커밋한 뒤 별도 확인 없이 `git push`까지 진행한다. 순수 Q&A 세션은 skip. 각 저장소에서 따로 커밋/push한다(`blog/`는 자체 `CLAUDE.md` 절차를 따른다). (lead-tracker 2026-07-29 push 누락으로 다른 장소에서 작업을 못 받은 사고에서 도입, 2026-09-22 루트 적용, 2026-09-23 전 도메인 공통으로 승격)
 - **Session-End Summary Format**: 세션 종료 시 채팅에 보여주는 "오늘 한 일" 요약은 모든 도메인 공통으로 **개조식**으로 쓴다 — `-` 불릿, 한 줄에 한 작업, 명사형 종결(`~완료`, `~수정`, `~삽입`, `~확인`), 서술형 문장(`~했습니다`)·부연 설명·파일 경로 나열 금지. 커밋/push/Changelog 기록 같은 절차 자체는 불릿으로 넣지 않는다. 예: `- 온보딩 Notion 페이지 보완 분석 완료`, `- 주별 캐시 단계에 구간별 시간 로그 삽입` (2026-09-23 사용자 확정)
 - **Session-End Notion Daily Update**: 사용자가 종료멘트를 하면, 실제 파일 변경이 있었을 때만(순수 Q&A 세션은 skip — 위 커밋 규칙과 동일 조건) Notion `Crimson_marketing / Daily Summary / db_Daily`에서 **Date 속성이 오늘 날짜인 페이지**를 찾아 `🧑 Harry` 섹션의 `✅ Completed:` 불릿 목록에 그 세션의 Session-End Summary Format 불릿을 그대로 추가한다. 기존에 그날 이미 적힌 불릿은 덮어쓰지 않고 이어서 추가(append)한다 — 하루에 여러 세션이 있을 수 있음. 기존에 있던 페이지의 Jennie/Richard 섹션은 건드리지 않는다. **오늘 날짜 페이지가 아직 없으면 `db_Daily`의 기본 템플릿(Daily Summary Mkt)으로 새로 생성하고 Date 속성을 오늘로 설정한 뒤 위와 동일하게 기록한다 — 이때는 템플릿 기본값이 남아있는 Jennie/Richard 섹션 기존 내용을 지우고 각각 "Day off"로 남긴다(신규 생성 시에만 적용, 기존 페이지는 그대로 둠).** (2026-09-24 사용자 확정, Jennie/Richard "Day off" 처리는 같은 날 추가)

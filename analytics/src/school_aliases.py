@@ -5,12 +5,12 @@
 """
 
 # 워크북에서 서로 다른 행으로 나뉜 것을 하나의 학교로 합친다: {합쳐질 행 이름: 대표 행 이름}
-# 근거: 'kis'만 적혀 있으면 판교라고 사용자가 확정 (2026-09-22, docs/context.md)
+# 근거: 'kis'만 적혀 있으면 판교라고 사용자가 확정 (2026-09-22, docs/background.md)
 SCHOOL_MERGES = {
     "Korea International School": "Korea International School PANGYO",
 }
 
-# 사용자가 확정한 별칭: {정규화된 별칭: 워크북 School 이름} (2026-09-22, docs/context.md)
+# 사용자가 확정한 별칭: {정규화된 별칭: 워크북 School 이름} (2026-09-22, docs/background.md)
 USER_CONFIRMED_ALIASES = {
     # 'kis'만 적혀 있으면 판교, 제주는 kisj / kis jeju
     "kis": "Korea International School PANGYO",
@@ -21,7 +21,7 @@ USER_CONFIRMED_ALIASES = {
     "ssi": "Seoul Scholars International",
     "kkfs": "korea kent foreign school",
     "dis": "Daegu International School",
-    # 사용자가 "응"으로 승인한 기존 제안 별칭 (해석은 docs/context.md 참고)
+    # 사용자가 "응"으로 승인한 기존 제안 별칭 (해석은 docs/background.md 참고)
     "채드윅": "Chadwick International School",
     "chadwick": "Chadwick International School",
     "kis 판교": "Korea International School PANGYO",

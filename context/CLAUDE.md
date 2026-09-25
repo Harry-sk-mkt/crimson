@@ -1,10 +1,10 @@
-# decisions/
+# context/
 
 세션 종료 시점에 남기는 리서치/결정 기록입니다. 어떤 도구(Claude Code, Antigravity IDE 등)로 작업했든 도구에 상관없이 여기에 기록한다. 배경: Antigravity IDE는 세션/대화 기록이 검색 가능한 형태로 로컬에 남지 않아, 파일로 옮겨두지 않으면 다음 세션에서 추적이 불가능하다 (2026-09-22, Vibe API 리서치 유실 사례).
 
 ## 파일 규칙
 
-- 하루에 파일 하나: `decisions/YYYY-MM-DD.md`
+- 하루에 파일 하나: `context/YYYY-MM-DD.md`
 - 같은 날 기록이 여러 건이면 같은 파일에 `##` 헤더로 구분해서 이어 쓴다(새 파일 만들지 않음).
 - 헤더 형식: `## <시각 또는 세션 설명> — <도구>` (예: `## 오후 — Claude Code`, `## Antigravity 세션`)
 

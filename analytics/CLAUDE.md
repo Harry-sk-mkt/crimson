@@ -35,19 +35,19 @@
 
 ## 데이터 출처
 
-- `data/[KOR] Priority 1  Striker.xlsx`: 사용자가 내려받은 학교명 매핑 워크북. `P1 School List` 시트를 학교 목록으로 쓴다. 다른 시트에는 이메일/전화번호가 있다 (`docs/context.md`).
-- `data/Campaigns with Campaign Members-<연도>년.xlsx`: 사용자가 Salesforce에서 직접 내보낸 리포트 (2026-09-22, `lead-tracker/`에는 없는 데이터). 웨비나 캠페인 `WB-YYYY-MM-KOR-MOFU-Core*`(5~8월)의 멤버 중 Member Type = Contact. Contact는 예전에 한 번이라도 상담을 받은 적이 있는 리드다. 이번 웨비나로 전환되는 것이 아니다 (`docs/context.md` 참고).
+- `data/[KOR] Priority 1  Striker.xlsx`: 사용자가 내려받은 학교명 매핑 워크북. `P1 School List` 시트를 학교 목록으로 쓴다. 다른 시트에는 이메일/전화번호가 있다 (`docs/background.md`).
+- `data/Campaigns with Campaign Members-<연도>년.xlsx`: 사용자가 Salesforce에서 직접 내보낸 리포트 (2026-09-22, `lead-tracker/`에는 없는 데이터). 웨비나 캠페인 `WB-YYYY-MM-KOR-MOFU-Core*`(5~8월)의 멤버 중 Member Type = Contact. Contact는 예전에 한 번이라도 상담을 받은 적이 있는 리드다. 이번 웨비나로 전환되는 것이 아니다 (`docs/background.md` 참고).
 - 리포트가 Member Type/Status로 그룹지어 값이 첫 행에만 있고 Total 행이 있다. 로더가 이를 처리하고 리포트 Total과 대조한다.
 - **한계**: 리포트가 "All active campaigns"만 포함하고, 월은 캠페인명(`WB-YYYY-MM`) 기준이라 실제 웨비나 개최일과 다를 수 있다 (예: `WB-2024-08 ... (9/11)`). 2024년에만 `Invited`/`Registered` 상태가 있어 연도 간 상태 비교에 주의.
 
 ## 컨텍스트 기록 규칙
 
-사용자가 알려주는 용어 정의, 데이터의 의미, 분석 목적, 비즈니스 배경, 그리고 내 해석에 대한 정정은 **그 자리에서 `docs/context.md`에 기록한다** (2026-09-22 사용자 요청으로 도입).
+사용자가 알려주는 용어 정의, 데이터의 의미, 분석 목적, 비즈니스 배경, 그리고 내 해석에 대한 정정은 **그 자리에서 `docs/background.md`에 기록한다** (2026-09-22 사용자 요청으로 도입).
 
 - **즉시 기록**: 답변을 이어가기 전에 먼저 적는다. 세션이 끝나면 대화 내용은 사라지므로 나중에 몰아서 적지 않는다.
 - **날짜 표기**: 각 항목에 사용자가 알려준 날짜를 적는다. 사용자가 말한 것과 내가 추론한 것을 섞지 않는다. 추론은 "사용자 확인 전"으로 따로 표기한다.
 - **정정은 덮어쓰지 않는다**: 이전 해석이 틀렸다면 항목을 지우지 않고 "정정:" 줄로 남겨 무엇이 왜 바뀌었는지 보이게 한다.
-- **분석 전에 읽는다**: 이 도메인의 작업을 시작할 때 `docs/context.md`를 먼저 읽고, 그 정의를 코드 주석과 결과 설명에 반영한다.
+- **분석 전에 읽는다**: 이 도메인의 작업을 시작할 때 `docs/background.md`를 먼저 읽고, 그 정의를 코드 주석과 결과 설명에 반영한다.
 - **범위**: 개인정보(이름, 이메일 등)는 적지 않는다. 다른 도메인에도 같은 기록이 필요해지면 사용자에게 확인하고 루트 `CLAUDE.md`로 올린다.
 
 ## 원칙

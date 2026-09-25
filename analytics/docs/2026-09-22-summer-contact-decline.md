@@ -1,6 +1,6 @@
 # 6~8월 Contact 감소와 학교별 차이 (2026-09-22, 1차)
 
-정의는 `context.md` 참고. Contact = 예전에 한 번이라도 상담을 받은 적이 있는 리드(이번 웨비나로 전환되는 것이 아님). 대상은 웨비나 캠페인 `WB-YYYY-MM-KOR-MOFU-Core*`(6~8월)에 참여한 Contact 멤버, 즉 **크림슨을 이미 아는 사람들의 웨비나 참여**. 연도 안에서 같은 이메일은 1명.
+정의는 `background.md` 참고. Contact = 예전에 한 번이라도 상담을 받은 적이 있는 리드(이번 웨비나로 전환되는 것이 아님). 대상은 웨비나 캠페인 `WB-YYYY-MM-KOR-MOFU-Core*`(6~8월)에 참여한 Contact 멤버, 즉 **크림슨을 이미 아는 사람들의 웨비나 참여**. 연도 안에서 같은 이메일은 1명.
 
 ## 연도별
 
@@ -28,7 +28,7 @@
 
 ## 국내 국제학교만 (2026-09-22 재분류 2차, 사용자가 범위를 국내 국제학교로 한정, 해외 제외)
 
-기준: 사용자 제공 `P1 School List`의 `Type = 국제_국내` 학교(KIS 두 행은 판교로 합침) + 사용자가 승인해 넣은 St. Johnsbury Academy Jeju, Dwight School Seoul, KMLA = 42개. 별칭은 모두 사용자 확정분이다 (`kis`=판교, `kisj`/`kis jeju`=제주, `bha`, `ssi`, `kkfs`, `dis`=대구, `nl`=NLCS, `bis`=Busan, `민사고`=KMLA 등, `context.md`). 내가 제안만 하고 확인 못 받은 별칭은 없다.
+기준: 사용자 제공 `P1 School List`의 `Type = 국제_국내` 학교(KIS 두 행은 판교로 합침) + 사용자가 승인해 넣은 St. Johnsbury Academy Jeju, Dwight School Seoul, KMLA = 42개. 별칭은 모두 사용자 확정분이다 (`kis`=판교, `kisj`/`kis jeju`=제주, `bha`, `ssi`, `kkfs`, `dis`=대구, `nl`=NLCS, `bis`=Busan, `민사고`=KMLA 등, `background.md`). 내가 제안만 하고 확인 못 받은 별칭은 없다.
 
 | | 2024 | 2025 | 2026 |
 |---|---|---|---|

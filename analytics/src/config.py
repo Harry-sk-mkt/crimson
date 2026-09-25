@@ -35,7 +35,7 @@ DOMESTIC_INTL_TYPES = ("국제_국내",)
 KOREA_COUNTRY_LABEL = "한국"             # 나라가 한국인데 Type이 위와 다른 학교는 별도 집계
 
 # ---- 분석에서 제외하는 캠페인 (사용자 확정) ----
-# 2025-08-23 이벤트: 미국 팀과 공동 집행이라 리드 대부분이 미국 리드, 국내 해석에 유의미하지 않다 (2026-09-22, docs/context.md)
+# 2025-08-23 이벤트: 미국 팀과 공동 집행이라 리드 대부분이 미국 리드, 국내 해석에 유의미하지 않다 (2026-09-22, docs/background.md)
 EXCLUDED_CAMPAIGNS = ("WB-2025-07-KOR-MOFU-Core EC for Each Year of High School",)
 KOREA_RESIDENT_LABEL = "South Korea"     # 멤버 Country 값. 한국 거주자만 보는 민감도 분석용
 
