@@ -1,5 +1,16 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(git *)",
+      "Bash(node *)",
+      "Bash(npx clasp *)",
+      "Bash(clasp push *)",
+      "Bash(clasp status *)",
+      "Bash(bash scripts/*)",
+      "mcp__claude_ai_Notion__notion-search",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "mcp__claude_ai_Notion__notion-query-data-sources"
+    ]
   }
 }
