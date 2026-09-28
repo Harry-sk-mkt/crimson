@@ -2,11 +2,17 @@
   "permissions": {
     "defaultMode": "acceptEdits",
     "allow": [
-      "mcp__claude_ai_Notion__notion-query-data-sources",
-      "mcp__claude_ai_Notion__notion-fetch",
+      "Bash(git *)",
+      "Bash(node *)",
+      "Bash(npx clasp *)",
+      "Bash(clasp push *)",
+      "Bash(clasp status *)",
+      "Bash(bash scripts/*)",
       "Bash(/Applications/vibe.app/Contents/MacOS/vibe-server transcribe *)",
-      "Bash(git fetch *)",
-      "Bash(docker info)"
+      "Bash(docker info)",
+      "mcp__claude_ai_Notion__notion-search",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "mcp__claude_ai_Notion__notion-query-data-sources"
     ]
   }
 }
