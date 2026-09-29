@@ -61,6 +61,7 @@
 | 그 외 미매칭 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 
 - 본문은 해당 DB 템플릿의 구조(제목/항목)에 transcript 내용을 채워 넣는다. `create-pages`는 `template_id`와 `content`를 같이 못 쓰므로, 템플릿 페이지를 fetch해 구조를 복제한 content로 만든다. 템플릿이 없는 노트는 요약 / 주요 논의 / 결정 / 액션 아이템 구조로 쓴다.
+- **Tags는 절대 비워두지 않는다**: `dbInCorpMeeting`/`dbGm` 보기(view)는 Tags로 걸러져서, Tags가 비면 페이지가 있어도 목록에 안 보인다. 페이지를 만든 직후 fetch로 Tags가 위 표 값대로 들어갔는지 확인한다 (2026-09-29 세일즈마케팅 미팅 페이지가 Tags 누락으로 안 보인 사고, 사용자 확정).
 - `dbTodos`의 Status, Due, Priority 등 위에 적지 않은 속성은 사용자가 정하기 전까지 비워둔다.
 - Vibe는 봇 없는 로컬 녹음이라 화자 이름이 자동으로 붙지 않는다. 1on1 상대방 이름이 화자 라벨(Speaker 1/2)로만 나오면 임의로 붙이지 않고 사용자에게 확인한다.
 - Notion 페이지를 만들기 전에 같은 날짜·같은 Name의 페이지가 이미 있는지 검색하고, 있으면 새로 만들지 않고 사용자에게 확인한다.
