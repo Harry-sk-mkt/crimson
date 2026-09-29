@@ -48,7 +48,7 @@
     | 위치 | hostname | 브랜치 |
     |---|---|---|
     | office | `DESKTOP-BMRK5VF` (Windows) | `session/office` |
-    | mac | (미등록 — 첫 세션에서 확인 후 추가) | `session/mac` |
+    | mac | `MacBook-Air-od-Harry.local` | `session/mac` |
     | home | (미등록 — 첫 세션에서 확인 후 추가) | `session/home` |
 
   - **main 병합**: 위치 무관, 사용자가 명시적으로 요청할 때만 수행한다 — pre-authorized가 아니라 매번 확인 후 진행 (다른 위치 커밋과 충돌 가능성이 있어 병합 시점/순서는 사용자가 판단). 병합 전 다른 위치 세션이 끝났는지 확인한다. 병합 후에는 모든 세션 브랜치를 main 위치로 맞춰(fast-forward) 다음 세션을 이어간다.
