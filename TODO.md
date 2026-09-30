@@ -6,6 +6,9 @@
 - [x] 사무실 PC에서 `~/.claude/CLAUDE.md` 기존 내용 확인 — 비어있으면 `setup-claude-md.ps1` 실행, 다른 내용 있으면 crimson 포인터 한 줄만 수동 추가 (crimson)
 - [x] 운전면허 갱신 신청 (2026-09-30 완료)
 - [ ] 2026-10-31 로컬라이즈 프로젝트 FU — 학교 rigor & 학교별 합격률
+- [ ] (10-01, office PC) 아이디에이션 미팅(09-30 10:33, 18분) 처리 — 앞 ~8분 전사는 `%TEMP%\v1033_part1.txt`, 7:30 이후는 2분 조각 재전사 결과 `%TEMP%\v1033_chunks\c*.txt`(09-30 백그라운드 실행, 끝났는지 확인). 합쳐서 `meetings/ideation/2026-09-30.md` 저장 + HS & CAO·Creative Quality bar 페이지 1️⃣ 배경 아래 원문 보강 (meetings)
+- [ ] (10-01, office PC) 11:02~11:34 녹음(31분) 처리 — Vibe가 Documents로 안 옮기고 Temp에만 남겨서 `OneDrive\Documents\Vibe\Record-2026-09-30 11-02-58-recovered\audio.wav`로 복구해 둠. 무슨 미팅인지 확인 후 전사·정리 (meetings)
+- [ ] (10-01) office PC Vibe 정리 — NVIDIA GPU 미인식(Intel UHD만, 1분 전사 ≈ 80초) 드라이버 확인, 녹음이 Documents로 저장 안 된 원인, 11:00 60초 녹음 정체, 결과를 `meetings/CLAUDE.md`에 기록 (meetings)
 
 ## 도메인별 TODO
 
