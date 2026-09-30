@@ -13,3 +13,4 @@
 
 - `onboarding/TODO.md`
 - `writing/TODO.md`
+- `ideate/TODO.md`
