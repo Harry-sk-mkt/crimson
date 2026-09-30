@@ -4,9 +4,9 @@ Source: full review of the Notion "⛴️ Onboarding" page tree, 2026-09-21. Pag
 
 ## Quick fixes (links already have a destination, just not wired up)
 
-- [ ] Hyperlink the "회사/비즈니스" resource card to the existing "Company and Business" page.
-- [ ] Hyperlink the "용어집" resource card to the existing "📚 Internal Glossary 용어집" page (it has a live `db_Voca` database already).
-- [ ] Hyperlink "[온보딩 체크리스트 →]" under "나의 온보딩" to the `db_onboarding` database.
+- [x] Hyperlink the "회사/비즈니스" resource card to the existing "Company and Business" page (2026-09-30)
+- [x] Hyperlink the "용어집" resource card to the existing "📚 Internal Glossary 용어집" page (2026-09-30)
+- [x] Hyperlink "[온보딩 체크리스트 →]" under "나의 온보딩" to the `db_onboarding` database (2026-09-30)
 - [ ] Add D60 Review and D90 Review links under "💫 Pit-stop" (pages exist in the Weekly database but aren't surfaced on the root page — only D30 is linked).
 
 ## Content to write (pages currently blank or near-empty)
@@ -27,7 +27,7 @@ Source: full review of the Notion "⛴️ Onboarding" page tree, 2026-09-21. Pag
 - [ ] Defined 1:1 cadence with calendar links (manager, professional buddy, personal buddy) — currently just prose ("a time that suits you both").
 - [ ] "How to ask for help" routed by topic (Salesforce, ad platforms, Notion access) — currently only generic IT/HR email aliases.
 - [ ] FAQ section — doesn't exist anywhere in the tree.
-- [ ] Reconcile the two disconnected "Day 30" processes: the generic "Onboarding Checklist" page's day-30 panel (interview-panel questions, scorecard) vs. the blank `D30 Review` page — right now they don't reference each other.
+- [x] (2026-09-30, via Checklist rewrite) Reconcile the two disconnected "Day 30" processes: the generic "Onboarding Checklist" page's day-30 panel (interview-panel questions, scorecard) vs. the blank `D30 Review` page — right now they don't reference each other.
 
 ## Already good — don't touch without reason
 
@@ -57,7 +57,7 @@ See conversation from 2026-09-21 for the complete category-by-category writeup (
 Goals with no supporting content yet. Company and Business, Korea Market, and Channel Playbook are already listed above.
 - [ ] **Existing-campaign analysis practice**: a real past campaign + its data + questions to answer. Supports "기존 캠페인의 성과를 분석할 수 있다". The `기존 캠페인 분석` row is blank.
 - [ ] **Mini campaign brief assignment**: template + evaluation criteria for `미니 캠페인 기획`. Could build on Customer page §07 (Customer Message practice).
-- [ ] **Independent project definition**: what "프로젝트 독립 운영" (D4) means concretely: scope, owner, what "done" looks like.
+- [ ] **Independent project definition**: what "웨비나 프로젝트 독립 운영" (D6, moved from D4 on 2026-09-30; project = webinar campaign) means concretely: scope, owner, what "done" looks like.
 - [ ] Check the 3 API-unreadable embeds (root alias, Korea Market, School & App Timeline) in the Notion UI with new-hire permissions.
 
 ### Quest checklist (from 2026-09-23 Socratic review)
@@ -67,7 +67,29 @@ The real gap is not "every blank", it's the missing execution layer: what to do 
 - [x] Fill D1's 7 rows with order, time, and a done-criteria checklist inside each page (2026-09-23; D1 total 390 min). Open: Company and Business / Korea Market source pages are still bookmark/embed only, so "자료 읽기" there depends on content that may not exist yet
 - [x] D1 switched to lecture format (Harry Yun) + per-course 1:1 feedback; 1:1s moved out of Tech SETUP (2026-09-23)
 - [x] D2 6 rows filled (lecture + practice, no 1:1 — all run by Harry) and D3 order set; `SSM meet-up` row added to D3 (2026-09-23)
-- [ ] D2 Growth Meeting `예상 시간(분)` — user will fill
+- [x] D2 Growth Meeting `예상 시간(분)` — 60 (confirmed in Notion 2026-09-30)
 - [ ] Channel lecture material not made yet (채널별 역할 이해 marked "자료 미제작")
-- [ ] Fill D3 (미니 캠페인 기획, Ideation Meeting) and D4 pages in the same format
+- [x] Fill D3 (미니 캠페인 기획 100분, Ideation Meeting 40분) in the same format (2026-09-30). Mini campaign brief is written as a new dbTodos Ideation page and presented at the D3 Ideation Meeting
+- [x] Fill D4 `웨비나 프로젝트 운영 서포트` page (2026-09-30): real launching webinar campaign — lecture 20 + copy 60 + creative 60 + LP 60 + Marketo 60 = 260 min. Supporter (Harry Yun) and times are Claude defaults, user to confirm
+- [x] Add `D6` Week option and `웨비나 프로젝트 독립 운영` row (Week=D6, Field=Practice, blank) (2026-09-30)
+- [ ] Fill D6 `웨비나 프로젝트 독립 운영` page (on hold — see 2026-09-30 below)
 - [ ] Walk through D1 (buddy or self), measure real time, adjust, then extend the same format to the full 10 days
+
+### 2026-09-30
+
+- [x] `Week` option `30D` renamed to `D30` (added D30, moved the 30일차 리뷰 row, removed 30D)
+- [x] Filled `30일차 리뷰` (D30, 70 min): D4 webinar KPI table (Spend, 등록자 수, New Leads, CPL, New P1, CPNP1 — goal vs actual), self-check against the 9 completion goals, review meeting with Harry Yun → "독립 운영 가능 / 보완 필요" + one D60 KPI goal
+- [ ] Weekly database `D30 Review` page (linked from root 💫 Pit-stop) is still blank and duplicates the db_onboarding row — decide: relink Pit-stop to the row, or delete
+- [ ] D6 `웨비나 프로젝트 독립 운영` — left blank on purpose (user, 2026-09-30)
+- [x] Root "🎯 온보딩 완료 후 할 수 있어야 하는 것" goals split into D30/D60/D90 columns (user made columns, Claude assigned): D30 = 1–5 (understanding: business, market/customer, marketing→revenue, KPI, channels), D60 = 6–7 (analyze existing campaign, plan a campaign), D90 = 8–9 (run a project end to end, find problems + propose next action). D30 review self-check now lists only the D30 goals; result = "D30 목표 달성 / 보완 필요"
+- [x] Milestones redefined (user): D30 = 이해·분석·기획 (7 items), D60 = 독립 운영 (4), D90 = 임팩트 (4). All goals rewritten as concrete, number-based sentences on root; D30 review self-check synced to the 7 D30 items, D60 KPI line now "독립 운영". Supersedes the D30/D60/D90 split above.
+- [ ] D90 "New P1 ≥ 100% of target" threshold and D60 "every Ideation Meeting" frequency are Claude defaults — confirm
+- [ ] Root 💫 Pit-stop text still says every checkpoint checks "독립적으로 수행할 준비" — update to match milestones (D30 이해·분석·기획 / D60 독립 운영 / D90 임팩트)
+- [x] Weekly database merged into db_onboarding and trashed (2026-09-30, user-approved): added Week `D60`/`D90`, created `60일차 리뷰` (D6 webinar KPI table + problem/action table + 4 D60 goals, agree D90 program & targets) and `90일차 리뷰` (program KPI incl. P1 Value/Individual Contribution + improvement before/after + 4 D90 goals, review with manager). Root Pit-stop now links 30/60/90일차 리뷰 rows. D30 review self-check synced to user's refined D30 goals (IC Complete, 세그먼트, 정의 설명).
+- [x] `Onboarding Checklist` rewritten as a checkable owner checklist (manager / 직무 버디 / 적응 버디) by timing: 입사 전 → D1 → 첫 주 → D30까지 → D30 (links 30일차 리뷰, keeps the interview-panel 5 questions). This also resolves the "two disconnected Day 30 processes" item (2026-09-30)
+- [ ] Board column order D6 ↔ D30 — Notion API can't set manual group order; user to drag in UI
+- [ ] Confirm Checklist details Claude couldn't verify: Slack marketing channel names, which tool accounts beyond Salesforce/Marketo (ad platforms?), "7–10명" and "매일 60분" kept from the old English template
+- [x] "Scorecard" (from the old English template) doesn't exist in Notion — replaced with the root 🎯 D30/D60/D90 goals: added a 3-row "기대와 우려" table under 입사 전 on the Checklist (기대 / 우려 / 관련 목표 / D30 확인 결과와 근거), D30 panel Q1 → "D30 목표 7개 중 몇 개 달성", Q3 → how each 기대·우려 was confirmed (2026-09-30)
+- [x] Filled "기대와 우려" with 3 default pairs tied to milestones (D30 이해 vs KPI 용어 / D60 제작·런칭 vs Marketo / D90 개선 실행 vs 속도) — generic defaults; manager adjusts per hire (2026-09-30)
+- [x] Glossary (`db_Voca`): filled 11 terms from lead-tracker docs (New P1, SAL, IC Booked, IC Complete, Deal, Referral, NL, MTA, Attribution, UTM, MTA Created Date) and added CPL, CPNP1, ROAS, IC Request (2026-09-30)
+- [ ] Glossary terms still blank — need the user's definitions: IC (definition only), Contact, SC, Upsell, MQL, Lead, Marketing Revenue, Marketing Contribution, Core, RISE, G00, Y00, App year, Class of 0000, Roadmap, Capstone, App strategy, plus one untitled Event row. Also the page's column lists include terms that aren't rows yet (Existing Customer, EXPO, Webinar, Registration, Attendance, Concurrent, FAO, Event Collision, Cooling Period, FY, PTC, TMC, SDR, AO, Academic Advisor, Country Manager); ⑤ Internal / Process has no matching `Type` option

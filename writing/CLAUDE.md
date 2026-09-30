@@ -19,12 +19,9 @@
 
 **검수 기준**: Quality Bar(Creative & funnel)를 먼저 적용한다. 애매한 표현은 규칙으로 모두 나열하거나 예외 처리할 수 없으므로, legacy와 최종본의 차이를 학습해서 판단한다. 학습 결과는 `copy-review-patterns.md`에 쌓는다. 새로 `isReviewed`가 체크된 페이지에 legacy 토글이 있으면 비교해서 이 파일을 갱신한다.
 
-### 2. Ideation 작성
+### 2. Ideation 작성 → `ideate/`로 이동
 
-아이디에이션 문서를 작성합니다. 회의 transcript를 정리하는 일은 `meetings/`, 아이디어 문서 자체를 쓰는 일은 여기입니다.
-
-- 위치: `dbTodos` (`collection://2907cc28-daa4-4494-9ab6-ad4a6dd0a3dd`), Type=`Ideation`
-- 템플릿: `Ideation_2.3.2` (`bc1b4f40-f720-4891-8318-1ae1ce11c254`). 7단계: 1 아이디어 배경(현상 및 문제), 2 아이디어 설명(5W1H), 3 가설, 4 검증(Metrics), 5 평가(ICE System), 6 실행(Practice), 7 보고(Report)
+2026-09-30부터 아이디에이션 문서 작성은 별도 도메인 `ideate/`에서 한다. 규칙과 작성법은 `ideate/CLAUDE.md`를 따른다.
 
 ## 아직 정하지 않은 것
 
@@ -32,4 +29,3 @@
 
 - Claude가 검수할 때 제안을 어디에 남기는지 (페이지 본문 직접 수정 + legacy 토글, 코멘트, 로컬 md 초안 등)
 - legacy 토글 없이 `isReviewed`가 체크된 페이지의 의미 (수정 없이 통과인지, legacy를 지운 것인지)
-- Ideation 초안을 로컬 md로 먼저 쓸지, Notion에 바로 쓸지

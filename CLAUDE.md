@@ -18,7 +18,8 @@
 | 연차/캘린더 (Apps Script) | `leaves/` | `leaves/CLAUDE.md` |
 | 온보딩 (Notion 온보딩 페이지 구축) | `onboarding/` | `onboarding/CLAUDE.md`, `onboarding/TODO.md` |
 | 이메일 | `email/` | 아직 구조 없음 |
-| 글 작성 (Copy/Kakao Library 소재 검수·보완, Ideation 작성) | `writing/` | `writing/CLAUDE.md` |
+| 글 작성 (Copy/Kakao Library 소재 검수·보완) | `writing/` | `writing/CLAUDE.md` |
+| 아이디에이션 작성 (dbTodos Ideation 페이지 공동 작성·검토) | `ideate/` | `ideate/CLAUDE.md` |
 | 주요 결정 기록 (세션 종료 메모) | `context/` | `context/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
@@ -33,7 +34,7 @@
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
-- `meetings/`, `email/`, `writing/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
+- `meetings/`, `email/`, `writing/`, `ideate/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙

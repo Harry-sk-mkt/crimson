@@ -7,8 +7,8 @@ Tracks work on the Crimson Marketing team's Notion "⛴️ Onboarding" page (`Cr
 ## Key Notion pages
 
 - Root: [⛴️ Onboarding](https://app.notion.com/p/3d764dfd498f803fac10d4ad656c727a)
-- `db_onboarding` (D1–D4/30D checklist database): https://app.notion.com/p/3d764dfd498f80098e8fd83b439c5194
-- Weekly database (W1–W4 + D30/D60/D90 Review): https://app.notion.com/p/3d764dfd498f803c83eedd9688a221e3
+- `db_onboarding` (the single onboarding database since 2026-09-30 — day rows D1–D4/D6 plus D30/D60/D90 review rows): https://app.notion.com/p/3d764dfd498f80098e8fd83b439c5194
+- ~~Weekly database~~ — trashed 2026-09-30 (all pages were blank templates; merged into db_onboarding). Only "Onboarding Checklist" remains under the root "Onboarding database" toggle.
 - Resource hub pages (Customer, Marketing Strategy, Marketing Funnel, Data & KPI, Team Playbook) are already well-written — see `TODO.md` for which ones are not.
 
 ## How to work on this
