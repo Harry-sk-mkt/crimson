@@ -25,7 +25,7 @@
   ```
   /Applications/vibe.app/Contents/MacOS/vibe-server transcribe <model> <audio.wav> --language ko --beam-size 5 --best-of 5 --temperature 0.4 --threads 4
   ```
-  **Windows(office)**: 2026-09-30 winget(`Thewh1teagle.vibe` 3.2.2)으로 설치 — 실행 파일은 `C:\Users\Harry\AppData\Local\vibe\vibe-server.exe`, 같은 폴더에 `ffmpeg.exe`도 있다. 녹음 폴더·`app_config.json`·모델 경로는 첫 실행(모델 다운로드) 후 확인해서 여기에 적는다.
+  **Windows(office)**: 2026-09-30 winget(`Thewh1teagle.vibe` 3.2.2)으로 설치 — 실행 파일은 `C:\Users\Harry\AppData\Local\vibe\vibe-server.exe`, 같은 폴더에 `ffmpeg.exe`도 있다. 모델: `C:\Users\Harry\AppData\Local\github.com.thewh1teagle.vibe\ggml-large-v3-turbo.bin` (맥과 같은 large-v3-turbo). 설정: `C:\Users\Harry\AppData\Roaming\github.com.thewh1teagle.vibe\app_config.json` — 아직 `transcription.modelOptions`가 없으므로 CLI는 맥과 같은 옵션(`--language ko --beam-size 5 --best-of 5 --temperature 0.4 --threads 4`)을 직접 넣는다. 녹음 저장 폴더는 첫 녹음 후 확인해서 적는다 (이 PC는 Documents가 OneDrive 아래일 수 있음). 시스템 오디오(Zoom 상대방) 녹음은 Record 화면에서 스피커 옵션을 켜야 한다 — Windows 동작은 테스트 후 기록.
   `<model>`은 `transcript.vibe.json`의 `modelPath` 값을 그대로 쓴다. `beam-size`/`best-of`/`temperature`/`threads` 값은 `~/Library/Application Support/github.com.thewh1teagle.vibe/app_config.json`의 `transcription.modelOptions`를 그대로 따온 것 — Vibe 앱이 실제로 검증해서 쓰는 값이다. 녹음이 길면(수십 분 이상) 시간이 걸리므로 백그라운드로 실행하고 완료를 기다린다.
 - `--word-timestamps` 옵션은 쓰지 않는다. 단어 단위로 쪼개면서 한글 멀티바이트 문자가 깨진다 (예: "제주도" → "제주■", 2026-09-22 확인). 세그먼트 단위 타임스탬프만으로 충분하다.
 - 옵션 없이(기본값 temperature=0 그리디) 돌리면 긴 녹음(70분+)에서 같은 문구를 수백 번 반복하는 hallucination loop가 발생할 수 있다 (2026-09-22 확인, "스탠포드에 합격시킨" 반복). 위 앱 기본값 옵션을 반드시 쓴다. 그래도 반복 루프가 보이면 결과를 그대로 쓰지 말고 사용자에게 알린다.
