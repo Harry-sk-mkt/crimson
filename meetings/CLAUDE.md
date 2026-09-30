@@ -4,7 +4,7 @@
 
 ## 폴더 구조
 
-- `event-review/`, `ideation/`, `growth-meeting/`, `sales-marketing/`, `case-study/`: 카테고리별 회의 폴더
+- `event-review/`, `ideation/`, `growth-meeting/`, `sales-marketing/`, `case-study/`, `digital-weekly/`: 카테고리별 회의 폴더
 - `1on1/<이름>/`: 원온원은 상대방별 폴더 (소문자 영문 이름, 등록된 상대방은 `_index.md` 참고)
 
 ## 파일 규칙
@@ -43,6 +43,7 @@
 | 4 | `그로스` 포함 | `growth-meeting/` | - |
 | 5 | `세일즈` 또는 `마케팅` 포함 | `sales-marketing/` | - |
 | 6 | `케이스 스터디` 포함 | `case-study/` | 일회성/부정기 회의 — `_index.md` 빈도표에는 넣지 않는다 (2026-09-23 확정) |
+| 7 | `Digital Weekly` 또는 `Weekly Digital` 포함 | `digital-weekly/` | 본사 퍼포먼스팀과의 주간 회의, **영어** — 전사 시 `--language en` (2026-10-01 확정) |
 
 - 파일명은 회의 날짜 기준 `YYYY-MM-DD.md`.
 - 영문 표기(`1:1`, `1on1`)는 대소문자를 구분하지 않고 매칭한다. 그 외 한국어 키워드는 부분 문자열 일치 기준이다.
@@ -59,6 +60,7 @@
 | 그로스 | `dbGm` (`collection://9658cdef-98f7-40fb-8ee6-645e816b6176`) | Name=회의 제목, Tags=`Meeting`, Date | `GM_temp.2.0.0.` (`39564dfd-498f-80ad-a45e-fbf1dc76436e`) |
 | 세일즈/마케팅 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 | 케이스 스터디 | `db_CaseStudies` (`collection://3e464dfd-498f-80b7-a419-000bd09f5f59`) — 새 페이지 만들지 않음. 사용자가 미팅 중 직접 쓴 메모 페이지가 이 DB에 있으므로 그 페이지를 찾아 보강한다 (2026-09-23 사용자 확정). 요약은 회의록(요약/논의/결정/액션)이 아니라 **세미나 슬라이드에 바로 쓸 수 있는 학생 케이스 정리**로 쓴다: 한 줄 요약 → 세미나 메시지 → 학업 지표 → 합류 전후 → 활동별(시작·동기→성장→임팩트→Crimson 역할) → 에세이 → 공개 시 가릴 것 → 확인 필요. 출처 태그(`[담당 선생님 이름]`, `[메모]`) 표기. 기준 예시: "Brice NYU", "Scarlett Dental" 페이지. 쓰기 전에 `case-study/review-patterns.md`(사용자 교정 패턴)를 먼저 읽고, 올린 직후 `case-study/snapshots/`에 Claude 작성분 스냅샷을 남긴다 (학생 정보 포함이라 `.gitignore` 처리된 로컬 전용 폴더 — 만든 컴퓨터에서만 비교 가능, 2026-09-23 사용자 결정) | Name, Tags(US 대학 multi-select, US News 2027 Top 20 + NYU 랭킹순), Date, Person | 없음 |
+| Digital Weekly | Global meeting DB (`collection://4042786a-52c5-4bf2-88f9-e9f4cd2e966d`, 페이지 `🌎 Global meeting` 안) — 새 페이지 만들지 않음. 회의 중 사용자가 만든 `Weekly Digital Marketing Call (MM/DD)` 페이지(템플릿 "Weekly digital")를 찾아 기존 노트 아래에 추가한다. 그로스미팅식 인용 보강이 **아니라** 회의 내용 요약 + 액션 아이템으로 정리하고, **의사결정 중 Cut(중단·제외)/Add(신규·추가)된 항목은 별도 섹션으로 따로 기록**한다 (2026-10-01 사용자 확정). 기존 노트·표(Weekly Digital Tracker, PLAN)는 건드리지 않는다 | 기존 유지 | 없음 |
 | 그 외 미매칭 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 
 - 본문은 해당 DB 템플릿의 구조(제목/항목)에 transcript 내용을 채워 넣는다. `create-pages`는 `template_id`와 `content`를 같이 못 쓰므로, 템플릿 페이지를 fetch해 구조를 복제한 content로 만든다. 템플릿이 없는 노트는 요약 / 주요 논의 / 결정 / 액션 아이템 구조로 쓴다.
@@ -84,7 +86,7 @@
 
 아이디에이션 회의는 참석자가 각자 아이디어 1개씩 발표하고, 아이디어 페이지는 발표자가 `dbTodos`(`collection://2907cc28-daa4-4494-9ab6-ad4a6dd0a3dd`, Type=`Ideation`)에 미리 만들어 둔다. 새 페이지를 만들지 않는다 (2026-09-23 확정).
 
-- **페이지 찾기**: Type=`Ideation`이면서 Status=`Brief`인 페이지를 먼저 본다. transcript의 아이디어가 Brief에 없으면 최근 생성된 Ideation 페이지에서 찾아보고, 거기에도 없으면 사용자에게 알린다 (2026-09-23 사례: 9학년 리서치 소재 페이지가 `On-track_IDEA` 상태였음).
+- **페이지 찾기**: Type=`Ideation`이면서 Status=`Brief`인 페이지를 먼저 본다. **생성일로 자르지 말고 Brief 전체를 조회한다** — 발표자가 예전(한 달 전)에 만든 페이지를 재사용하는 경우가 있다 (2026-10-01: "수요일 웨비나 미참석자 → 다시 초대"가 08월 생성·Brief였는데 최근 생성순 상위만 봐서 놓침). transcript의 아이디어가 Brief에 없으면 최근 생성된 Ideation 페이지에서 찾아보고, 거기에도 없으면 사용자에게 알린다 (2026-09-23 사례: 9학년 리서치 소재 페이지가 `On-track_IDEA` 상태였음).
 - **빠진 내용 판단**: 본문뿐 아니라 인라인 DB(5W1H, Metrics, ICE System)에 이미 적힌 값도 대조한다. 이미 적힌 내용은 넣지 않는다.
 - **넣는 위치**: 1️⃣ 아이디어 배경 섹션 맨 아래(2️⃣ 콜아웃 바로 위)에 모은다.
 - **형식·주의**: 그로스미팅과 같다 — 라벨 없이 `> "인용문"` blockquote만, transcript 원문 그대로 인용한다. 편집 후 다시 fetch해서 확인한다.
