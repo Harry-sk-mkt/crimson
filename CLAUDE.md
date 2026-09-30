@@ -20,6 +20,7 @@
 | 이메일 | `email/` | 아직 구조 없음 |
 | 글 작성 (Copy/Kakao Library 소재 검수·보완) | `writing/` | `writing/CLAUDE.md` |
 | 아이디에이션 작성 (dbTodos Ideation 페이지 공동 작성·검토) | `ideate/` | `ideate/CLAUDE.md` |
+| 웨비나/세미나 요약 (Vibe transcript 포함) | `event/` | `event/CLAUDE.md` |
 | 주요 결정 기록 (세션 종료 메모) | `context/` | `context/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
@@ -34,7 +35,7 @@
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
-- `meetings/`, `email/`, `writing/`, `ideate/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
+- `meetings/`, `email/`, `writing/`, `ideate/`, `event/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙
@@ -50,7 +51,7 @@
     |---|---|---|
     | office | `DESKTOP-BMRK5VF` (Windows) | `session/office` |
     | mac | `MacBook-Air-od-Harry.local` | `session/mac` |
-    | home | (미등록 — 첫 세션에서 확인 후 추가) | `session/home` |
+    | home | `underline_desk` | `session/home` |
 
   - **main 병합**: 위치 무관, 사용자가 명시적으로 요청할 때만 수행한다 — pre-authorized가 아니라 매번 확인 후 진행 (다른 위치 커밋과 충돌 가능성이 있어 병합 시점/순서는 사용자가 판단). 병합 전 다른 위치 세션이 끝났는지 확인한다. 병합 후에는 모든 세션 브랜치를 main 위치로 맞춰(fast-forward) 다음 세션을 이어간다.
   - (2026-09-28 맥/데스크탑 동시 세션 충돌 방지 위해 도입, 같은 날 office/mac/home 3곳 + hostname 자동 판별 + 병합 위치 무관으로 확장 — 사용자 확정. 기존 `session/desktop`은 `session/office`로 이름 변경)
