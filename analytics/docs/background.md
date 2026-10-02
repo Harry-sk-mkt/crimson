@@ -82,6 +82,26 @@
 - **2026 8/5(라이브)와 8/8(레코딩)**은 같은 주제를 하나는 라이브, 하나는 레코딩으로 진행한 것이다. **이번 FY부터** 이렇게(라이브 + 레코딩) 진행하기로 했다.
   - 사용자가 이번 FY가 언제 시작하는지, 그 전 이벤트(7/11~7/29)에는 레코딩이 없었는지는 말하지 않았다. (내가 추론하지 않고 확인 대기)
 
+## 10/6 발표용 이벤트 데이터 정리 (2026-10-02 사용자 제공)
+
+- **사용자가 알려준 사실**: 10-06 발표 준비를 이벤트 데이터부터 시작한다. 시트 두 개를 같이 봐야 한다.
+  - 시트 1: `https://docs.google.com/spreadsheets/d/1uHCloUs_RuSWYm7tUc9M7GabQSm-Wh-JG7BuPlleIas` (gid=1976679282)
+  - 시트 2: `https://docs.google.com/spreadsheets/d/1sa0KBeaRbHonBBS74H7VbXCU1dptKOVjp6AmXLq382c` (gid=0)
+- **시트 2는 "트랙커 빌드 전" 데이터**다. **2026-06-24 이전 데이터는 모두 시트 2와 매칭돼야 한다**(사용자 확정, 정확한 매칭 방법/키는 아직 말하지 않음).
+
+## 10/6 발표용 fy27Q1 정리 시트 (2026-10-02 사용자 제공)
+
+- `https://docs.google.com/spreadsheets/d/122hXHU0c8V327hsU-6oCbc1ZFJbC8EfV_PEQaKWO_b0` ("fy27Q1"). 사용자가 "funnel, revenue, ic 자료정리 끝났어"라고 알려줌.
+- 탭 구성(내가 열어서 확인, 2026-10-02): `Funnel`(월별 All Leads/New Leads/All P1/New P1/SAL/IC Booked/IC Complete, 2025·2026 Aug/Sep/Oct), `Revenue`(Seminar/Webinar/BOFU/Search/Content/Upsell/Referral/Total, 월별), `ICs`(FY27 vs FY26 Aug-Sep, P1/P2/P3/uni별 SALs/IC Booked/IC Complete/Closed/Revenue + 비중), `Event`(**아직 공란** — 10/6 발표 구성 중 "Webinar Stats"에 해당할 것으로 보이는 탭, 내 추정, 확인 전).
+- 2026 Oct 컬럼은 Funnel/Revenue 둘 다 공란 — 10월이 아직 끝나지 않아서인 것으로 보임(내 추정).
+- ICs 탭에 사용자 메모 남아있음: "P3는 학교체크 해서 P1인데 P3로 카운트된게 없는지 확인 필요함", Salesforce 리포트 권한이 없어 이 시트로 대신 수치를 구했다는 메모(링크 포함).
+
+## 두 시트의 역할 구분
+
+- 시트 1(`Marketing Data Stream 2.0`)의 `Events_OPS` 탭(gid=1976679282)이 트랙커 빌드 후 데이터, 시트 2(`0. Event Data`)의 `Events` 탭(gid=0)이 트랙커 빌드 전(사전) 데이터. (2026-10-02, 두 탭이 공유된 gid와 실제 구조를 보고 내가 특정한 것 — 사용자가 탭 이름을 직접 말하지는 않음)
+- **Events_OPS는 Salesforce first-touch 기반 퍼널이다 (2026-10-02 사용자 확정).** 이 때문에 6/24 이전 이벤트에서 Events_OPS의 IC Request/IC Booked/Deals/Revenue가 사전트래커(시트2) 수치와 다르거나 0으로 보이는 것은 **정상이고 무시한다.** Reg./Success 등은 두 시트가 일치했었다(내가 확인).
+- **확인 작업 결과 (2026-10-02)**: 날짜·스피커 매칭 확인 → 캠페인명 기준 122/128 매칭, 1건(2024-06-29, Kimberly Lindsay)은 1년 가까이 틀어진 이상치 발견. 사용자 확인: 2024-06-29가 맞고, Events_OPS가 틀어진 건 "Revenue 체인이 돌면서 날아가는" 유실 현상(실제로 `lead-tracker` `docs/Changelog.md` 2026-09-17/09-29에 기록된 PIPELINE_LOCK/Event Date 유실 사고와 동일 계열) — lead-tracker 도메인으로 넘어가 (1) `EVENTS_004_Merge.js` v1.15.0에 기존 행 Event Date 자동재채움 방지 가드 추가, (2) `TEMPQA_069_EventsDateMatchPreTracker.js`로 사전시트 기준 일괄 교정(121건) 완료. 재검증 결과 132건 중 123건 날짜까지 정확히 일치(수정 전 101건). 상세는 lead-tracker `docs/Changelog.md` 2026-10-02 참고. **완료.**
+
 ## Marketo 캠페인 성과 지표 해석 (2026-09-25 사용자 확정)
 
 - **제주 오프라인 세미나(Marketo `EV-2025-08-KOR-MOFU-Core Jeju offline seminar`) 같은 캠페인 분석에서 Lead/Mkt Reg 수는 그 자체로 의미가 없다.** New P1, #P1(및 이를 기반으로 한 CPNP1 등 비용 효율 지표)만 실제 성과 지표로 본다.
