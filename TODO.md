@@ -8,9 +8,13 @@
 - [ ] 2026-10-31 로컬라이즈 프로젝트 FU — 학교 rigor & 학교별 합격률
 - [ ] Marketing 2.0 P1 타겟(3,021 역산 vs 3,200 Segment 배분) 조정 — P1 Weekly 관리 시작 후 실제 집계 P1과 설계 당시 P1(FY26 Baseline 2,272 등)을 대조해서 재산정. 지금 당장은 아님 (analytics, 2026-10-01)
 - [ ] 2026-10-06(화) 발표 준비 — 내일(2026-10-02) 오전부터 시작. 구성: Funnel / Revenue by Segment / Webinar Stats / IC 구성(P1·P2·P3 비중, Complete·Deal도 동일 비중 breakdown). 핵심 검증 포인트: Marketing 2.0 논리("New P1이 늘어야 Revenue가 는다")가 실제 데이터로 맞는지 확인. 2025·2026 8/9/10월 퍼널·이벤트 데이터 정리본 사용 (analytics, 2026-10-01)
-- [ ] (10-01, office PC) 아이디에이션 미팅(09-30 10:33, 18분) 처리 — 앞 ~8분 전사는 `%TEMP%\v1033_part1.txt`, 7:30 이후는 2분 조각 재전사 결과 `%TEMP%\v1033_chunks\c*.txt`(09-30 백그라운드 실행, 끝났는지 확인). 합쳐서 `meetings/ideation/2026-09-30.md` 저장 + HS & CAO·Creative Quality bar 페이지 1️⃣ 배경 아래 원문 보강 (meetings)
-- [ ] (10-01, office PC) 11:02~11:34 녹음(31분) 처리 — Vibe가 Documents로 안 옮기고 Temp에만 남겨서 `OneDrive\Documents\Vibe\Record-2026-09-30 11-02-58-recovered\audio.wav`로 복구해 둠. 무슨 미팅인지 확인 후 전사·정리 (meetings)
-- [ ] (10-01) office PC Vibe 정리 — NVIDIA GPU 미인식(Intel UHD만, 1분 전사 ≈ 80초) 드라이버 확인, 녹음이 Documents로 저장 안 된 원인, 11:00 60초 녹음 정체, 결과를 `meetings/CLAUDE.md`에 기록 (meetings)
+- [x] (10-01) 아이디에이션 09-30 누락 구간 ~09:30~11:30(c01 조각: %TEMP% 아래 v1033_chunks/c01_570.wav) 1분 단위 재전사 후 `meetings/ideation/2026-09-30.md` 보강 — 나머지는 10-01 완료(로컬 md, HS & CAO·Creative Quality bar·수요일 웨비나 미참석자 페이지 인용 보강) (meetings)
+- [x] (10-01 오후) 아이디에이션 "수요일 웨비나 미참석자 → 다시 초대" FU — 발표자와 가설 발송 수단 이메일→메시지 수정, 9/2·9/8·9/16 이벤트 안내 메시지 오픈율 확인 (Notion 페이지 3️⃣ 가설 아래 체크박스) https://app.notion.com/p/3b464dfd498f80d98969e2f08f1ca5b6
+- [x] (10-01 재부팅 후) Digital Weekly 09-30 화자 구분 재전사 — 10-01 완료(vibe-server HTTP API, 결과 `%TEMP%\dw0930_diar.json`). 이름 매핑은 사용자 판단으로 보류 (meetings)
+- [ ] (10-01) office PC Vibe 정리 — ✅ GPU 해결(드라이버 617.14, `--gpu-device 0 --threads 6`, 2분 42초, meetings/CLAUDE.md 기록). 남은 것: 녹음 Documents 저장 원인, 1분 튕김 원인 — 이하 원래 메모: NVIDIA GPU 미인식(Intel UHD만, 1분 전사 ≈ 80초) 드라이버 확인 — 10-01 확인: GTX 1660 Ti Max-Q, 드라이버 442.94(2020년)로 매우 구버전 → 최신 드라이버 설치(관리자 권한, 사용자) 후 `--gpu-device` 지정 테스트. CPU는 i7-10750H 6코어라 `--threads 6`으로 올릴 것, 녹음이 Documents로 저장 안 된 원인, 11:00 60초 녹음 정체(→ 10-01 사용자 확인: Digital Weekly 시작 녹음이 1분 만에 튕긴 것, 11:02:58 재시작 — 튕긴 원인은 미확인), 결과를 `meetings/CLAUDE.md`에 기록 (meetings)
+- [ ] (10-01) 스쿨 타임라인용 웨비나 캘린더 제작하기
+- [x] (10-01) Quality Bar 템플릿 7개 dbTodos 등록 (사용자 완료)
+- [x] (10-01) 수요일 웨비나 미참석자 재초대 FU (사용자 완료)
 
 ## 도메인별 TODO
 
