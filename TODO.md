@@ -7,7 +7,7 @@
 - [x] 운전면허 갱신 신청 (2026-09-30 완료)
 - [ ] 2026-10-31 로컬라이즈 프로젝트 FU — 학교 rigor & 학교별 합격률
 - [ ] Marketing 2.0 P1 타겟(3,021 역산 vs 3,200 Segment 배분) 조정 — P1 Weekly 관리 시작 후 실제 집계 P1과 설계 당시 P1(FY26 Baseline 2,272 등)을 대조해서 재산정. 지금 당장은 아님 (analytics, 2026-10-01)
-- [ ] 2026-10-06(화) 발표 준비 — 내일(2026-10-02) 오전부터 시작. 구성: Funnel / Revenue by Segment / Webinar Stats / IC 구성(P1·P2·P3 비중, Complete·Deal도 동일 비중 breakdown). 핵심 검증 포인트: Marketing 2.0 논리("New P1이 늘어야 Revenue가 는다")가 실제 데이터로 맞는지 확인. 2025·2026 8/9/10월 퍼널·이벤트 데이터 정리본 사용 (analytics, 2026-10-01)
+- [ ] 2026-10-08(목) 발표 준비 (2026-10-06 사용자 보고: 10-06(화) → 10-08(목)로 연기) — 2026-10-02 오전부터 시작. 구성: Funnel / Revenue by Segment / Webinar Stats / IC 구성(P1·P2·P3 비중, Complete·Deal도 동일 비중 breakdown). 핵심 검증 포인트: Marketing 2.0 논리("New P1이 늘어야 Revenue가 는다")가 실제 데이터로 맞는지 확인. 2025·2026 8/9/10월 퍼널·이벤트 데이터 정리본 사용 (analytics, 2026-10-01)
 - [x] (10-01) 아이디에이션 09-30 누락 구간 ~09:30~11:30(c01 조각: %TEMP% 아래 v1033_chunks/c01_570.wav) 1분 단위 재전사 후 `meetings/ideation/2026-09-30.md` 보강 — 나머지는 10-01 완료(로컬 md, HS & CAO·Creative Quality bar·수요일 웨비나 미참석자 페이지 인용 보강) (meetings)
 - [x] (10-01 오후) 아이디에이션 "수요일 웨비나 미참석자 → 다시 초대" FU — 발표자와 가설 발송 수단 이메일→메시지 수정, 9/2·9/8·9/16 이벤트 안내 메시지 오픈율 확인 (Notion 페이지 3️⃣ 가설 아래 체크박스) https://app.notion.com/p/3b464dfd498f80d98969e2f08f1ca5b6
 - [x] (10-01 재부팅 후) Digital Weekly 09-30 화자 구분 재전사 — 10-01 완료(vibe-server HTTP API, 결과 `%TEMP%\dw0930_diar.json`). 이름 매핑은 사용자 판단으로 보류 (meetings)
