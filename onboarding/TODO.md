@@ -7,16 +7,16 @@ Source: full review of the Notion "⛴️ Onboarding" page tree, 2026-09-21. Pag
 - [x] Hyperlink the "회사/비즈니스" resource card to the existing "Company and Business" page (2026-09-30)
 - [x] Hyperlink the "용어집" resource card to the existing "📚 Internal Glossary 용어집" page (2026-09-30)
 - [x] Hyperlink "[온보딩 체크리스트 →]" under "나의 온보딩" to the `db_onboarding` database (2026-09-30)
-- [ ] Add D60 Review and D90 Review links under "💫 Pit-stop" (pages exist in the Weekly database but aren't surfaced on the root page — only D30 is linked).
+- [x] Add D60 Review and D90 Review links under "💫 Pit-stop" (pages exist in the Weekly database but aren't surfaced on the root page — only D30 is linked). — (2026-10-12 확인: 이미 반영돼 있음)
 
 ## Content to write (pages currently blank or near-empty)
 
 - [ ] **Company and Business** — currently just a bare bookmark to an external presentation. Add 1–2 native paragraphs on the actual revenue model. Can lean on content already written in Marketing Strategy / Data & KPI.
 - [ ] **Korea Market** — currently one unrecognized embed block, no real text.
-- [ ] **Channel Playbook** — currently fully blank.
+- [x] **Channel Playbook** — 2026-10-12 작성 (아래 Channel lecture 항목 참고)
 - [ ] Every row's detail page in `db_onboarding` (17 items, all blank) — at minimum add: one-line description of the task, a link to the relevant resource page, and fill the `Person` property (schema supports it, unused so far).
-- [ ] **W2_Kick Off, W3_Own, W4_Boss it** — _(2026-09-23: the program is now 2 weeks, so W3/W4 go away — see "2-week program" below)_ still literal placeholder templates (`[주제]`, `[자료 1]`, blank underscores). W1_Understand has its goal filled in but everything else in it is still placeholder too.
-- [ ] **D30 / D60 / D90 Review pages** — completely blank, not even the template applied.
+- [x] **W2_Kick Off, W3_Own, W4_Boss it** — _(2026-09-23: the program is now 2 weeks, so W3/W4 go away — see "2-week program" below)_ still literal placeholder templates (`[주제]`, `[자료 1]`, blank underscores). W1_Understand has its goal filled in but everything else in it is still placeholder too. — (2026-10-12 확인: 이미 반영돼 있음)
+- [x] **D30 / D60 / D90 Review pages** — completely blank, not even the template applied. — (2026-10-12 확인: 이미 반영돼 있음)
 
 ## Structural gaps (not just missing content — missing sections)
 
@@ -47,10 +47,10 @@ See conversation from 2026-09-21 for the complete category-by-category writeup (
 
 ### 2-week program (decided 2026-09-23 — Notion not changed yet)
 
-- [ ] Restructure the Weekly database from W1–W4 to W1–W2. Decide what happens to W3_Own / W4_Boss it (delete them, or fold their "own a project" goal into W2).
+- [x] Restructure the Weekly database from W1–W4 to W1–W2. Decide what happens to W3_Own / W4_Boss it (delete them, or fold their "own a project" goal into W2). — (2026-10-12 확인: 이미 반영돼 있음)
 - [ ] Decide how D1–D4 (the first 4 days) and the rest of the 2 weeks (days 5–10) relate. Right now the checklist only covers day 1–4 plus 30D.
 - [ ] Decide whether the D30/D60/D90 reviews stay after a 2-week program, and update the root "💫 Pit-stop" text to match.
-- [ ] Update `onboarding/CLAUDE.md` "Key Notion pages" descriptions (they still say W1–W4) after the Notion restructure.
+- [x] Update `onboarding/CLAUDE.md` "Key Notion pages" descriptions (they still say W1–W4) after the Notion restructure. — (2026-10-12 확인: 이미 반영돼 있음)
 
 ### Missing content to write (from the 9 completion goals)
 
@@ -68,23 +68,26 @@ The real gap is not "every blank", it's the missing execution layer: what to do 
 - [x] D1 switched to lecture format (Harry Yun) + per-course 1:1 feedback; 1:1s moved out of Tech SETUP (2026-09-23)
 - [x] D2 6 rows filled (lecture + practice, no 1:1 — all run by Harry) and D3 order set; `SSM meet-up` row added to D3 (2026-09-23)
 - [x] D2 Growth Meeting `예상 시간(분)` — 60 (confirmed in Notion 2026-09-30)
-- [ ] Channel lecture material not made yet (채널별 역할 이해 marked "자료 미제작")
+- [x] Channel lecture material — Notion `Channel` 페이지(채널 플레이북)에 7개 채널 표·채널 vs 세그먼트·채널별 메모 작성, D2 `채널별 역할 이해` 링크 연결 (2026-10-12, 초안 `channel-playbook-draft.md`). 퍼널 기여 열과 Kakao Moments=BOFU는 Claude 추론 — 사용자가 확인 없이 업로드 지시
 - [x] Fill D3 (미니 캠페인 기획 100분, Ideation Meeting 40분) in the same format (2026-09-30). Mini campaign brief is written as a new dbTodos Ideation page and presented at the D3 Ideation Meeting
 - [x] Fill D4 `웨비나 프로젝트 운영 서포트` page (2026-09-30): real launching webinar campaign — lecture 20 + copy 60 + creative 60 + LP 60 + Marketo 60 = 260 min. Supporter (Harry Yun) and times are Claude defaults, user to confirm
 - [x] Add `D6` Week option and `웨비나 프로젝트 독립 운영` row (Week=D6, Field=Practice, blank) (2026-09-30)
 - [ ] Fill D6 `웨비나 프로젝트 독립 운영` page (on hold — see 2026-09-30 below)
 - [ ] Walk through D1 (buddy or self), measure real time, adjust, then extend the same format to the full 10 days
+  - 2026-10-12: D1 강의 진행 완료, 총 2시간 소요(사용자 보고). 설계상 D1 합계는 390분 — 2시간은 강의만, Tech SETUP 미진행(사용자). 강의 6개 각 약 20분(사용자 확인)으로 Notion 반영 — Growth/Ideation은 10+10분. 강의 외에 회사 복지·근무 제도(연차·출퇴근·복지) 강의 20분도 진행 → D1 `회사 복지·근무 제도 이해` 행 추가(순서 8, 20분). D1 합계 320분
+  - 2026-10-12: D2 강의도 20분으로 통일(사용자 지시) — FY 전략·퍼널·KPI·채널·기존 캠페인 분석 5개, Growth Meeting은 회의 참석이라 제외. D2 합계 370→300분 실습·1:1 시간은 미측정이라 그대로. D1 합계 390→300분
+- [ ] D1 실습·1:1·Tech SETUP 실제 시간 측정 후 반영 (다음 신규 입사자 때)
 
 ### 2026-09-30
 
 - [x] `Week` option `30D` renamed to `D30` (added D30, moved the 30일차 리뷰 row, removed 30D)
 - [x] Filled `30일차 리뷰` (D30, 70 min): D4 webinar KPI table (Spend, 등록자 수, New Leads, CPL, New P1, CPNP1 — goal vs actual), self-check against the 9 completion goals, review meeting with Harry Yun → "독립 운영 가능 / 보완 필요" + one D60 KPI goal
-- [ ] Weekly database `D30 Review` page (linked from root 💫 Pit-stop) is still blank and duplicates the db_onboarding row — decide: relink Pit-stop to the row, or delete
+- [x] Weekly database `D30 Review` page (linked from root 💫 Pit-stop) is still blank and duplicates the db_onboarding row — decide: relink Pit-stop to the row, or delete — (2026-10-12 확인: 이미 반영돼 있음)
 - [ ] D6 `웨비나 프로젝트 독립 운영` — left blank on purpose (user, 2026-09-30)
 - [x] Root "🎯 온보딩 완료 후 할 수 있어야 하는 것" goals split into D30/D60/D90 columns (user made columns, Claude assigned): D30 = 1–5 (understanding: business, market/customer, marketing→revenue, KPI, channels), D60 = 6–7 (analyze existing campaign, plan a campaign), D90 = 8–9 (run a project end to end, find problems + propose next action). D30 review self-check now lists only the D30 goals; result = "D30 목표 달성 / 보완 필요"
 - [x] Milestones redefined (user): D30 = 이해·분석·기획 (7 items), D60 = 독립 운영 (4), D90 = 임팩트 (4). All goals rewritten as concrete, number-based sentences on root; D30 review self-check synced to the 7 D30 items, D60 KPI line now "독립 운영". Supersedes the D30/D60/D90 split above.
 - [ ] D90 "New P1 ≥ 100% of target" threshold and D60 "every Ideation Meeting" frequency are Claude defaults — confirm
-- [ ] Root 💫 Pit-stop text still says every checkpoint checks "독립적으로 수행할 준비" — update to match milestones (D30 이해·분석·기획 / D60 독립 운영 / D90 임팩트)
+- [x] Root 💫 Pit-stop text still says every checkpoint checks "독립적으로 수행할 준비" — update to match milestones (D30 이해·분석·기획 / D60 독립 운영 / D90 임팩트) — (2026-10-12 확인: 이미 반영돼 있음)
 - [x] Weekly database merged into db_onboarding and trashed (2026-09-30, user-approved): added Week `D60`/`D90`, created `60일차 리뷰` (D6 webinar KPI table + problem/action table + 4 D60 goals, agree D90 program & targets) and `90일차 리뷰` (program KPI incl. P1 Value/Individual Contribution + improvement before/after + 4 D90 goals, review with manager). Root Pit-stop now links 30/60/90일차 리뷰 rows. D30 review self-check synced to user's refined D30 goals (IC Complete, 세그먼트, 정의 설명).
 - [x] `Onboarding Checklist` rewritten as a checkable owner checklist (manager / 직무 버디 / 적응 버디) by timing: 입사 전 → D1 → 첫 주 → D30까지 → D30 (links 30일차 리뷰, keeps the interview-panel 5 questions). This also resolves the "two disconnected Day 30 processes" item (2026-09-30)
 - [ ] Board column order D6 ↔ D30 — Notion API can't set manual group order; user to drag in UI
