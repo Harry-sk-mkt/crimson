@@ -11,3 +11,7 @@
 
 # 케이스 스터디 요약 스냅샷 (학생 정보 포함, 로컬 전용)
 meetings/case-study/snapshots/
+
+# interview/: 지원자 개인정보 포함, CLAUDE.md만 추적
+/interview/*
+!/interview/CLAUDE.md
