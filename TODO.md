@@ -20,6 +20,7 @@
 - [x] (10-13 아침) 10-07 버전 복원으로 Master에서 빠진 Leads 61행·MTA 143행+ 복구 — 실행 중인 파이프라인 없는지 확인 후 순서대로: `MASTER_004_MasterBuild.js` `rebuildLeadsMaster()` → `rebuildMTAMaster()` → `MASTER_002_PipelineAsync.js` `runLeadsPipelineTail()` → `runMTAPipelineTail()` → `TEMPQA_071_MasterRawGapAfterRestore.js` `runDiagnoseMasterRawGapAfterRestore()`로 "누락 없음" 확인 (lead-tracker) — 2026-10-13 완료(LEADS·MTA 누락 없음)
 - [ ] lead-tracker 그림자 diff 확대 원인 확인 (10-13 복구 후 Target 72건·FY_REP 677건, 실제 출력 영향 없음)
 - [ ] lead-tracker `rebuildMTAMaster()` 26분(30분 한도 근접) — 중복 삭제를 시트 행 삭제 대신 메모리 처리로 단축 검토 (코드 수정, 승인 필요)
+- [ ] (10-14) lead-tracker Target 재산출 시뮬레이션 실행 — `TEMPQA_072_TargetRecalcSimulation.js` `runSimulateTargetRecalc()` 로그 검토: [1] FY26 재계산이 현재 목표와 일치하는지 먼저 확인 → 12개월 기준 세그먼트 목표·3627 현실성·CPNP1 비교 후 Target_Engine 반영 여부 결정
 - [ ] (10-12) office PC Vibe — 다음에 앱을 열 때 모델이 정상 선택돼 있는지, 녹음·전사가 되는지 확인 (meetings)
 
 ## 도메인별 TODO
