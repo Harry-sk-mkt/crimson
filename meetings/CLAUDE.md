@@ -21,7 +21,7 @@
 
 - 녹음은 `~/Documents/Vibe/Record-<날짜>-<시각>-.../` 폴더에 저장되고, 그 안의 `transcript.vibe.json`에 `segments` 배열로 전사 내용이 들어있다.
 - "방금" 녹음은 `createdAt`/폴더 타임스탬프가 가장 최근인 것을 고른다. 여러 개가 비슷한 시각이면 사용자에게 확인한다.
-- **앱이 튕겼을 때(맥)**: `~/Documents/Vibe`에 새 폴더가 없어도 녹음은 `$TMPDIR/vibe_temp_<YYYY-MM-DD>/<YYYY-MM-DD HH-MM-SS>.wav`(16kHz mono)에 남아 있을 수 있다. 임시 폴더라 재부팅 시 지워질 수 있으므로 먼저 `~/Documents/Vibe/Record-<타임스탬프>-recovered/audio.wav`로 복사한 뒤 아래 CLI로 전사한다. 크래시 로그는 `~/Library/Logs/DiagnosticReports/vibe-*.ips` (2026-10-12 66분 녹음 후 SIGABRT 크래시에서 확인).
+- **앱이 튕겼을 때(맥)**: `~/Documents/Vibe`에 새 폴더가 없어도 녹음은 `$TMPDIR/vibe_temp_<YYYY-MM-DD>/<YYYY-MM-DD HH-MM-SS>.wav`(16kHz mono)에 남아 있을 수 있다. 임시 폴더라 재부팅 시 지워질 수 있으므로 먼저 `~/Documents/Vibe/Record-<타임스탬프>-recovered/audio.wav`로 복사한 뒤 아래 CLI로 전사한다. 크래시 로그는 `~/Library/Logs/DiagnosticReports/vibe-*.ips` (2026-10-12 66분 녹음 후 SIGABRT 크래시에서 확인). **Windows(office)도 같다**: 임시 녹음은 `%TEMP%\vibe_temp_<YYYY-MM-DD>\<YYYY-MM-DD HH-MM-SS>.wav`(16kHz 변환본), 앱 로그는 `%APPDATA%\github.com.thewh1teagle.vibe\log_<YYYY-MM-DD>.txt`(`WAV file path`, `Merging WAV files`, ffmpeg 명령이 찍힘). 2026-10-14 Digital Weekly: Zoom 종료 2초 뒤 헤드셋 스트림 오류(`StreamInvalidated`) → 녹음 정지 시 앱이 꺼졌지만 변환본은 정상이었다.
 - `segments`가 빈 배열이면 아직 전사가 실행되지 않은 것이다 (녹음 종료와 전사 실행은 별개 단계). 이 경우 사용자에게 앱에서 눌러달라고 요청하지 말고, 아래 옵션으로 `vibe-server`를 직접 돌린다 (2026-09-22 확정):
   ```
   /Applications/vibe.app/Contents/MacOS/vibe-server transcribe <model> <audio.wav> --language ko --beam-size 5 --best-of 5 --temperature 0.4 --threads 4
