@@ -22,6 +22,7 @@
 - [ ] lead-tracker `rebuildMTAMaster()` 26분(30분 한도 근접) — 중복 삭제를 시트 행 삭제 대신 메모리 처리로 단축 검토 (코드 수정, 승인 필요)
 - [ ] (10-14) lead-tracker Target 재산출 시뮬레이션 실행 — `TEMPQA_072_TargetRecalcSimulation.js` `runSimulateTargetRecalc()` 로그 검토: [1] FY26 재계산이 현재 목표와 일치하는지 먼저 확인 → 12개월 기준 세그먼트 목표·3627 현실성·CPNP1 비교 후 Target_Engine 반영 여부 결정
 - [ ] (10-12) office PC Vibe — 다음에 앱을 열 때 모델이 정상 선택돼 있는지, 녹음·전사가 되는지 확인 (meetings)
+- [ ] (10-14) Expo(1월) 디지털 예산 내부 논의 후 본사 performance팀에 공유 — **2026-10-23(금) 전까지 plan 확정**. 본사는 Meta 약 40k 가정, Naver 유료 + Meta(PMax·Demand Gen 없음), 트래픽 8주 + 리드젠 6주 제안 (Digital Weekly 10-14, `meetings/digital-weekly/2026-10-14.md`)
 
 ## 도메인별 TODO
 
