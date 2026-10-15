@@ -4,7 +4,7 @@
 
 ## 폴더 구조
 
-- `event-review/`, `ideation/`, `growth-meeting/`, `sales-marketing/`, `case-study/`, `digital-weekly/`: 카테고리별 회의 폴더
+- `event-review/`, `ideation/`, `growth-meeting/`, `sales-marketing/`, `case-study/`, `digital-weekly/`, `partnership/`: 카테고리별 회의 폴더
 - `1on1/<이름>/`: 원온원은 상대방별 폴더 (소문자 영문 이름, 등록된 상대방은 `_index.md` 참고)
 
 ## 파일 규칙
@@ -47,6 +47,7 @@
 | 5 | `세일즈` 또는 `마케팅` 포함 | `sales-marketing/` | - |
 | 6 | `케이스 스터디` 포함 | `case-study/` | 일회성/부정기 회의 — `_index.md` 빈도표에는 넣지 않는다 (2026-09-23 확정) |
 | 7 | `Digital Weekly` 또는 `Weekly Digital` 포함 | `digital-weekly/` | 본사 퍼포먼스팀과의 주간 회의, **영어** — 전사 시 `--language en` (2026-10-01 확정) |
+| 8 | `파트너십` 포함 | `partnership/` | 외부 파트너사 미팅(예: SC Bank) — 일회성/부정기, `_index.md` 빈도표에는 넣지 않는다 (2026-10-15 확정) |
 
 - 파일명은 회의 날짜 기준 `YYYY-MM-DD.md`.
 - 영문 표기(`1:1`, `1on1`)는 대소문자를 구분하지 않고 매칭한다. 그 외 한국어 키워드는 부분 문자열 일치 기준이다.
@@ -64,6 +65,7 @@
 | 세일즈/마케팅 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 | 케이스 스터디 | `db_CaseStudies` (`collection://3e464dfd-498f-80b7-a419-000bd09f5f59`) — 새 페이지 만들지 않음. 사용자가 미팅 중 직접 쓴 메모 페이지가 이 DB에 있으므로 그 페이지를 찾아 보강한다 (2026-09-23 사용자 확정). 요약은 회의록(요약/논의/결정/액션)이 아니라 **세미나 슬라이드에 바로 쓸 수 있는 학생 케이스 정리**로 쓴다: 한 줄 요약 → 세미나 메시지 → 학업 지표 → 합류 전후 → 활동별(시작·동기→성장→임팩트→Crimson 역할) → 에세이 → 공개 시 가릴 것 → 확인 필요. 출처 태그(`[담당 선생님 이름]`, `[메모]`) 표기. 기준 예시: "Brice NYU", "Scarlett Dental" 페이지. 쓰기 전에 `case-study/review-patterns.md`(사용자 교정 패턴)를 먼저 읽고, 올린 직후 `case-study/snapshots/`에 Claude 작성분 스냅샷을 남긴다 (학생 정보 포함이라 `.gitignore` 처리된 로컬 전용 폴더 — 만든 컴퓨터에서만 비교 가능, 2026-09-23 사용자 결정) | Name, Tags(US 대학 multi-select, US News 2027 Top 20 + NYU 랭킹순), Date, Person | 없음 |
 | Digital Weekly | Global meeting DB (`collection://4042786a-52c5-4bf2-88f9-e9f4cd2e966d`, 페이지 `🌎 Global meeting` 안) — 새 페이지 만들지 않음. 회의 중 사용자가 만든 `Weekly Digital Marketing Call (MM/DD)` 페이지(템플릿 "Weekly digital")를 찾아 기존 노트 아래에 추가한다. 그로스미팅식 인용 보강이 **아니라** 회의 내용 요약 + 액션 아이템으로 정리하고, **의사결정 중 Cut(중단·제외)/Add(신규·추가)된 항목은 별도 섹션으로 따로 기록**한다 (2026-10-01 사용자 확정). 기존 노트·표(Weekly Digital Tracker, PLAN)는 건드리지 않는다. 추가 섹션 제목은 `## 회의 내용` (뒤에 "(Vibe 전사 정리)" 같은 출처 표기 붙이지 않음, 2026-10-01 사용자 지시). **네이밍 규칙(자동화 기준, 2026-10-01 확인)**: 제목은 `Weekly Digital Marketing Call (MM/DD)` — 회의 날짜, 월·일 두 자리 0 채움(2025-10 이후, 예: `(09/30)`). 그 이전 페이지는 `(9/30)`, `(11/6)`처럼 0 없이 썼고, 제목에 연도가 없어 `(9/30)`(2025)와 `(09/30)`(2026)가 공존한다 → 페이지를 찾을 땐 제목만으로 고르지 말고 **`Date` 속성 = 회의 날짜**로 확정한다. 제목에 연도는 넣지 않는다 — 연도 구분은 `Date`로 충분 (2026-10-01 사용자 확정) | 기존 유지 | 없음 |
+| 파트너십 | `dbInCorpMeeting` — 사용자가 미팅 중 쓴 파트너사 이름 페이지(예: `SC Bank`, Tags=`Inter-corp Meeting`)가 같은 날짜로 있으면 새로 만들지 않고 그로스미팅과 같은 방식(라벨 없는 `> "인용문"`, 기존 내용 유지)으로 원문 보강한다. 제목에 "파트너십"이 없으므로 Date=회의 날짜로 찾는다 (2026-10-15 사용자 확정) | 기존 유지 | 없음 |
 | 그 외 미매칭 | `dbInCorpMeeting` | Name=회의 제목, Tags=`Team`, Date, Person=사용자 본인 | 없음 |
 
 - 본문은 해당 DB 템플릿의 구조(제목/항목)에 transcript 내용을 채워 넣는다. `create-pages`는 `template_id`와 `content`를 같이 못 쓰므로, 템플릿 페이지를 fetch해 구조를 복제한 content로 만든다. 템플릿이 없는 노트는 요약 / 주요 논의 / 결정 / 액션 아이템 구조로 쓴다.
