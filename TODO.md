@@ -20,13 +20,14 @@
 - [x] (10-13 아침) 10-07 버전 복원으로 Master에서 빠진 Leads 61행·MTA 143행+ 복구 — 실행 중인 파이프라인 없는지 확인 후 순서대로: `MASTER_004_MasterBuild.js` `rebuildLeadsMaster()` → `rebuildMTAMaster()` → `MASTER_002_PipelineAsync.js` `runLeadsPipelineTail()` → `runMTAPipelineTail()` → `TEMPQA_071_MasterRawGapAfterRestore.js` `runDiagnoseMasterRawGapAfterRestore()`로 "누락 없음" 확인 (lead-tracker) — 2026-10-13 완료(LEADS·MTA 누락 없음)
 - [ ] lead-tracker 그림자 diff 확대 원인 확인 (10-13 복구 후 Target 72건·FY_REP 677건, 실제 출력 영향 없음)
 - [ ] lead-tracker `rebuildMTAMaster()` 26분(30분 한도 근접) — 중복 삭제를 시트 행 삭제 대신 메모리 처리로 단축 검토 (코드 수정, 승인 필요)
-- [ ] (10-14) lead-tracker Target 재산출 시뮬레이션 실행 — `TEMPQA_072_TargetRecalcSimulation.js` `runSimulateTargetRecalc()` 로그 검토: [1] FY26 재계산이 현재 목표와 일치하는지 먼저 확인 → 12개월 기준 세그먼트 목표·3627 현실성·CPNP1 비교 후 Target_Engine 반영 여부 결정
+- [x] (10-15 종결: 현재 구조·3627 유지, 사용자 확정) (10-14) lead-tracker Target 재산출 시뮬레이션 실행 — `TEMPQA_072_TargetRecalcSimulation.js` `runSimulateTargetRecalc()` 로그 검토: [1] FY26 재계산이 현재 목표와 일치하는지 먼저 확인 → 12개월 기준 세그먼트 목표·3627 현실성·CPNP1 비교 후 Target_Engine 반영 여부 결정
 - [ ] (10-12) office PC Vibe — 다음에 앱을 열 때 모델이 정상 선택돼 있는지, 녹음·전사가 되는지 확인 (meetings)
-- [ ] (10-14) Amanda Margareth(Delta) 답장 — 1월 Expo 세부 정보 문의 + Delta 대표자 참석이 필요하면 지금부터 준비하겠다는 메시지(10-14 5:50 PM). Expo 일정·Delta 참석 필요 여부 정리해서 회신 (event)
-- [ ] (10-15) 10-14 저녁 웨비나 녹음 전사 — Vibe 녹음 폴더(`OneDrive\Documents\Vibe\`) 확인, 앱이 꺼졌으면 `%TEMP%\vibe_temp_2026-10-14\` 변환본 복구. 저장 위치·Notion 정리 방식은 사용자 확인 (event/meetings)
-- [ ] (10-14) lead-tracker Events_OPS 쓰기 검증 첫 동작 확인 — 다음 Revenue 실행(17:09~) 로그에 `[Events_OPS 쓰기 검증] 정상` 줄이 찍히는지. `⚠️ … 덜 남음`이 찍히면 쓰기 단계 유실 확정(재쓰기 결과 줄도 같이 확인). Event Date·Time 유실 3차(10-13 23:11 쓰기 직후) 원인 추적용 (lead-tracker)
+- [x] (10-15 사용자 완료) (10-14) Amanda Margareth(Delta) 답장 — 1월 Expo 세부 정보 문의 + Delta 대표자 참석이 필요하면 지금부터 준비하겠다는 메시지(10-14 5:50 PM). Expo 일정·Delta 참석 필요 여부 정리해서 회신 (event)
+- [x] (10-15 완료: `event/2026-10-14.md` + Notion "본 웨비나" 섹션) (10-15) 10-14 저녁 웨비나 녹음 전사 — Vibe 녹음 폴더(`OneDrive\Documents\Vibe\`) 확인, 앱이 꺼졌으면 `%TEMP%\vibe_temp_2026-10-14\` 변환본 복구. 저장 위치·Notion 정리 방식은 사용자 확인 (event/meetings)
+- [x] (10-14 17:09·17:40 두 번 `정상` 확인) (10-14) lead-tracker Events_OPS 쓰기 검증 첫 동작 확인 — 다음 Revenue 실행(17:09~) 로그에 `[Events_OPS 쓰기 검증] 정상` 줄이 찍히는지. `⚠️ … 덜 남음`이 찍히면 쓰기 단계 유실 확정(재쓰기 결과 줄도 같이 확인). Event Date·Time 유실 3차(10-13 23:11 쓰기 직후) 원인 추적용 (lead-tracker)
 - [ ] (10-14) 블로그 10/6 발행본 확인 — Notion 10-06 행(`옥스브리지 마감 9일 전! 제출 전 형식 점검 체크리스트`) 본문이 UCAT 글(10-09와 같은 초안)로 들어가 있음. 사용자 추정: 네이버에선 직접 작성했고 Notion으로 안 옮겼을 가능성 → 네이버 10/6 실제 글 확인 후 Notion 본문 교체 여부 결정. 10/8 글 CTA 앞 고정 두 단락 누락도 같이 확인 (blog)
 - [ ] (10-14) Expo(1월) 디지털 예산 내부 논의 후 본사 performance팀에 공유 — **2026-10-23(금) 전까지 plan 확정**. 본사는 Meta 약 40k 가정, Naver 유료 + Meta(PMax·Demand Gen 없음), 트래픽 8주 + 리드젠 6주 제안 (Digital Weekly 10-14, `meetings/digital-weekly/2026-10-14.md`)
+- [ ] (2027-01 엑스포 후) lead-tracker FY27 New P1 총목표 3627 재점검 — 10-15 시뮬레이션 기준 연말 예상 3324(시즌성)/2894(3개월 속도), 부족분 거의 Seminar(목표 880 vs 예상 46~55). 엑스포로 Seminar가 메워졌는지 `TEMPQA_072_TargetRecalcSimulation.js` `runSimulateTargetRecalc()` 재실행으로 확인 (lead-tracker)
 
 ## 도메인별 TODO
 
