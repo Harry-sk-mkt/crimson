@@ -25,9 +25,10 @@
 - [x] (10-15 사용자 완료) (10-14) Amanda Margareth(Delta) 답장 — 1월 Expo 세부 정보 문의 + Delta 대표자 참석이 필요하면 지금부터 준비하겠다는 메시지(10-14 5:50 PM). Expo 일정·Delta 참석 필요 여부 정리해서 회신 (event)
 - [x] (10-15 완료: `event/2026-10-14.md` + Notion "본 웨비나" 섹션) (10-15) 10-14 저녁 웨비나 녹음 전사 — Vibe 녹음 폴더(`OneDrive\Documents\Vibe\`) 확인, 앱이 꺼졌으면 `%TEMP%\vibe_temp_2026-10-14\` 변환본 복구. 저장 위치·Notion 정리 방식은 사용자 확인 (event/meetings)
 - [x] (10-14 17:09·17:40 두 번 `정상` 확인) (10-14) lead-tracker Events_OPS 쓰기 검증 첫 동작 확인 — 다음 Revenue 실행(17:09~) 로그에 `[Events_OPS 쓰기 검증] 정상` 줄이 찍히는지. `⚠️ … 덜 남음`이 찍히면 쓰기 단계 유실 확정(재쓰기 결과 줄도 같이 확인). Event Date·Time 유실 3차(10-13 23:11 쓰기 직후) 원인 추적용 (lead-tracker)
-- [ ] (10-14) 블로그 10/6 발행본 확인 — Notion 10-06 행(`옥스브리지 마감 9일 전! 제출 전 형식 점검 체크리스트`) 본문이 UCAT 글(10-09와 같은 초안)로 들어가 있음. 사용자 추정: 네이버에선 직접 작성했고 Notion으로 안 옮겼을 가능성 → 네이버 10/6 실제 글 확인 후 Notion 본문 교체 여부 결정. 10/8 글 CTA 앞 고정 두 단락 누락도 같이 확인 (blog)
+- [x] (10-15 사용자 완료: 10/6 Notion 본문 교체, 10/8 CTA 고정 단락 확인) (10-14) 블로그 10/6 발행본 확인 — Notion 10-06 행(`옥스브리지 마감 9일 전! 제출 전 형식 점검 체크리스트`) 본문이 UCAT 글(10-09와 같은 초안)로 들어가 있음. 사용자 추정: 네이버에선 직접 작성했고 Notion으로 안 옮겼을 가능성 → 네이버 10/6 실제 글 확인 후 Notion 본문 교체 여부 결정. 10/8 글 CTA 앞 고정 두 단락 누락도 같이 확인 (blog)
 - [ ] (10-14) Expo(1월) 디지털 예산 내부 논의 후 본사 performance팀에 공유 — **2026-10-23(금) 전까지 plan 확정**. 본사는 Meta 약 40k 가정, Naver 유료 + Meta(PMax·Demand Gen 없음), 트래픽 8주 + 리드젠 6주 제안 (Digital Weekly 10-14, `meetings/digital-weekly/2026-10-14.md`)
 - [ ] (2027-01 엑스포 후) lead-tracker FY27 New P1 총목표 3627 재점검 — 10-15 시뮬레이션 기준 연말 예상 3324(시즌성)/2894(3개월 속도), 부족분 거의 Seminar(목표 880 vs 예상 46~55). 엑스포로 Seminar가 메워졌는지 `TEMPQA_072_TargetRecalcSimulation.js` `runSimulateTargetRecalc()` 재실행으로 확인 (lead-tracker)
+- [ ] (10-15) lead-tracker Events_OPS 유실 재발 시 — 가드 메일이 오면 첫 가드 실행 **직전** Revenue 실행 로그의 `[쓰기 진단]` 줄 확보 → 원인 판단·수정. 복원은 `runPreviewRestoreEventsManualFromBackup()` → `runRestoreEventsManualFromBackup()` → `runRevenuePipelineTail()` (10-15 11:11 쓰기 직후 375→4 확정, lead-tracker)
 
 ## 도메인별 TODO
 
