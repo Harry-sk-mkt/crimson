@@ -17,8 +17,9 @@
 - [x] (10-01) 수요일 웨비나 미참석자 재초대 FU (사용자 완료)
 - [x] (10-12) office PC Vibe — 중복 모델 삭제, `model.path`를 원본으로 변경, 녹음 단축키 끔(회의 감지는 유지). 1분 튕김 원인은 미확정으로 종결: 재발하면 Vibe를 재시작하기 전에 당일 로그 확인 (meetings)
 - [x] (10-12 사용자 확인: 백업 시트 생성됨, 숨김 처리) Events_OPS Manual 백업 생성 확인 — 실행 중인 tail이 끝난 뒤 `EVENTS_007_ManualBackup.js`의 `runPreviewRestoreEventsManualFromBackup()` 실행. "복원할 빈칸 없음"이면 완료, "백업 없음"이면 `runAcceptEventsManualAsBackup()` 실행. 다음 자동 실행이 메일 권한 오류로 실패하지 않는지도 확인 (lead-tracker)
-- [ ] (10-13 아침) 10-07 버전 복원으로 Master에서 빠진 Leads 61행·MTA 143행+ 복구 — 실행 중인 파이프라인 없는지 확인 후 순서대로: `MASTER_004_MasterBuild.js` `rebuildLeadsMaster()` → `rebuildMTAMaster()` → `MASTER_002_PipelineAsync.js` `runLeadsPipelineTail()` → `runMTAPipelineTail()` → `TEMPQA_071_MasterRawGapAfterRestore.js` `runDiagnoseMasterRawGapAfterRestore()`로 "누락 없음" 확인 (lead-tracker)
+- [ ] (10-13 오피스에서 진행) 10-07 버전 복원 Master 복구 — Leads는 확정 완료(누락 0, `runDiagnoseMasterRawGapAfterRestore()` 확인됨). MTA는 `rebuildMTAMaster()`까지만 실행(16:16 완료), 이후 `runMTAPipelineTail()` → 재진단 단계가 실행 기록 없이 중단됨 — 이 두 단계 이어서 실행 필요 (lead-tracker, session/office 브랜치 2026-10-13 Changelog 참고)
 - [ ] (10-12) office PC Vibe — 다음에 앱을 열 때 모델이 정상 선택돼 있는지, 녹음·전사가 되는지 확인 (meetings)
+- [ ] (10-17) 이벤트 참가패턴 분석 — Notion 웨비나 DB 페이지 내부 데이터 긁어와서 분석 (analytics)
 
 ## 도메인별 TODO
 
