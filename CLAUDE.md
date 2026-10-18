@@ -21,6 +21,7 @@
 | 글 작성 (Copy/Kakao Library 소재 검수·보완) | `writing/` | `writing/CLAUDE.md` |
 | 아이디에이션 작성 (dbTodos Ideation 페이지 공동 작성·검토) | `ideate/` | `ideate/CLAUDE.md` |
 | 웨비나/세미나 요약 (Vibe transcript 포함) | `event/` | `event/CLAUDE.md` |
+| 채용 면접 전사·정리 (Vibe transcript → Notion db_recruit) | `interview/` | `interview/CLAUDE.md` |
 | 주요 결정 기록 (세션 종료 메모) | `context/` | `context/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
@@ -33,6 +34,7 @@
 - `blog/`: 별도 git 저장소 (`crimson-naver-blog`)
 - `lead-tracker/`: 별도 git 저장소 (`crimson-lead-tracker`). 세션 시작/종료 절차(`scripts/start-session.sh`, Changelog 기록 등)는 그 폴더의 `CLAUDE.md`를 따른다.
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
+- `interview/`: `CLAUDE.md`만 루트 저장소에서 추적하고 나머지(지원자 전사)는 `.gitignore`로 제외 — 개인정보라 로컬 전용
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
 - `meetings/`, `email/`, `writing/`, `ideate/`, `event/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
