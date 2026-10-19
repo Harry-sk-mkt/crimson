@@ -170,16 +170,21 @@ CATS = [
  ("SAT", ["SAT"]),
  ("전공", ["Major"]),
  ("리서치", ["College Research", "California", "Ivy Admit", "School Fit"]),
+ # 2026-10-19 사용자: "Common App Review"는 커먼앱이 아니라 Success Profile Review by FAO → 프로필. 첫 매칭이라 커먼앱보다 위에 둔다.
+ ("프로필(케이스 스터디)", ["Stanford and Harvard Admit", "Leadership Projects Showcase", "Accepted Student", "Common App Review"]),
  ("커먼앱", ["Common App"]),
  ("에세이", ["Personal Statement", "Essay Workshop"]),
- ("프로필(케이스 스터디)", ["Stanford and Harvard Admit", "Leadership Projects Showcase", "Accepted Student"]),
+ # 2026-10-19 사용자: Before Back to School은 "신학기 준비" 얘기라 로드맵과 다름.
+ ("신학기 준비", ["Before Back to School"]),
  ("로드맵", ["Roadmap", "EC for Each Year", "Winning Profiles", "Transition to High School", "Profile Planning",
           "Profile Building", "Academic & EC Planning", "Application Tips and Timeline", "Young Students",
-          "Rise Webinar for G6~8", "Back to School"]),
+          "Rise Webinar for G6~8"]),
 ]
 def cat(t):
     for name, kws in CATS:
-        if any(k.lower() in t.lower() for k in kws): return name
+        if any(k.lower() in t.lower() for k in kws):
+            # 2026-10-19 사용자: RISE는 중학생 타겟이라 같은 분류의 고학년 주제와 붙어도 됨 → 분류를 따로 센다(RISE끼리는 연속 금지 유지)
+            return name + "·RISE" if re.match(r"\S+ rise\b", t.lower()) else name
     return None  # Simulation / Honors / Transfer — 분류 밖, 연속 규칙 미적용
 
 # 원래 배치 중 이미 "학사일정 1달 전"에 맞던 주제 (+ ⇢ 표시로 앞당긴 주제)
@@ -200,7 +205,10 @@ def nlp1(t):
 
 GRADES = list(G)
 CONSEC_LOG = []
-for cname, _ in CATS:
+CAT_NAMES = [c for c, _ in CATS] + [c + "·RISE" for c, _ in CATS]  # cat()이 RISE 주제를 '분류·RISE'로 따로 셈
+# 2026-10-19 사용자: 프로필(케이스 스터디)은 아무 달이나 가능 + 연속 금지 미적용
+CONSEC_EXEMPT = {"프로필(케이스 스터디)", "프로필(케이스 스터디)·RISE"}
+for cname in [c for c in CAT_NAMES if c not in CONSEC_EXEMPT]:
     months = sorted({j for g in G for j in range(12) for t in G[g][j] if cat(t) == cname})
     if len(months) < 2: continue
     # 원형(7월→8월 연결) 연속 구간 나누기
@@ -286,8 +294,8 @@ for j in reversed(range(12)):  # 7월부터 거꾸로 — 앞 달로 미는 방�
 print("\n".join(CAP_LOG))
 # 검증: 모든 달이 상한 이하
 for j in range(12): assert len(webinars(j)) <= CAP[j], (MONTHS[j], len(webinars(j)), CAP[j])
-# 검증: 어떤 분류도 두 달 연속(7월→8월 포함)으로 나오지 않아야 함
-for cname, _ in CATS:
+# 검증: 어떤 분류도 두 달 연속(7월→8월 포함)으로 나오지 않아야 함 (CONSEC_EXEMPT 제외)
+for cname in [c for c in CAT_NAMES if c not in CONSEC_EXEMPT]:
     ms = {j for g in G for j in range(12) for t in G[g][j] if cat(t) == cname}
     bad = [MONTHS[j][:3] for j in ms if (j + 1) % 12 in ms]
     assert not bad, (cname, bad)
@@ -373,7 +381,7 @@ for g in G:
             places.setdefault((cat(t) or "분류 밖", name), []).append(f"{g.replace('Grade ', 'G')} {MONTHS[j][:3]}")
 for g, j, t in WAITLIST:
     places.setdefault((cat(t) or "분류 밖", t[2:].split(" (")[0]), []).append(f"(후보) {g.replace('Grade ', 'G')} {MONTHS[j][:3]}")
-order = [c for c, _ in CATS] + ["분류 밖"]
+order = CAT_NAMES + ["분류 밖"]
 r = 2
 for (cname, name), pl in sorted(places.items(), key=lambda x: (order.index(x[0][0]), x[0][1])):
     k.cell(r, 1, cname); k.cell(r, 2, name); k.cell(r, 3, ", ".join(pl)); r += 1
