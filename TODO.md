@@ -32,10 +32,11 @@
 - [ ] (10-16) lead-tracker Events_OPS 유실 5차(10-16 15:13 쓰기 직후, 복원 완료) 후속 — 쓰기 전 필터 제거 + 즉시 메일 배포(`EVENTS_005_Write.js` v1.7.0). 다음 유실 메일이 오면 그 실행 로그의 `[Events_OPS 필터]` 줄로 필터 원인 판별 → 확정되면 BOFU/Content/Search/Leads_OPS 쓰기에도 같은 수정. 실무자에게 15:13 전후 Events_OPS 필터 사용 여부 확인 (lead-tracker)
 - [ ] (10-15) lead-tracker Events_OPS 유실 재발 시 — 가드 메일이 오면 첫 가드 실행 **직전** Revenue 실행 로그의 `[쓰기 진단]` 줄 확보 → 원인 판단·수정. 복원은 `runPreviewRestoreEventsManualFromBackup()` → `runRestoreEventsManualFromBackup()` → `runRevenuePipelineTail()` (10-15 11:11 쓰기 직후 375→4 확정, lead-tracker)
 - [ ] (10-17) 이벤트 참가패턴 분석 — Notion 웨비나 DB 페이지 내부 데이터 긁어와서 분석 (analytics)
-- [ ] (10-19) 블로그 리서치 10건(10/23~11/02 발행분) 방식 결정 — A(추천): 10/23·25·26·27 4건 Claude 직접 + 나머지 6건 Gemini 초기화(약 10/26 오전) 후 flash-low / B: 전부 Claude / C: Gemini만(10/23~27 공백). **10/22 07:00 전 결정 필요** (blog)
+
+- [ ] (10-19) 블로그 리서치 10건(10/23~11/02 발행분) 방식 결정 — A(추천): 10/23·25·26·27 4건 Claude 직접 + 나머지 6건 Gemini 초기화(약 10/26 오전) 후 flash-low / B: 전부 Claude / C: Gemini만(10/23~27 공백). **10/22 07:00 전 결정 필요** (blog)
 - [ ] (10-19) 블로그 11/01 "마감 직전 제출 오류 대비" 글이 마감 당일 발행 — 순서 바꿀지 결정, 10/24 인터뷰 일관성 글은 09-30 글과 주제 중복 (blog)
 - [ ] (10-20 아침) 블로그 d1 루틴 Step 2.5 첫 실행 확인 — Daily Summary Harry 🚧에 리서치 미완료 불릿이 찍혔는지 (blog)
-- [ ] (10-22 목 12:00) 채용 Zoom 스크리닝 1건 — 질문지는 Notion db_recruit 페이지, 끝나면 녹화 전사·Q&A 정리 (interview)
+- [ ] (10-22 목 12:00·14:00) 채용 Zoom 스크리닝 2건 — 질문지는 Notion db_recruit 페이지, 끝나면 녹화 전사·Q&A 정리 (interview)
 
 ## 도메인별 TODO
 
