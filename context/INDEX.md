@@ -21,3 +21,4 @@
 - [2026-10-19] Reimburse 영수증 자동 기록 도메인 신설 — Drive Reimburse 폴더 → OCR → 정산 주기 탭, 주기 폴더 이동, 파일명 = B, E열 Drive 칩, 매일 9시 트리거 — 2026-10-19.md#오전 — Claude Code (office)
 - [2026-10-19] lead-tracker Revenue 주기를 Deal Tracker 값 변경 시에만 실행(Leads_OPS 미포함, 09-03 분리 결정 재확인) — lead-tracker docs/Changelog.md 2026-10-19
 - [2026-10-19] main 병합 2차(office 오늘 작업 + mac 07:45 TODO 정리, lead-tracker fast-forward 19커밋), 세션 브랜치 3개 main 위치로 정렬 — 2026-10-19.md#main 병합 (2차) — Claude Code (office)
+- [2026-10-19] 10-19 Hanna 1:1 전사·Notion 원문 보강(사용자 노트 없음, 섹션별 인용 28줄) — 2026-10-19.md#오후 — Claude Code (mac)
