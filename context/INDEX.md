@@ -17,3 +17,6 @@
 
 - [2026-10-19] 10-16 Hanna 1:1 전사·Notion 원문 보강, 원온원 3번 = Hanna 등록, 반복 탐지에 전문 직접 읽기 추가 — 2026-10-19.md#오전 — Claude Code (mac)
 - [2026-10-19] session/home·office·mac → main 병합, context·meetings/CLAUDE.md·TODO 충돌 해결 방식, TODO Master 복구 항목 상충 — 2026-10-19.md#main 병합 — Claude Code (mac)
+- [2026-10-19] Jennie 오프보딩(10-23 마지막 출근) — Notion Offboarding 안 inline db_offboarding·Template 행, 직무 버디 Richard, 권한 회수 = 카카오·Notion·Salesforce — 2026-10-19.md#오전 — Claude Code (office)
+- [2026-10-19] Reimburse 영수증 자동 기록 도메인 신설 — Drive Reimburse 폴더 → OCR → 정산 주기 탭, 주기 폴더 이동, 파일명 = B, E열 Drive 칩, 매일 9시 트리거 — 2026-10-19.md#오전 — Claude Code (office)
+- [2026-10-19] lead-tracker Revenue 주기를 Deal Tracker 값 변경 시에만 실행(Leads_OPS 미포함, 09-03 분리 결정 재확인) — lead-tracker docs/Changelog.md 2026-10-19

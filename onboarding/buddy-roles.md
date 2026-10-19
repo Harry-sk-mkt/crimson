@@ -17,7 +17,7 @@
 - D30 리뷰 주관 (필요 시 면접 패널 포함), 개선 액션 플랜 수립
 - 하지 않는 일: 도구 사용법·일상 업무 질문 응대 → Professional Buddy
 
-## 직무 버디 (Professional Buddy) — Jennie
+## 직무 버디 (Professional Buddy) — Richard (2026-10-19 Jennie 퇴사로 변경)
 
 - 온보딩 체크리스트(db_onboarding) 진척 확인
 - 실습 과제 피드백: 기존 캠페인 분석, 미니 캠페인 기획

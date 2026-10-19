@@ -16,6 +16,7 @@
 | 데이터 분석 (퍼널/코호트, 광고 성과/ROI, 어트리뷰션, MMM) | `analytics/` | `analytics/CLAUDE.md` |
 | 회의 기록 (Vibe transcript 포함) | `meetings/` | `meetings/CLAUDE.md`, `meetings/_index.md` |
 | 연차/캘린더 (Apps Script) | `leaves/` | `leaves/CLAUDE.md` |
+| 개인 reimburse 영수증 자동 기록 (Apps Script) | `reimburse/` | `reimburse/CLAUDE.md` |
 | 온보딩 (Notion 온보딩 페이지 구축) | `onboarding/` | `onboarding/CLAUDE.md`, `onboarding/TODO.md` |
 | 이메일 | `email/` | 아직 구조 없음 |
 | 글 작성 (Copy/Kakao Library 소재 검수·보완) | `writing/` | `writing/CLAUDE.md` |
@@ -36,6 +37,7 @@
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `interview/`: `CLAUDE.md`만 루트 저장소에서 추적하고 나머지(지원자 전사)는 `.gitignore`로 제외 — 개인정보라 로컬 전용
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
+- `reimburse/`: 별도 저장소 아님, 루트 저장소에서 직접 추적하는 Apps Script(clasp) 프로젝트. push는 `reimburse/scripts/safe-clasp-push.sh`.
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
 - `meetings/`, `email/`, `writing/`, `ideate/`, `event/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
@@ -65,7 +67,7 @@
 - **TDD**: 함수를 만들거나 고칠 때 WHY 주석과 기대값 비교 테스트를 함께 작성하고, 테스트 통과 전에는 완료로 보지 않는다.
 - **Backward Compatibility**: 파일명, 함수명, 시그니처, 기존 산출물은 승인 없이 바꾸지 않는다.
 
-### Apps Script(clasp) 도메인 공통 (`lead-tracker/`, `leaves/`)
+### Apps Script(clasp) 도메인 공통 (`lead-tracker/`, `leaves/`, `reimburse/`)
 
 - **함수 실행 요청 시 파일명 + 함수명 명시**: `clasp run-function` 미도입이라 사용자가 편집기에서 직접 Run 한다. 예: "`MASTER_003_MTAFunnelSync.js`의 `runSyncMTAFunnelToOPS()` 실행해주세요".
 - **Test/Run 함수명은 `_`로 끝내지 않는다**: `_` 접미사 함수는 편집기 Run 드롭다운에서 숨겨진다. `testXXXX()`, `runXXXX()`를 쓸 때마다 이름 끝을 확인한다.
