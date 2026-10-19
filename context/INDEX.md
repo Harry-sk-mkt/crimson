@@ -8,6 +8,8 @@
 
 ## 2026-10-17
 
+- [2026-10-19] 블로그 10/19·10/20 펑크(10/19 이후 리서치 미실행) 복구, 일정 +2일, d1 루틴 리서치 누락 리마인더(Daily Summary) 신설, Gemini flash-low 한도 소진 — 2026-10-19.md#블로그 10/19·10/20 펑크 — Claude Code
+- [2026-10-19] 웨비나 캘린더 월 상한(수요일 수) 분산 + 사용자 updated 탭 한 달씩 조정(8월 확정, 전공 2·5월, 로드맵 8월) — 2026-10-19.md#오전 2 — Claude Code
 - [2026-10-17] TODO.md 항목을 lead-tracker git 상태 확인 없이 제시한 세션 시작 체크 누락 발견·수정 — 2026-10-17.md#세션 시작 — Claude Code
 - [2026-10-17] Session-Start Git Sync Check 트리거 표현 "세션 시작"→"대화 시작"로 용어 통일(범위 변경 없음) — 2026-10-17.md#규칙 용어 정리 — Claude Code
 - [2026-10-17] "세컨드 브레인" 갭 분석 후 context/INDEX.md 신설(Obsidian 미사용, 일반 텍스트 포인터) — 2026-10-17.md#세컨드 브레인 갭 분석 + context/INDEX.md 도입 — Claude Code

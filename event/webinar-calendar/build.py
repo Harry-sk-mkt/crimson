@@ -235,6 +235,57 @@ for cname, _ in CATS:
                 G[g2][dest].append(t + f" ⇄ {MONTHS[j][:3]}→{MONTHS[dest][:3]} 연속 회피")
                 CONSEC_LOG.append(f"[{cname}] {g} {MONTHS[j][:3]} → {g2} {MONTHS[dest][:3]}: {t[:60]}")
 print("\n".join(CONSEC_LOG))
+
+# ---------------------------------------------------------------
+# 2026-10-19 사용자 결정: 웨비나는 주 1회(수요일 라이브) → 월 상한 = 그 달 수요일 수.
+# 같은 주제가 여러 학년 칸에 있어도 웨비나 1회로 센다. 상한을 넘는 달은 우선순위 낮은 주제부터
+# 앞 달로(1달 전 선점 원칙 유지), 안 되면(앞당긴 주제가 아닐 때만) 다음 달로, 그래도 안 되면 "대기 후보" 탭으로.
+# 우선순위: ★ > 학사일정 1달 전에 맞는 주제 > ◇(FY27 계획) > · , 같으면 NLP1.
+# (1달 전 우선으로 했더니 EC for Each Year(NLP1 58)가 빠지고 미검증 ◇가 남아서 ★를 맨 앞으로)
+import calendar
+FY_START = 2026  # FY27 = 2026-08 ~ 2027-07 기준 수요일 수
+CAP = [sum(1 for d, wd in calendar.Calendar().itermonthdays2(FY_START + (j >= 5), (j + 7) % 12 + 1) if d and wd == 2)
+       for j in range(12)]
+core = lambda t: t[2:].split(" (")[0].rstrip("?")
+def webinars(j):
+    out = {}
+    for g in G:
+        for t in G[g][j]: out.setdefault(core(t), []).append((g, t))
+    return out
+def rank(j, items):
+    ts = [t for _, t in items]
+    return (any(t[0] == "★" for t in ts), any(aligned(g, j, t) for g, t in items),
+            any(t[0] == "◇" for t in ts), max(nlp1(t) for t in ts))
+def row_for(g, j, dest):  # 7월↔8월 학년 경계를 넘으면 행도 옮김 (위 연속 회피와 같은 규칙)
+    gi = GRADES.index(g)
+    if j == 0 and dest == 11 and gi > 0: return GRADES[gi - 1]
+    if j == 11 and dest == 0 and gi < len(GRADES) - 1: return GRADES[gi + 1]
+    return g
+def cat_ok(c, j, key, dest):
+    if c is None: return True
+    ms = {m for g in G for m in range(12) for t in G[g][m] if cat(t) == c and not (m == j and core(t) == key)} | {dest}
+    return not any((m + 1) % 12 in ms for m in ms)
+WAITLIST, CAP_LOG = [], []
+for j in reversed(range(12)):  # 7월부터 거꾸로 — 앞 달로 미는 방향이라 밀려온 주제가 다시 넘치지 않게
+    ws_ = webinars(j)
+    for key in sorted(ws_, key=lambda k: rank(j, ws_[k]))[:max(0, len(ws_) - CAP[j])]:
+        items = ws_[key]; c = cat(items[0][1])
+        dests = [(j - 1) % 12] + ([] if rank(j, items)[1] else [(j + 1) % 12])
+        for dest in dests:
+            if (key in webinars(dest) or len(webinars(dest)) < CAP[dest]) and cat_ok(c, j, key, dest):
+                for g, t in items:
+                    G[g][j].remove(t); g2 = row_for(g, j, dest)
+                    if not any(core(x) == key for x in G[g2][dest]):
+                        G[g2][dest].append(t + f" ⇠ {MONTHS[j][:3]}→{MONTHS[dest][:3]} 월 상한")
+                CAP_LOG.append(f"[상한] {MONTHS[j][:3]} → {MONTHS[dest][:3]}: {key}")
+                break
+        else:
+            for g, t in items:
+                G[g][j].remove(t); WAITLIST.append((g, j, t))
+            CAP_LOG.append(f"[후보] {MONTHS[j][:3]}: {key}")
+print("\n".join(CAP_LOG))
+# 검증: 모든 달이 상한 이하
+for j in range(12): assert len(webinars(j)) <= CAP[j], (MONTHS[j], len(webinars(j)), CAP[j])
 # 검증: 어떤 분류도 두 달 연속(7월→8월 포함)으로 나오지 않아야 함
 for cname, _ in CATS:
     ms = {j for g in G for j in range(12) for t in G[g][j] if cat(t) == cname}
@@ -250,7 +301,7 @@ wrap = Alignment(wrap_text=True, vertical="top")
 grey = Font(italic=True, color="595959")
 
 ws["A1"] = "Grade 8 to 12 Monthly Webinar Calendar"; ws["A1"].font = Font(bold=True, size=14)
-ws["A2"] = "범례: ★ 검증된 주제(New P1 15+ 또는 Revenue $100k+)  /  $000k = 그 회차 Revenue(Events_OPS, Deal Tracker 기준)  · 진행했지만 실적 보통  ◇ FY27 계획에만 있고 아직 안 한 주제  /  괄호 = 과거 회차 중 가장 좋은 회차 실적  /  각 칸 메모 = 원본 타임라인 내용  /  배치 원칙: 학사일정 1달 전 웨비나로 선점(⇢ = 다음 달 일정 대비로 앞당긴 주제), 결과분석은 발표 직후  /  같은 분류(주제 분류 탭)는 학년 무관 두 달 연속 금지(⇄ = 연속 회피로 옮긴 주제)"
+ws["A2"] = "범례: ★ 검증된 주제(New P1 15+ 또는 Revenue $100k+)  /  $000k = 그 회차 Revenue(Events_OPS, Deal Tracker 기준)  · 진행했지만 실적 보통  ◇ FY27 계획에만 있고 아직 안 한 주제  /  괄호 = 과거 회차 중 가장 좋은 회차 실적  /  각 칸 메모 = 원본 타임라인 내용  /  배치 원칙: 학사일정 1달 전 웨비나로 선점(⇢ = 다음 달 일정 대비로 앞당긴 주제), 결과분석은 발표 직후  /  같은 분류(주제 분류 탭)는 학년 무관 두 달 연속 금지(⇄ = 연속 회피로 옮긴 주제)  /  월 상한 = 그 달 수요일 수(주 1회, FY27 기준), 같은 주제는 학년이 여러 개여도 1회(⇠ = 상한 때문에 옮긴 주제, 못 옮긴 주제는 '대기 후보' 탭)"
 ws["A2"].font = grey
 for r_src, label in [(3, "입시 일정"), (4, "학사·휴일")]:
     ws.cell(r_src, 1, label).font = Font(bold=True)
@@ -275,9 +326,12 @@ for i, (g, cells) in enumerate(G.items()):
         c.alignment = wrap; c.border = box
         tl = src.cell(r, 2 + j).value
         if tl: c.comment = Comment("타임라인: " + str(tl)[:900], "Claude", width=320, height=220)
+ws.cell(11, 1, "월 웨비나 수 / 상한").font = Font(bold=True)
+for j in range(12):
+    c = ws.cell(11, 2 + j, f"{len(webinars(j))} / {CAP[j]}"); c.alignment = Alignment(horizontal="center"); c.border = box
 
 ws["A12"] = "G12 2~7월: 지원이 끝난 시기라 G12 대상 웨비나는 효과가 낮음 — 결과분석 웨비나는 G10~11 대상으로 활용"; ws["A12"].font = grey
-ws["A13"] = "Source: 12 Month Marketing Execution Plan SK.xlsx — TimelineG8-12(학년별 타임라인), Events_OPS(웨비나 실적: SF NLP1s·Revenue, 2026-10-16 기준), FY27(계획 주제). 2026-10-16 정리. 주제 배치는 Claude 초안 — 검토 필요"; ws["A13"].font = grey
+ws["A13"] = "Source: 12 Month Marketing Execution Plan SK.xlsx — TimelineG8-12(학년별 타임라인), Events_OPS(웨비나 실적: SF NLP1s·Revenue, 2026-10-16 기준), FY27(계획 주제). 2026-10-16 정리, 10-19 월 상한 반영. 주제 배치는 Claude 초안 — 검토 필요"; ws["A13"].font = grey
 ws.column_dimensions["A"].width = 16
 for c in range(2, 14): ws.column_dimensions[get_column_letter(c)].width = 30
 ws.row_dimensions[3].height = 30; ws.row_dimensions[4].height = 45
@@ -317,12 +371,23 @@ for g in G:
         for t in G[g][j]:
             name = t[2:].split(" (")[0]
             places.setdefault((cat(t) or "분류 밖", name), []).append(f"{g.replace('Grade ', 'G')} {MONTHS[j][:3]}")
+for g, j, t in WAITLIST:
+    places.setdefault((cat(t) or "분류 밖", t[2:].split(" (")[0]), []).append(f"(후보) {g.replace('Grade ', 'G')} {MONTHS[j][:3]}")
 order = [c for c, _ in CATS] + ["분류 밖"]
 r = 2
 for (cname, name), pl in sorted(places.items(), key=lambda x: (order.index(x[0][0]), x[0][1])):
     k.cell(r, 1, cname); k.cell(r, 2, name); k.cell(r, 3, ", ".join(pl)); r += 1
 k.column_dimensions["A"].width = 22; k.column_dimensions["B"].width = 60; k.column_dimensions["C"].width = 40
 k.freeze_panes = "A2"
+
+w = wb.create_sheet("대기 후보")
+for i, h in enumerate(["원래 학년", "원래 월", "분류", "주제 (실적)"], 1):
+    c = w.cell(1, i, h); c.font = Font(bold=True, color="FFFFFF"); c.fill = fill
+w["A1"].comment = Comment("2026-10-19: 월 상한(그 달 수요일 수)을 넘어 앞·뒤 달로도 못 옮긴 주제. 캘린더 주제를 바꿀 때 교체 후보로 사용.", "Claude", width=320, height=80)
+for r, (g, j, t) in enumerate(sorted(WAITLIST, key=lambda x: (x[1], GRADES.index(x[0]))), 2):
+    for c, val in enumerate([g, MONTHS[j], cat(t) or "분류 밖", t], 1): w.cell(r, c, val)
+w.column_dimensions["A"].width = 12; w.column_dimensions["C"].width = 22; w.column_dimensions["D"].width = 90
+w.freeze_panes = "A2"
 
 # ---------------------------------------------------------------
 # 2026-10-16 사용자 요청: 원본 Var 탭에 붙여넣을 수 있게, 같은 레이아웃(M:AC, 같은 행 순서)으로

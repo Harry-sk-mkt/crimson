@@ -12,7 +12,7 @@
 - [x] (10-01 오후) 아이디에이션 "수요일 웨비나 미참석자 → 다시 초대" FU — 발표자와 가설 발송 수단 이메일→메시지 수정, 9/2·9/8·9/16 이벤트 안내 메시지 오픈율 확인 (Notion 페이지 3️⃣ 가설 아래 체크박스) https://app.notion.com/p/3b464dfd498f80d98969e2f08f1ca5b6
 - [x] (10-01 재부팅 후) Digital Weekly 09-30 화자 구분 재전사 — 10-01 완료(vibe-server HTTP API, 결과 `%TEMP%\dw0930_diar.json`). 이름 매핑은 사용자 판단으로 보류 (meetings)
 - [x] (10-01) office PC Vibe 정리 (10-12 종결) — ✅ GPU 해결(드라이버 617.14, `--gpu-device 0 --threads 6`, 2분 42초, meetings/CLAUDE.md 기록). ✅ 저장 위치(10-12): 문서 폴더가 OneDrive로 리디렉션된 것뿐, 정상 저장. 남은 것: 1분 튕김 원인(10-12: 정지 26초 뒤 11:01:16에 앱에서 모델 복사본이 생성됨 → 사용자가 앱 설정을 만지던 중 녹음이 멈췄을 가능성, 사용자 기억 확인 대기), 중복 모델 1.5GB 정리 여부 — 이하 원래 메모: NVIDIA GPU 미인식(Intel UHD만, 1분 전사 ≈ 80초) 드라이버 확인 — 10-01 확인: GTX 1660 Ti Max-Q, 드라이버 442.94(2020년)로 매우 구버전 → 최신 드라이버 설치(관리자 권한, 사용자) 후 `--gpu-device` 지정 테스트. CPU는 i7-10750H 6코어라 `--threads 6`으로 올릴 것, 녹음이 Documents로 저장 안 된 원인, 11:00 60초 녹음 정체(→ 10-01 사용자 확인: Digital Weekly 시작 녹음이 1분 만에 튕긴 것, 11:02:58 재시작 — 튕긴 원인은 미확인), 결과를 `meetings/CLAUDE.md`에 기록 (meetings)
-- [ ] (10-01) 스쿨 타임라인용 웨비나 캘린더 제작하기 — 10-16 초안 완료(`G:\My Drive\Grade 8-12 Webinar Calendar (draft).xlsx`, 1달 전 선점·14분류 연속 금지·Events_OPS 실적 반영). 남은 것: 사용자 검토(주제 분류 탭), 7·5·11·10월 몰림 → 월 실행 가능 개수 기준으로 분산(기준 사용자 결정), "Var (Events_OPS 반영)" 탭을 원본 Google Sheet Var에 붙여넣기(사용자). 재생성 스크립트: `event/webinar-calendar/build.py` (event)
+- [ ] (10-01) 스쿨 타임라인용 웨비나 캘린더 제작하기 — 10-16 초안 완료(`G:\My Drive\Grade 8-12 Webinar Calendar (draft).xlsx`, 1달 전 선점·14분류 연속 금지·Events_OPS 실적 반영). 10-19 월 상한(그 달 수요일 수) 분산 완료 → 사용자 updated 탭 기준 한 달씩 조정 중(8월 확정: EC for Each Year 전 학년·EA/ED·Game changing·Stanford vs Harvard, 로드맵=8월, 전공=2·5월 2회, 여름방학=11월). 다음: 9·10월(9월 빈자리 3개 채우기, 10월 8→4, 10·11월 로드맵 주제 처리)부터 이어서, 확정되면 build.py 반영. 남은 것: 사용자 검토(주제 분류·대기 후보 탭), "Var (Events_OPS 반영)" 탭을 원본 Google Sheet Var에 붙여넣기(사용자). 재생성 스크립트: `event/webinar-calendar/build.py` (event)
 - [x] (10-01) Quality Bar 템플릿 7개 dbTodos 등록 (사용자 완료)
 - [x] (10-01) 수요일 웨비나 미참석자 재초대 FU (사용자 완료)
 - [x] (10-12) office PC Vibe — 중복 모델 삭제, `model.path`를 원본으로 변경, 녹음 단축키 끔(회의 감지는 유지). 1분 튕김 원인은 미확정으로 종결: 재발하면 Vibe를 재시작하기 전에 당일 로그 확인 (meetings)
@@ -31,6 +31,9 @@
 - [ ] (10-16) lead-tracker Events_OPS 유실 5차(10-16 15:13 쓰기 직후, 복원 완료) 후속 — 쓰기 전 필터 제거 + 즉시 메일 배포(`EVENTS_005_Write.js` v1.7.0). 다음 유실 메일이 오면 그 실행 로그의 `[Events_OPS 필터]` 줄로 필터 원인 판별 → 확정되면 BOFU/Content/Search/Leads_OPS 쓰기에도 같은 수정. 실무자에게 15:13 전후 Events_OPS 필터 사용 여부 확인 (lead-tracker)
 - [ ] (10-15) lead-tracker Events_OPS 유실 재발 시 — 가드 메일이 오면 첫 가드 실행 **직전** Revenue 실행 로그의 `[쓰기 진단]` 줄 확보 → 원인 판단·수정. 복원은 `runPreviewRestoreEventsManualFromBackup()` → `runRestoreEventsManualFromBackup()` → `runRevenuePipelineTail()` (10-15 11:11 쓰기 직후 375→4 확정, lead-tracker)
 - [ ] (10-17) 이벤트 참가패턴 분석 — Notion 웨비나 DB 페이지 내부 데이터 긁어와서 분석 (analytics)
+- [ ] (10-19) 블로그 리서치 10건(10/23~11/02 발행분) 방식 결정 — A(추천): 10/23·25·26·27 4건 Claude 직접 + 나머지 6건 Gemini 초기화(약 10/26 오전) 후 flash-low / B: 전부 Claude / C: Gemini만(10/23~27 공백). **10/22 07:00 전 결정 필요** (blog)
+- [ ] (10-19) 블로그 11/01 "마감 직전 제출 오류 대비" 글이 마감 당일 발행 — 순서 바꿀지 결정, 10/24 인터뷰 일관성 글은 09-30 글과 주제 중복 (blog)
+- [ ] (10-20 아침) 블로그 d1 루틴 Step 2.5 첫 실행 확인 — Daily Summary Harry 🚧에 리서치 미완료 불릿이 찍혔는지 (blog)
 
 ## 도메인별 TODO
 
