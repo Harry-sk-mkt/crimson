@@ -23,3 +23,7 @@
 - [2026-10-19] main 병합 2차(office 오늘 작업 + mac 07:45 TODO 정리, lead-tracker fast-forward 19커밋), 세션 브랜치 3개 main 위치로 정렬 — 2026-10-19.md#main 병합 (2차) — Claude Code (office)
 - [2026-10-19] 10-19 Hanna 1:1 전사·Notion 원문 보강(사용자 노트 없음, 섹션별 인용 28줄) — 2026-10-19.md#오후 — Claude Code (mac)
 - [2026-10-19] main 병합 3차(mac만, office 오후 커밋 3개는 미병합 유지) — 2026-10-19.md#main 병합 (3차) — Claude Code (mac)
+
+## 2026-10-20
+
+- [2026-10-20] 10-20 세일즈 마케팅 미팅 전사(2분→30초 재분할로 반복 제거)·Notion dbInCorpMeeting 페이지 생성 — 2026-10-20.md#오후 — Claude Code (mac)
