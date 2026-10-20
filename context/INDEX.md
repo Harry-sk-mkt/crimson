@@ -5,7 +5,6 @@
 형식: `- [YYYY-MM-DD] 한 줄 요약 — YYYY-MM-DD.md#헤더`
 
 (나중에 Obsidian을 vault로 쓰게 되면 `파일#헤더` 표기를 `[[파일#헤더]]`로 바꾸면 자동 백링크·그래프뷰가 됨 — 지금은 일반 텍스트 포인터로 둠)
-
 ## 2026-10-17
 
 - [2026-10-19] 블로그 10/19·10/20 펑크(10/19 이후 리서치 미실행) 복구, 일정 +2일, d1 루틴 리서치 누락 리마인더(Daily Summary) 신설, Gemini flash-low 한도 소진 — 2026-10-19.md#블로그 10/19·10/20 펑크 — Claude Code
@@ -23,3 +22,4 @@
 - [2026-10-19] Reimburse 영수증 자동 기록 도메인 신설 — Drive Reimburse 폴더 → OCR → 정산 주기 탭, 주기 폴더 이동, 파일명 = B, E열 Drive 칩, 매일 9시 트리거 — 2026-10-19.md#오전 — Claude Code (office)
 - [2026-10-19] lead-tracker Revenue 주기를 Deal Tracker 값 변경 시에만 실행(Leads_OPS 미포함, 09-03 분리 결정 재확인) — lead-tracker docs/Changelog.md 2026-10-19
 - [2026-10-19] main 병합 2차(office 오늘 작업 + mac 07:45 TODO 정리, lead-tracker fast-forward 19커밋), 세션 브랜치 3개 main 위치로 정렬 — 2026-10-19.md#main 병합 (2차) — Claude Code (office)
+- [2026-10-20] outsource/translate 도메인 신설, 마이트랜스 카탈로그 번역 견적 330,000원 기록, 블로그 리서치 미완 10건 확인 — 2026-10-20.md#아침 (office) — Claude Code
