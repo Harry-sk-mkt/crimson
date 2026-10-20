@@ -23,3 +23,4 @@
 - [2026-10-19] lead-tracker Revenue 주기를 Deal Tracker 값 변경 시에만 실행(Leads_OPS 미포함, 09-03 분리 결정 재확인) — lead-tracker docs/Changelog.md 2026-10-19
 - [2026-10-19] main 병합 2차(office 오늘 작업 + mac 07:45 TODO 정리, lead-tracker fast-forward 19커밋), 세션 브랜치 3개 main 위치로 정렬 — 2026-10-19.md#main 병합 (2차) — Claude Code (office)
 - [2026-10-20] outsource/translate 도메인 신설, 마이트랜스 카탈로그 번역 견적 330,000원 기록, 블로그 리서치 미완 10건 확인 — 2026-10-20.md#아침 (office) — Claude Code
+- [2026-10-20] 웨비나 당일 참가 패턴 1차 — 마지막 30분 등록 +20, +20분에 peak의 84% 입장, peak 약 +44분, CTA 이탈 12%, 참석 감소는 등록 감소 때문 — 2026-10-20.md — Claude Code (office)

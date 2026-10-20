@@ -31,7 +31,8 @@
 - [ ] (2027-01 엑스포 후) lead-tracker FY27 New P1 총목표 3627 재점검 — 10-15 시뮬레이션 기준 연말 예상 3324(시즌성)/2894(3개월 속도), 부족분 거의 Seminar(목표 880 vs 예상 46~55). 엑스포로 Seminar가 메워졌는지 `TEMPQA_072_TargetRecalcSimulation.js` `runSimulateTargetRecalc()` 재실행으로 확인 (lead-tracker)
 - [ ] (10-16) lead-tracker Events_OPS 유실 5차(10-16 15:13 쓰기 직후, 복원 완료) 후속 — 쓰기 전 필터 제거 + 즉시 메일 배포(`EVENTS_005_Write.js` v1.7.0). 다음 유실 메일이 오면 그 실행 로그의 `[Events_OPS 필터]` 줄로 필터 원인 판별 → 확정되면 BOFU/Content/Search/Leads_OPS 쓰기에도 같은 수정. 실무자에게 15:13 전후 Events_OPS 필터 사용 여부 확인 (lead-tracker)
 - [ ] (10-15) lead-tracker Events_OPS 유실 재발 시 — 가드 메일이 오면 첫 가드 실행 **직전** Revenue 실행 로그의 `[쓰기 진단]` 줄 확보 → 원인 판단·수정. 복원은 `runPreviewRestoreEventsManualFromBackup()` → `runRestoreEventsManualFromBackup()` → `runRevenuePipelineTail()` (10-15 11:11 쓰기 직후 375→4 확정, lead-tracker)
-- [ ] (10-17) 이벤트 참가패턴 분석 — Notion 웨비나 DB 페이지 내부 데이터 긁어와서 분석 (analytics)
+- [x] (10-17) 이벤트 참가패턴 분석 — 10-20 1차 완료 `analytics/docs/2026-10-20-webinar-day-pattern.md` (analytics)
+- [ ] (10-20) 웨비나 CTA 이탈자 = 단골 가설(사용자) 개인 단위 검증 — 회차 단위 대리 검증은 방향 일치·근거 약함(new 비중 낮은 절반 이탈 16% vs 높은 절반 9%, 상관 0.08). Zoom 참석자 리포트(입장/퇴장 시각) 확보 → CTA 시각 이후 퇴장자 vs 과거 참석 횟수 대조(`analytics/src/regular_retention.py` 단골 정의 재사용) (analytics)
 
 - [x] (10-19) 블로그 리서치 10건(10/23~11/02 발행분) 방식 결정 — 10-20 A안 확정, 10/23·25·26·27 4건 Claude 리서치 완료·push (blog)
 - [ ] (10-26 오전 Gemini 초기화 후) 블로그 리서치 남은 6건(10/28·29·30·31·11/01·11/02) Gemini flash-low로 처리 — 10/28분은 10/27 07:00 D-1 루틴 전까지 필요. 실행 전 agy 모델 목록에 flash-low보다 낮은 모델이 있는지 확인(10-19 flash-low 4회로 주간 한도 소진, 10-20 사용자: "더 낮은 모델 써야 할 듯") (blog)
