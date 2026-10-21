@@ -28,3 +28,8 @@
 
 - [2026-10-20] 10-20 세일즈 마케팅 미팅 전사(2분→30초 재분할로 반복 제거)·Notion dbInCorpMeeting 페이지 생성 — 2026-10-20.md#오후 — Claude Code (mac)
 - [2026-10-20] 세션 종료 push 거부 원인(복합 명령 → auto 모드 검사) 확인, session 브랜치 push 허용 규칙 추가(이 맥 전용, PC별 필요) — 2026-10-20.md#오후 — Claude Code (mac)
+
+## 2026-10-21
+
+- [2026-10-21] Jenny Wang(투어팀) 랜딩페이지 리뷰 FU 리마인드 — 대기 기록 위치는 TODO.md 아니라 Notion db_Daily 오늘 페이지 Harry In Progress(사용자 지정) — 2026-10-21.md#Claude Code (home) — Claude Code (home)
+- [2026-10-21] SAT One Day Class 웨비나 전사 — 모든 청크에 hallucination loop, 2분→30초 재귀 분할, 발화자 교대 지점은 원본 10분 전사가 더 안정적이라 그걸 기본으로 조립 — 2026-10-21.md#Claude Code (home) — SAT One Day Class 웨비나 전사 — Claude Code (home)
