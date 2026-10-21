@@ -22,3 +22,8 @@
 - [2026-10-19] lead-tracker Revenue 주기를 Deal Tracker 값 변경 시에만 실행(Leads_OPS 미포함, 09-03 분리 결정 재확인) — lead-tracker docs/Changelog.md 2026-10-19
 - [2026-10-19] main 병합 2차(office 오늘 작업 + mac 07:45 TODO 정리, lead-tracker fast-forward 19커밋), 세션 브랜치 3개 main 위치로 정렬 — 2026-10-19.md#main 병합 (2차) — Claude Code (office)
 - [2026-10-19] 10-19 Hanna 1:1 전사·Notion 원문 보강(사용자 노트 없음, 섹션별 인용 28줄) — 2026-10-19.md#오후 — Claude Code (mac)
+
+## 2026-10-21
+
+- [2026-10-21] Jenny Wang(투어팀) 랜딩페이지 리뷰 FU 리마인드 — 대기 기록 위치는 TODO.md 아니라 Notion db_Daily 오늘 페이지 Harry In Progress(사용자 지정) — 2026-10-21.md#Claude Code (home) — Claude Code (home)
+- [2026-10-21] SAT One Day Class 웨비나 전사 — 모든 청크에 hallucination loop, 2분→30초 재귀 분할, 발화자 교대 지점은 원본 10분 전사가 더 안정적이라 그걸 기본으로 조립 — 2026-10-21.md#Claude Code (home) — SAT One Day Class 웨비나 전사 — Claude Code (home)
