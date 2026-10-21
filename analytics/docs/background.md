@@ -145,3 +145,10 @@
 - **iPad 프로모션(2026-10-21 사용자 정정)**: New P1을 데려오는 캠페인이 아니었다. Digital Weekly 10-14의 "8월→9월 신규 리드 약 -200(iPad 종료 등)"을 New P1 -119의 원인으로 묶어 해석하면 안 된다 — 내가 묶어서 아이디에이션 문제 후보로 제안했다가 정정받음.
 - **8월 vs 9월 직접 비교 금지(2026-10-21 사용자)**: 8월은 성수기, 9월은 비수기라 월간(MoM) 비교는 무의미. New P1 증감은 전년 같은 달(YoY)과 비교한다. (Digital Weekly 10-14의 "8월→9월 New P1 -119"도 이 이유로 문제 근거로 쓰지 않음)
 - **ACQ_Summary YoY 1차 확인(2026-10-21, TEMPQA_079 로그)**: New P1 합계 AUG 173 → 324, SEP 149 → 217로 전년보다 크게 증가(Content·Webinar 주도). 전년보다 줄어든 세그먼트는 Seminar(AUG 34 → 0, SEP 20 → 11 — 세미나 캠페인 미런칭, 사용자)와 Search(SEP 20 → 13, OCT 1~20일 4 vs 전년 OCT 한 달 12 — 네이버 자동충전 중단 약 2주). IC Complete·SAL은 최근 코호트일수록 덜 익어서 YoY 비교 불가(내 판단).
+- **FY27 9월 IC Complete — Salesforce 실측(2026-10-21 사용자)**: Salesforce 기준 2026년 9월 IC Complete는 전체 33건, P1만 보면 9건. 진단 표(ACQ_REP 형식)의 9월 IC Complete 합계도 9.
+  - 내 확인(코드): `ACQREP_001_Report.js` `computeOPSAggregates_()`의 IC Complete는 Priority 필터 없이 Leads_OPS 전체를 센다. 그래서 9가 P1 9건과 같은 건 코드상 설명되지 않음 — 우연 일치이거나 Leads_OPS에 없는 리드(비마케팅 리드 등)가 24건이거나, 표가 ACQ_REP이 아닌 다른 추출일 가능성(사용자 확인 전).
+  - 정정: 진단 문서에서 SAL 세그먼트를 "first touch"로 적었으나 코드상 SAL은 별도 `SAL Segment`(SAL 이벤트 터치 기준) 컬럼을 쓴다.
+- **진단 표 출처 = NewP1_REP (2026-10-21 사용자)**: FY27 9–10월 진단 컨텍스트의 표는 ACQ_REP이 아니라 NewP1_REP에서 뽑은 것.
+  - 정정: 진단 문서는 ACQ_REP 정의(이벤트 기준)로 해석했으나 틀림. `lead-tracker/docs/NewP1ReportDesign.md` 기준 NewP1_REP은 New P1 리드의 Create Date 코호트이고 SAL~IC Complete는 그 코호트 안에서만 센다 → 9월 IC Complete 9 = Salesforce P1 9건과 일치하는 이유.
+  - Revenue는 Deal Tracker 딜의 Created Date 코호트 + 수동 Segment. Created Date 없는 Referral 딜은 빠져 과소집계(알려진 한계).
+  - 따라서 SAL/IC는 코호트 전환으로 볼 수 있으나 최근 코호트일수록 덜 익음 — 같은 관찰 기간으로 맞춰야 함. 진단 문서 재작성 필요(다음 세션).

@@ -31,3 +31,6 @@
 - [2026-10-21] dbTodos & daily integration 1️⃣~5️⃣ 확정(가설 기록율 80%, ICE 8/4/143,541원), 광고비 없는 아이디어 Ease = 구축시간×시급 규칙 — 2026-10-21.md#아침 (office) — Claude Code
 - [2026-10-21] 세션 종료 업무 기록을 db_Daily → dbTodos로 전환(10-22~), blog d1 루틴 Daily 기록 충돌 발견 — 2026-10-21.md#아침 (office) — Claude Code
 - [2026-10-21] accepted 도메인 신설 — Slack accepted_class2031 한국인 후보 자동 수집(판별 코드·시트 새 탭) — 2026-10-21.md#저녁 (office) — Claude Code: accepted 도메인 신설
+- [2026-10-21] 아이디에이션 미팅 전사·4개 아이디어 원문 보강, 온보딩 가이드는 배경 재작성 요청 — 2026-10-21.md#오전 (office) — Claude Code: 아이디에이션 미팅 처리
+- [2026-10-21] Digital Weekly 10/21 전사·정리 — CEO regret pause, ad copy 3개 이상, New P1 부진 — 2026-10-21.md#오전 (office) — Claude Code: Digital Weekly 처리
+- [2026-10-21] FY27 9–10월 퍼포먼스 진단 — 8+9월 New P1 +68% vs 비BOFU SAL −32%·IC Complete −48%, 9월 All P1 합계 오류(921) — 2026-10-21.md#오후 (office) — Claude Code: FY27 9–10월 퍼포먼스 진단
