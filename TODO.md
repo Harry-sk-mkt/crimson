@@ -35,12 +35,13 @@
 - [ ] (10-20) 웨비나 CTA 이탈자 = 단골 가설(사용자) 개인 단위 검증 — 회차 단위 대리 검증은 방향 일치·근거 약함(new 비중 낮은 절반 이탈 16% vs 높은 절반 9%, 상관 0.08). Zoom 참석자 리포트(입장/퇴장 시각) 확보 → CTA 시각 이후 퇴장자 vs 과거 참석 횟수 대조(`analytics/src/regular_retention.py` 단골 정의 재사용) (analytics)
 
 - [x] (10-19) 블로그 리서치 10건(10/23~11/02 발행분) 방식 결정 — 10-20 A안 확정, 10/23·25·26·27 4건 Claude 리서치 완료·push (blog)
-- [ ] (10-26 오전 Gemini 초기화 후) 블로그 리서치 남은 6건(10/28·29·30·31·11/01·11/02) Gemini flash-low로 처리 — 10/28분은 10/27 07:00 D-1 루틴 전까지 필요. 실행 전 agy 모델 목록에 flash-low보다 낮은 모델이 있는지 확인(10-19 flash-low 4회로 주간 한도 소진, 10-20 사용자: "더 낮은 모델 써야 할 듯") (blog)
+- [ ] (10-26 오전 Gemini 초기화 후) 블로그 리서치 남은 6건(10/27·28·29·30·31·11/01 — 10-21 Date 하루씩 앞당김) Gemini flash-low로 처리 — 10/27분(에세이 마감 전 흔한 오류)은 10/26 07:00 D-1 루틴 전까지 필요해 Gemini 초기화(약 10/26 오전)와 겹침 → 이 1건은 Claude 직접 리서치 권장. 11/02는 빈 날짜. 실행 전 agy 모델 목록에 flash-low보다 낮은 모델이 있는지 확인(10-19 flash-low 4회로 주간 한도 소진, 10-20 사용자: "더 낮은 모델 써야 할 듯") (blog)
 - [x] (10-19) 블로그 11/01 "마감 직전 제출 오류 대비" 글 — 10-20 10/30 글과 발행일 교체(제출 오류 → 10/30, 대회/경시대회 → 11/01), 10/28은 에세이 내용 오류·10/30은 기술 오류로 앵글 분리 (blog). 10/24 중복 건은 10-20 "ED 제출 후 인터뷰 연락이 오면 — 11월 일정과 준비 순서"로 앵글 변경 완료
 - [x] (10-22 Zoom) 채용 스크리닝 질문지 점검 — 10-20 사용자 완료(불필요 질문 제거)
 - [x] (10-20 아침) 블로그 d1 루틴 Step 2.5 첫 실행 확인 — 10-20 07:13 실행, Harry 🚧에 10/23·25·26·27 4건 정상 기록 확인 (blog)
 - [ ] (10-22~23 FU) 마이트랜스 카탈로그 번역본 받으면 검수 — 10-22 마감 목표, 늦으면 10-23(금) 오전 (outsource)
 - [ ] (10-22) dbTodos & daily integration 구축 — ① dbTodos `Done date` 속성 + Notion 자동화(Done 시 날짜) ② 발송 Zap 수정(dbTodos 조회 → 팀원별 Completed/In Progress, Leave 2.0 탭 휴가 표시, Daily 페이지 기록) — Python 코드는 Claude 작성 ③ Daily 템플릿 정리 ④ #daily-updates 전용 복제 Zap으로 테스트 후 실험 시작(~11-04). ⑤ blog `d1-writer-production` Step 2.5 리서치 누락 리마인더를 db_Daily Harry 🚧 → dbTodos In progress 항목으로 변경(blog/calendar/config.md, blog 저장소 규칙 따름). 팀 안내는 아이디에이션 회의에서. 기록 `ideate/2026-10-21-dbtodos-daily-integration.md`, Notion https://app.notion.com/p/3ff64dfd498f819c9ec4fd6b2cd5cc62 (ideate)
+- [ ] (10-22) accepted 한국인 후보 자동 수집 구축 — [KOR] Accepted_Class of 2031 시트에 새 탭(날짜·감지 이름·메시지·Slack 링크·분류 Korea Team 학생/다른나라 팀) 생성, Zapier Slack accepted_class2031 새 메시지 → `accepted/korean_name_catch.py` → 탭에 추가. 채널 공개/비공개 확인, 지난 메시지는 채널 export로 1회 처리 (accepted)
 - [ ] (10-22 목 11:00 김지원·12:00 이도아) 채용 Zoom 스크리닝 2건 — 질문지는 Notion db_recruit 페이지, 끝나면 녹화 전사·Q&A 정리 (interview)
 
 - [ ] (10-20) Crimson Tours 한글 LP 카피 — 학생 리뷰 전달받으면 후기 섹션 업데이트(현재 Alibek 후기는 원문 단어 누락). 사용자가 본문 일부 직접 수정함 → 다음 편집 전 문서 다시 읽기. 문서: https://claude.ai/code/artifact/39b09d2b-8120-422a-bd67-f5d59991f68d (writing)

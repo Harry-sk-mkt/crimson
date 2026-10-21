@@ -30,3 +30,4 @@
 - [2026-10-21] 아이디에이션 dbTodos & daily integration 시작 — Daily In Progress 휘발·이중 기록 문제, db_Daily 칸별 사용률 실측 — 2026-10-21.md#아침 (office) — Claude Code
 - [2026-10-21] dbTodos & daily integration 1️⃣~5️⃣ 확정(가설 기록율 80%, ICE 8/4/143,541원), 광고비 없는 아이디어 Ease = 구축시간×시급 규칙 — 2026-10-21.md#아침 (office) — Claude Code
 - [2026-10-21] 세션 종료 업무 기록을 db_Daily → dbTodos로 전환(10-22~), blog d1 루틴 Daily 기록 충돌 발견 — 2026-10-21.md#아침 (office) — Claude Code
+- [2026-10-21] accepted 도메인 신설 — Slack accepted_class2031 한국인 후보 자동 수집(판별 코드·시트 새 탭) — 2026-10-21.md#저녁 (office) — Claude Code: accepted 도메인 신설

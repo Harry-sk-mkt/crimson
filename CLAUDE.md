@@ -24,6 +24,7 @@
 | 웨비나/세미나 요약 (Vibe transcript 포함) | `event/` | `event/CLAUDE.md` |
 | 채용 면접 전사·정리 (Vibe transcript → Notion db_recruit) | `interview/` | `interview/CLAUDE.md` |
 | 외주 (번역 등 업체 견적·발주·납품) | `outsource/` (번역: `outsource/translate/`) | `outsource/CLAUDE.md` |
+| 합격 사례 수집 (Slack accepted 채널 → 한국인 후보 시트) | `accepted/` | `accepted/CLAUDE.md` |
 | 주요 결정 기록 (세션 종료 메모) | `context/` | `context/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
@@ -40,7 +41,7 @@
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `reimburse/`: 별도 저장소 아님, 루트 저장소에서 직접 추적하는 Apps Script(clasp) 프로젝트. push는 `reimburse/scripts/safe-clasp-push.sh`.
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
-- `meetings/`, `email/`, `writing/`, `ideate/`, `event/`, `outsource/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
+- `meetings/`, `email/`, `writing/`, `ideate/`, `event/`, `outsource/`, `accepted/`, `context/`, `onboarding/`, `.gemini/`, `CLAUDE.md`: 루트 저장소에서 추적하는 파일
 - 각 저장소의 커밋/푸시는 그 저장소 안에서 따로 한다. 루트에서 `git add`를 해도 `blog/`, `lead-tracker/`, `leaves/` 변경은 잡히지 않는다.
 
 ## 공통 원칙

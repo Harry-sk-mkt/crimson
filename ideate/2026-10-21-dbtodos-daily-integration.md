@@ -61,5 +61,6 @@
 - Type 규칙(10-21): 업무=Tasks, 회의=Meeting. Holiday는 안 씀(사용자) → 휴가는 Leave 2.0 시트(https://docs.google.com/spreadsheets/d/1NE2s8IekoPEoksKgmtZbnDN3SajmV_byABVbUQlvZXo/edit, leaves 바인딩) Personal Sheet 탭 `Harry`·`Richard`·`Hanna`(+`Jennie`)에서 오늘 Date 행 조회 → 종일 "Day off", 시간 단위 "(연차 14-18시)", 대휴적립 무시. 5W1H How ①~⑧로 반영
 - 3️⃣ 가설(사용자 확정, Notion 반영): 팀원별 기록율(1인 1일 dbTodos 기록 건수 ÷ 기존 Daily 항목 수) 80% 이상. 기준값 Harry 15.9·Richard 4.4·Hanna 3.2건/1인1일(합계 167줄 ÷ 21인일 = 8.0). "Daily 중 dbTodos 비율"은 새 구조에서 무조건 100%라 지표로 안 씀
 - 4️⃣ Metrics(사용자 확정, Notion 반영): 지표 = 팀원별 기록율 / 검증 = 팀원별 80% 이상 채택 / 수집 = dbTodos Host별 Created time 10/22~11/04 Tasks·Meeting 건수 ÷ 근무일(Leave 2.0 종일 휴가 제외)
-- 5️⃣ ICE(Notion 반영): Impact 8(지표=기록율 기준 2%→80%+), Confidence 4(목표 환산 3명 합계 하루 약 19건 vs 현재 dbTodos 하루 0.8건, 20배+ 습관 변화), Ease 143,541원 = 구축 4.5h(Done date 0.5·발송 Zap 수정 2·Leave 조회 0.5·템플릿 0.25·테스트 1·안내 0.25) × 시급 31,898원(연봉 8,000만 ÷ 2,508h). 광고비 없는 아이디어의 Ease 규칙을 `ideate/CLAUDE.md`에 추가
+- 5️⃣ ICE(Notion 반영): Impact 8(지표=기록율 기준 2%→80%+), Confidence 4(목표 환산 3명 합계 하루 약 19건 vs 현재 dbTodos 하루 0.8건, 20배+ 습관 변화), Ease 143,000원(천 원 미만 버림, 원값 143,541) = 구축 4.5h(Done date 0.5·발송 Zap 수정 2·Leave 조회 0.5·템플릿 0.25·테스트 1·안내 0.25) × 시급 31,898원(연봉 8,000만 ÷ 2,508h). 광고비 없는 아이디어의 Ease 규칙을 `ideate/CLAUDE.md`에 추가
 - 반복 업무(사용자, 10-21): Repeat 항목은 Done 시 다음 회차가 생기는데, 현재는 캘린더 뷰에서 다음 주로 옮기는 식으로 씀 → Done이 안 돼 새 구조에서 보고·집계 누락. 규칙 "반복 업무도 끝나면 Done" How ②에 추가, 4️⃣ 수집 기준을 Created time → Done date로 변경(기준값이 Completed 줄 수라 끝낸 일 기준이 맞음)
+- ICE 완료로 Status In-writing → Brief (10-21, 사용자 규칙)
