@@ -24,3 +24,9 @@
 - [2026-10-19] main 병합 2차(office 오늘 작업 + mac 07:45 TODO 정리, lead-tracker fast-forward 19커밋), 세션 브랜치 3개 main 위치로 정렬 — 2026-10-19.md#main 병합 (2차) — Claude Code (office)
 - [2026-10-20] outsource/translate 도메인 신설, 마이트랜스 카탈로그 번역 견적 330,000원 기록, 블로그 리서치 미완 10건 확인 — 2026-10-20.md#아침 (office) — Claude Code
 - [2026-10-20] 웨비나 당일 참가 패턴 1차 — 마지막 30분 등록 +20, +20분에 peak의 84% 입장, peak 약 +44분, CTA 이탈 12%, 참석 감소는 등록 감소 때문 — 2026-10-20.md — Claude Code (office)
+- [2026-10-21] reimburse 9시 트리거 첫 실행 확인(06:45 기준 아직 9시 전이라 미실행 정상, 09시 후 재확인), 스크립트 프로젝트를 Reimburse 폴더로 이동 — 2026-10-21.md#아침 (office) — Claude Code
+- [2026-10-21] 마이트랜스 카탈로그 번역 발주 확정, 납품 10-22(늦으면 10-23 오전) — 2026-10-21.md#아침 (office) — Claude Code
+- [2026-10-21] 용어 확정: 아이디에이션 = 새 아이디어 작성, 아이디에이션 정리 = 기존 아이디어 6️⃣·7️⃣ 정리(그로스미팅) — 2026-10-21.md#아침 (office) — Claude Code
+- [2026-10-21] 아이디에이션 dbTodos & daily integration 시작 — Daily In Progress 휘발·이중 기록 문제, db_Daily 칸별 사용률 실측 — 2026-10-21.md#아침 (office) — Claude Code
+- [2026-10-21] dbTodos & daily integration 1️⃣~5️⃣ 확정(가설 기록율 80%, ICE 8/4/143,541원), 광고비 없는 아이디어 Ease = 구축시간×시급 규칙 — 2026-10-21.md#아침 (office) — Claude Code
+- [2026-10-21] 세션 종료 업무 기록을 db_Daily → dbTodos로 전환(10-22~), blog d1 루틴 Daily 기록 충돌 발견 — 2026-10-21.md#아침 (office) — Claude Code

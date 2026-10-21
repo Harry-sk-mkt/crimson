@@ -39,7 +39,9 @@
 - [x] (10-19) 블로그 11/01 "마감 직전 제출 오류 대비" 글 — 10-20 10/30 글과 발행일 교체(제출 오류 → 10/30, 대회/경시대회 → 11/01), 10/28은 에세이 내용 오류·10/30은 기술 오류로 앵글 분리 (blog). 10/24 중복 건은 10-20 "ED 제출 후 인터뷰 연락이 오면 — 11월 일정과 준비 순서"로 앵글 변경 완료
 - [x] (10-22 Zoom) 채용 스크리닝 질문지 점검 — 10-20 사용자 완료(불필요 질문 제거)
 - [x] (10-20 아침) 블로그 d1 루틴 Step 2.5 첫 실행 확인 — 10-20 07:13 실행, Harry 🚧에 10/23·25·26·27 4건 정상 기록 확인 (blog)
-- [ ] (10-22 목 12:00·14:00) 채용 Zoom 스크리닝 2건 — 질문지는 Notion db_recruit 페이지, 끝나면 녹화 전사·Q&A 정리 (interview)
+- [ ] (10-22~23 FU) 마이트랜스 카탈로그 번역본 받으면 검수 — 10-22 마감 목표, 늦으면 10-23(금) 오전 (outsource)
+- [ ] (10-22) dbTodos & daily integration 구축 — ① dbTodos `Done date` 속성 + Notion 자동화(Done 시 날짜) ② 발송 Zap 수정(dbTodos 조회 → 팀원별 Completed/In Progress, Leave 2.0 탭 휴가 표시, Daily 페이지 기록) — Python 코드는 Claude 작성 ③ Daily 템플릿 정리 ④ #daily-updates 전용 복제 Zap으로 테스트 후 실험 시작(~11-04). ⑤ blog `d1-writer-production` Step 2.5 리서치 누락 리마인더를 db_Daily Harry 🚧 → dbTodos In progress 항목으로 변경(blog/calendar/config.md, blog 저장소 규칙 따름). 팀 안내는 아이디에이션 회의에서. 기록 `ideate/2026-10-21-dbtodos-daily-integration.md`, Notion https://app.notion.com/p/3ff64dfd498f819c9ec4fd6b2cd5cc62 (ideate)
+- [ ] (10-22 목 11:00 김지원·12:00 이도아) 채용 Zoom 스크리닝 2건 — 질문지는 Notion db_recruit 페이지, 끝나면 녹화 전사·Q&A 정리 (interview)
 
 - [ ] (10-20) Crimson Tours 한글 LP 카피 — 학생 리뷰 전달받으면 후기 섹션 업데이트(현재 Alibek 후기는 원문 단어 누락). 사용자가 본문 일부 직접 수정함 → 다음 편집 전 문서 다시 읽기. 문서: https://claude.ai/code/artifact/39b09d2b-8120-422a-bd67-f5d59991f68d (writing)
 
