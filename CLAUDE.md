@@ -59,7 +59,16 @@
     | mac | `MacBook-Air-od-Harry.local` | `session/mac` |
     | home | `underline_desk` | `session/home` |
 
-  - **main 병합**: 위치 무관, 사용자가 명시적으로 요청할 때만 수행한다 — pre-authorized가 아니라 매번 확인 후 진행 (다른 위치 커밋과 충돌 가능성이 있어 병합 시점/순서는 사용자가 판단). 병합 전 다른 위치 세션이 끝났는지 확인한다. 병합 후에는 모든 세션 브랜치를 main 위치로 맞춰(fast-forward) 다음 세션을 이어간다.
+  - **main 병합 — 언제**: 저장소마다(루트, `lead-tracker/` 등) 각각 판단한다.
+    - **세션 종료 push 시 자동 병합 (Pre-Authorized)**: 내 세션 브랜치를 push한 뒤 `git fetch`. 조건 두 가지가 모두 맞으면 확인 없이 main을 내 브랜치로 fast-forward하고 push한다. ① 다른 위치 브랜치(`origin/session/*`)에 main에 없는 커밋이 없다. ② main에 내 브랜치에 없는 커밋이 없다. 그다음 다른 세션 브랜치도 main 위치로 맞춘다. 하나라도 어긋나면 병합하지 않고, 다음 세션 시작 때 묻는 쪽으로 넘긴다.
+    - **세션 시작 시 병합 제안**: Git Sync Check 때 다른 위치 브랜치에 main에 없는 커밋이 있으면 "병합할까요?"(위치별 커밋 수 포함)라고 한 줄만 묻는다. 승인을 받은 뒤에만 아래 절차로 병합한다. 다른 위치 세션이 끝났는지도 이때 확인한다.
+    - 위 두 경우 외에는 사용자가 명시적으로 요청할 때만 병합한다. 위치 무관.
+  - **main 병합 — 절차** (2026-09-29~10-19 병합 관행을 정리):
+    1. `git fetch` 후 각 `session/*`가 main보다 몇 커밋 앞서 있는지 보고한다. 끝나지 않은 위치 세션은 push된 커밋까지만 병합한다.
+    2. main에서 fast-forward가 되는 브랜치를 먼저 반영하고, 나머지는 merge commit으로 합친다. 한 브랜치의 커밋이 이미 다른 브랜치에 들어 있으면 따로 병합하지 않는다.
+    3. 충돌: `context/*.md`의 같은 날짜 파일은 양쪽 내용을 모두 살려 시간순으로 합친다. `TODO.md`는 양쪽에서 추가한 항목을 모두 살리고, 같은 항목이 서로 다르게 바뀌었으면 사용자에게 확인한다. `CLAUDE.md`와 코드는 자동 병합이 안 되면 사용자에게 확인한다.
+    4. main을 push한 뒤 모든 세션 브랜치를 main 위치로 맞춘다. force push는 금지한다. 거부되면 병합 중에 새 커밋이 올라온 것이니 멈추고 알린다.
+    5. `context/<오늘>.md`에 `## main 병합 — Claude Code (위치)` 섹션(순서, 충돌 파일, 해결 방식)을 쓰고 INDEX에 한 줄 추가한다. 자동 병합도 기록한다.
   - (2026-09-28 맥/데스크탑 동시 세션 충돌 방지 위해 도입, 같은 날 office/mac/home 3곳 + hostname 자동 판별 + 병합 위치 무관으로 확장 — 사용자 확정. 기존 `session/desktop`은 `session/office`로 이름 변경)
 - **Session-End Summary Format**: 세션 종료 시 채팅에 보여주는 "오늘 한 일" 요약은 모든 도메인 공통으로 **개조식**으로 쓴다 — `-` 불릿, 한 줄에 한 작업, 명사형 종결(`~완료`, `~수정`, `~삽입`, `~확인`), 서술형 문장(`~했습니다`)·부연 설명·파일 경로 나열 금지. 커밋/push/Changelog 기록 같은 절차 자체는 불릿으로 넣지 않는다. 예: `- 온보딩 Notion 페이지 보완 분석 완료`, `- 주별 캐시 단계에 구간별 시간 로그 삽입` (2026-09-23 사용자 확정)
 - **Session-End dbTodos Update (2026-10-22~, 기존 Notion Daily Update 대체)**: 사용자가 종료멘트를 하면, 실제 파일 변경이 있었을 때만(순수 Q&A 세션은 skip — 위 커밋 규칙과 동일 조건) Notion `dbTodos`(`collection://2907cc28-daa4-4494-9ab6-ad4a6dd0a3dd`)에 그 세션의 업무를 기록한다. Daily 페이지(`db_Daily`)에는 더 이상 직접 쓰지 않는다 — 발송 Zap이 dbTodos로 Daily를 만들기 때문에 직접 쓰면 중복·덮어쓰기가 생김 (아이디에이션 "dbTodos & daily integration", `ideate/2026-10-21-dbtodos-daily-integration.md`, 2026-10-21 사용자 확정).

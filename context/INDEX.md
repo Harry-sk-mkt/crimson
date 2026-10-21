@@ -34,3 +34,4 @@
 - [2026-10-21] 아이디에이션 미팅 전사·4개 아이디어 원문 보강, 온보딩 가이드는 배경 재작성 요청 — 2026-10-21.md#오전 (office) — Claude Code: 아이디에이션 미팅 처리
 - [2026-10-21] Digital Weekly 10/21 전사·정리 — CEO regret pause, ad copy 3개 이상, New P1 부진 — 2026-10-21.md#오전 (office) — Claude Code: Digital Weekly 처리
 - [2026-10-21] FY27 9–10월 퍼포먼스 진단 — 8+9월 New P1 +68% vs 비BOFU SAL −32%·IC Complete −48%, 9월 All P1 합계 오류(921) — 2026-10-21.md#오후 (office) — Claude Code: FY27 9–10월 퍼포먼스 진단
+- [2026-10-22] main 병합 규칙 신설 — 세션 종료 push 시 조건부 자동 병합, 세션 시작 시 병합 제안, 병합 절차 5단계 — 2026-10-22.md#아침 (office) — Claude Code: main 병합 규칙
