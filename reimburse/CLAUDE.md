@@ -17,6 +17,7 @@
 
 ## 파일
 
+- Apps Script 프로젝트 `reimburse`는 시트에 붙은 스크립트가 아니라 독립 프로젝트로, Drive `Reimburse` 폴더에 Staging 시트와 함께 있다. 시트 메뉴의 "확장 프로그램 → Apps Script"로는 열리지 않으니 `.clasp.json`의 scriptId로 연다 (실행 기록은 `script.google.com/home/projects/<scriptId>/executions`).
 - `Config.js` — 폴더·시트 ID, 이름, 열 순서, 카드 끝4자리 매핑(`CARD_MAP`, 비어 있음)
 - `Parse.js` — OCR 텍스트 파싱·정산 주기 계산 (순수 함수, `node tests/parse.test.js`로 테스트)
 - `Main.js` — Drive/Sheet 연동, 트리거
