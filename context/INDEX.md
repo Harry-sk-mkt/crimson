@@ -51,3 +51,7 @@
 
 - [2026-10-22] main 병합 규칙 신설 — 세션 종료 push 시 조건부 자동 병합, 세션 시작 시 병합 제안, 병합 절차 5단계 — 2026-10-22.md#아침 (office) — Claude Code: main 병합 규칙
 - [2026-10-22] main 병합(루트 mac ff → home → office, lead-tracker office ff 10커밋), context 10-19~21 add/add 충돌 시간순 병합 — 2026-10-22.md#main 병합 — Claude Code (office)
+- [2026-10-22] dbTodos Done date 속성 추가(MCP), Done 시 날짜 자동화는 사용자 UI 설정 — 2026-10-22.md#오전 (office) — Claude Code: dbTodos & daily integration 구축 ①
+- [2026-10-22] Daily 발송 Zap 4단계 새 코드(dbTodos → 팀원별 Completed/In Progress, ideate/zap/daily_from_dbtodos.py) — 2026-10-22.md#오전 (office) — Claude Code: dbTodos & daily integration 구축 ② 발송 Zap 코드
+- [2026-10-22] 복제 Zap dbTodo To Daily 직접 수정(Notion 조회 헤더·필터, 3단계 무결과 통과, 6단계 날짜, 본인 DM 테스트 후 원복), Leave 2.0 Raw Input 휴가 표시 추가 — 2026-10-22.md#오전 (office) — Claude Code: dbTodos & daily integration 구축 ② 발송 Zap 코드
+- [2026-10-22] harry/ 개인 도메인 신설, harry/insurance/ 보험 분석 컨텍스트 메모(로컬 전용, gitignore) — 2026-10-22.md#오전 (office) — Claude Code: harry 개인 도메인 신설

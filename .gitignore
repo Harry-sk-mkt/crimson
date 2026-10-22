@@ -15,3 +15,7 @@ meetings/case-study/snapshots/
 # interview/: 지원자 개인정보 포함, CLAUDE.md만 추적
 /interview/*
 !/interview/CLAUDE.md
+
+# harry/: 개인 프로젝트(건강·재정 정보 포함), CLAUDE.md만 추적
+/harry/*
+!/harry/CLAUDE.md

@@ -152,3 +152,7 @@
   - 정정: 진단 문서는 ACQ_REP 정의(이벤트 기준)로 해석했으나 틀림. `lead-tracker/docs/NewP1ReportDesign.md` 기준 NewP1_REP은 New P1 리드의 Create Date 코호트이고 SAL~IC Complete는 그 코호트 안에서만 센다 → 9월 IC Complete 9 = Salesforce P1 9건과 일치하는 이유.
   - Revenue는 Deal Tracker 딜의 Created Date 코호트 + 수동 Segment. Created Date 없는 Referral 딜은 빠져 과소집계(알려진 한계).
   - 따라서 SAL/IC는 코호트 전환으로 볼 수 있으나 최근 코호트일수록 덜 익음 — 같은 관찰 기간으로 맞춰야 함. 진단 문서 재작성 필요(다음 세션).
+  - **재작성 전 확인한 모순 (2026-10-22, 내 확인 — 사용자 확인 전)**: 진단 표가 NewP1_REP 정의와 맞지 않는다.
+    - 표 컬럼(All Leads, All P1, All P1 %, New Leads, New Leads %, New P1, New P1 %, SAL, IC Booked, IC Complete, Revenue)은 ACQ_Summary 헤더(`ACQREP_002_Summary.js:78`)와 같다. NewP1_REP 헤더(`NEWP1REP_001_Report.js:150`)는 New P1, SAL, SAL%, IC Booked, IC Booked%, IC Complete, IC Complete%, Won, Won%, Revenue — All Leads·All P1·New Leads 열이 없다.
+    - NewP1_REP은 SAL~IC Complete를 New P1 코호트 안에서만 세서 행마다 SAL ≤ New P1이어야 한다. 표는 FY27 AUG BOFU New P1 17 / SAL 185, SEP BOFU 11 / 54, FY27 AUG Seminar New P1 0 / IC Booked 7 / IC Complete 6처럼 이 조건을 어긴다.
+    - 가능성: (1) 표 전체가 ACQ_REP(이벤트 기준)이고 9 = P1 9건은 우연 일치, (2) 앞쪽 열은 ACQ_REP, 일부 열만 NewP1_REP에서 섞어 붙임, (3) 표 이후 NewP1_REP 정의가 바뀜(코드상 근거 없음). 재작성 방향이 달라지므로 사용자 확인 후 진행.

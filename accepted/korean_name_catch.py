@@ -64,11 +64,35 @@ def candidates(text):
     return out
 
 
+SCHOOL_PATTERNS = [
+    # "University of Surrey" / "UC Berkeley" 같은 이름을 먼저 — from/to/at 뒤가 학과명일 때도 학교를 잡기 위함
+    re.compile(r"\b((?:The\s+)?University\s+of\s+[A-Z][\w'&.-]*(?:\s+[A-Z][\w'&.-]*)*)"),
+    re.compile(r"\b((?:[A-Z][\w'&.-]*\s+)+(?:University|College|Institute|School))\b"),
+    # "offer from Stanford", "acceptance to Depaul", "interview offer at Lancashire", "got into Yale"
+    # 합격 단어 뒤의 from/to/at만 본다 — "from Illinois"(출신지)처럼 앞에 나오는 from을 학교로 잡지 않기 위함
+    re.compile(r"\b(?:offers?|acceptances?|admissions?|admits?|place)\b[^.:]*?\b(?:from|to|at|into|by)\s+"
+               r"((?:[A-Z][\w'&.-]*)(?:\s+(?:of\s+)?[A-Z][\w'&.-]*)*)"),
+    re.compile(r"\b(?:got into|admitted to|accepted (?:to|into|at|by))\s+((?:[A-Z][\w'&.-]*)(?:\s+(?:of\s+)?[A-Z][\w'&.-]*)*)"),
+    # "EU offer: Culinary Associate Degree, EHL" → 쉼표 뒤 마지막 대문자 덩어리
+    re.compile(r"offer:[^,\n]*,\s*([A-Z][\w'&.-]*(?:\s+[A-Z][\w'&.-]*)*)"),
+]
+
+
+def school(text):
+    """합격 학교명 추정(못 찾으면 빈 문자열). WHY: 시트·알림에 학교를 같이 남겨 확인 우선순위를 정하기 위함 — 사람이 최종 확인."""
+    body = CLIENT_TAG.sub(' ', text)
+    for p in SCHOOL_PATTERNS:
+        m = p.search(body)
+        if m:
+            return m.group(1).strip().rstrip('.,')
+    return ''
+
+
 # Zapier 진입점: input_data['text'] = Slack 메시지 본문
 try:
     input_data  # noqa: F821
     names = candidates(input_data.get('text', ''))
-    output = {'is_candidate': bool(names), 'names': ', '.join(names)}
+    output = {'is_candidate': bool(names), 'names': ', '.join(names), 'school': school(input_data.get('text', ''))}
 except NameError:
     pass
 
@@ -90,4 +114,12 @@ if __name__ == '__main__':
     assert candidates('#client-daniel-choi-26-27 has an offer') == ['Daniel Choi']
     assert candidates('Our student from Korea has an offer from NYU') == ['(이름 미확인 — 한국 단서: Korea)']
     assert candidates('김민준 학생 합격') == ['김민준']
+    # 학교 추출 — 사용자 제공 실제 형식
+    assert school('#client-neha-binu-26-27 has an interview offer at Lancashire for Medicine <@U1>') == 'Lancashire'
+    assert school('Transfer student #client-rania-afridi-26-27 from Illinois has her first acceptance to Depaul') == 'Depaul'
+    assert school('Yanimir Illiev from Bulgaria has his first offer from Criminology & Forensic Investigation from The University of Surrey.') == 'The University of Surrey'
+    assert school('Nesil Su Güvener has her first EU offer: Culinary Associate Degree, EHL - this course has 20 spaces only') == 'EHL'
+    assert school('#client-minjun-kim-26-27 has an offer from Stanford') == 'Stanford'
+    assert school('Seoyeon Park from Seoul got into Yale') == 'Yale'
+    assert school('김민준 학생 합격') == ''
     print('all checks passed')

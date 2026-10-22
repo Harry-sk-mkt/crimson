@@ -26,6 +26,7 @@
 | 외주 (번역 등 업체 견적·발주·납품) | `outsource/` (번역: `outsource/translate/`) | `outsource/CLAUDE.md` |
 | 합격 사례 수집 (Slack accepted 채널 → 한국인 후보 시트) | `accepted/` | `accepted/CLAUDE.md` |
 | 주요 결정 기록 (세션 종료 메모) | `context/` | `context/CLAUDE.md` |
+| Harry 개인 프로젝트 (보험 등, 업무 외) | `harry/` (보험: `harry/insurance/`) | `harry/CLAUDE.md` |
 
 - 도메인이 명확하면 해당 폴더의 `CLAUDE.md`를 먼저 읽고 그 규칙을 따른다.
 - 도메인이 모호하거나 여러 도메인에 걸치면 추측하지 말고 사용자에게 확인한다.
@@ -38,6 +39,7 @@
 - `lead-tracker/`: 별도 git 저장소 (`crimson-lead-tracker`). 세션 시작/종료 절차(`scripts/start-session.sh`, Changelog 기록 등)는 그 폴더의 `CLAUDE.md`를 따른다.
 - `leaves/`: 별도 git 저장소 (`mkt-leaves`). Google Apps Script(clasp) 프로젝트이며, 세션 절차는 그 폴더의 `CLAUDE.md`를 따른다.
 - `interview/`: `CLAUDE.md`만 루트 저장소에서 추적하고 나머지(지원자 전사)는 `.gitignore`로 제외 — 개인정보라 로컬 전용
+- `harry/`: Harry 개인 프로젝트. `CLAUDE.md`만 추적하고 하위 프로젝트(건강·재정 정보)는 `.gitignore`로 제외 — 로컬 전용
 - `analytics/`: 루트 저장소에서 추적하지만 `analytics/data/`(리드 개인정보 포함)와 `analytics/.venv/`는 `.gitignore`로 제외. `lead-tracker/`의 Master 시트를 읽기만 하는 Python 분석 도메인
 - `reimburse/`: 별도 저장소 아님, 루트 저장소에서 직접 추적하는 Apps Script(clasp) 프로젝트. push는 `reimburse/scripts/safe-clasp-push.sh`.
 - `onboarding/`: 별도 저장소 아님, 루트 저장소에서 직접 추적. 실제 온보딩 콘텐츠는 Notion에 있고 이 폴더는 작업 추적/초안용.
