@@ -51,3 +51,4 @@
 
 - [2026-10-22] main 병합 규칙 신설 — 세션 종료 push 시 조건부 자동 병합, 세션 시작 시 병합 제안, 병합 절차 5단계 — 2026-10-22.md#아침 (office) — Claude Code: main 병합 규칙
 - [2026-10-22] main 병합(루트 mac ff → home → office, lead-tracker office ff 10커밋), context 10-19~21 add/add 충돌 시간순 병합 — 2026-10-22.md#main 병합 — Claude Code (office)
+- [2026-10-22] 이벤트 리뷰 전사(웨비나 퍼널 개선 우선, ROAS 4.54), --detect-language 빈 출력 이슈, 이도아 면접 노쇼 — 2026-10-22.md#오전 (mac) — Claude Code: 이벤트 리뷰 전사
