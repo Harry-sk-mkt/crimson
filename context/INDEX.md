@@ -59,3 +59,9 @@
 - [2026-10-22] main 자동 병합(mac ff, 충돌 없음) — 2026-10-22.md#main 병합 — Claude Code (mac)
 - [2026-10-22] 오후: 블로그 리서치 리마인더 db_Daily → dbTodos 이전(루틴 Step 2.5·config), Target_REP 광고비 갱신 순서, dbTodos 기록 선반영·어제 In progress 이관, FY27 진단 표 출처 모순(NewP1_REP 아님 가능성), Hanna 온보딩 Storyblok, accepted SlackCrawl Zap(학교 추출·kor_mkt 알림) Publish — 2026-10-22.md#오전 (office) — 사용자 보고
 - [2026-10-22] 세션 종료 병합(office ← origin/main 충돌 해결 → main ff) — 2026-10-22.md#main 병합 — Claude Code (office, 세션 종료)
+
+## 2026-10-23
+
+- [2026-10-23] 마이트랜스 번역본 검수 완료, dbTodos→Daily 10-22 19:00 실행(팀 채널·대표님 DM) 정상 확인 — 2026-10-23.md#오전 — Claude Code: TODO 2건 완료 확인
+- [2026-10-23] dbTodos→Daily 10-23 07:13 실행에서 승인된 대휴 미표시 발견, 원인은 Zap Google Sheets 단계 연결 여부로 추정(미확인) — 2026-10-23.md#오전 — Claude Code: TODO 2건 완료 확인
+- [2026-10-23] 블로그 리서치 잔여 6건(10/27~11/01) Claude 직접 처리·포크 병렬 실행·blog 레포 커밋 push(8144c7b), pull 전 78개 파일 divergence 확인·충돌 없음 검증 — 2026-10-23.md#오전 — Claude Code: TODO 2건 완료 확인
